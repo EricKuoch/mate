@@ -1,17 +1,15 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or Created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.Create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.Create(name: 'Luke', movie: movies.first)
-
 require 'date'
 
 Sport.destroy_all
 Event.destroy_all
 User.destroy_all
 
+#ATTENDEES
+
+attendee1 = Attendee.create(user:eric, event:event1, rating:2, review:"De la grosse merde, va chiez connard")
+attendee2 = Attendee.create(user:david, event:event5, rating:5, review:"Au top ma belle, tu mérites mieux")
+attendee3 = Attendee.create(user:franck, event:event3, rating:3, review:"Pas mal, évite d'écraser des hamsters connard")
+attendee4 = Attendee.create(user: walid, event:event5, rating:4, review:"Physiquement c'était top, n'hésite pas à stimuler notre esprit en posant des questions")
 
 #SPORTS
 
@@ -21,7 +19,6 @@ tennis = Sport.create!(name:"Tennis")
 running = Sport.create!(name:"Running")
 cycling = Sport.create!(name:"Cycling")
 yoga = Sport.create!(name:"Yoga")
-
 
 #EVENTS
 
@@ -45,7 +42,6 @@ event2 = Event.create!(
  sport:pétanque)
 puts "create #{event2.title}"
 
-
 event3 = Event.create!(
  title:"Ascension du col de la Croix ",
  description:"Cherche cycliste agueri pour faire la montée de ce col en cette météo sublime",
@@ -55,7 +51,6 @@ event3 = Event.create!(
  number_of_participants: 2,
  sport:cycling)
 puts "create #{event3.title}"
-
 
 event4 = Event.create!(
  title:"Match de Tennis en 2 set",
@@ -67,7 +62,6 @@ event4 = Event.create!(
  sport:tennis)
 puts "create #{event4.title}"
 
-
 event5 = Event.create!(
  title:"Yoga avec les filles",
  description:" Retrouvez aujourd'hui Sothiya à 12h à Gaudelet pour votre cours de Yoga, ce sera le moment de prendre une pause pour vous détendre",
@@ -78,7 +72,6 @@ event5 = Event.create!(
  sport:yoga)
 puts "create #{event5.title}"
 
-
 #USERS
 
 eric = User.create!(nickname:"rico",
@@ -87,21 +80,23 @@ eric = User.create!(nickname:"rico",
  average_rating: 5,
  description:"🎳 Joueur amateur de Pétanque, niveau B3. Vous me trouverez dans le sud de la France")
 
-
-
 david = User.create!(nickname:"Davido",
  email:"david@gmail.com",
  password: 123456,
  average_rating: 2,
  description: "🧘 Pratiquant de Yoga en salle ou en nature.")
 
+franck = User.create!(nickname:"Francky",
+ email:"franck@gmail.com",
+ password: 123456,
+ average_rating: 4,
+ description: "🧘 Pro de Vélo, à la recheche de sensation")
 
-
-
-
-
-
-
+walid = User.create!(nickname:"Walid",
+ email:"walid@gmail.com",
+ password: 123456,
+ average_rating: 4,
+ description: "Recherche à me stimuler intellectuellement")
 
 
 
