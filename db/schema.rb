@@ -10,10 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_24_123722) do
+ActiveRecord::Schema.define(version: 2020_08_24_134524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attendees", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "event_id", null: false
+    t.integer "rating"
+    t.text "review"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_attendees_on_event_id"
+    t.index ["user_id"], name: "index_attendees_on_user_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.string "location"
+    t.integer "duration"
+    t.datetime "start_time"
+    t.integer "number_of_participants"
+    t.bigint "sport_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["sport_id"], name: "index_events_on_sport_id"
+  end
+
+  create_table "hobbies", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "sport_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["sport_id"], name: "index_hobbies_on_sport_id"
+    t.index ["user_id"], name: "index_hobbies_on_user_id"
+  end
+
+  create_table "sports", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +62,16 @@ ActiveRecord::Schema.define(version: 2020_08_24_123722) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "average_rating"
+    t.string "nickname"
+    t.text "description"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "attendees", "events"
+  add_foreign_key "attendees", "users"
+  add_foreign_key "events", "sports"
+  add_foreign_key "hobbies", "sports"
+  add_foreign_key "hobbies", "users"
 end
