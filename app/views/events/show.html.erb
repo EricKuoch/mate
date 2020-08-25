@@ -1,0 +1,29 @@
+<div class="container">
+
+ <div class="show-img">
+  <% if @event_image.attached? %>
+    <%= cl_image_tag @event_image.key, height: 300, width: 400, crop: :fill %>
+<%#= cl_image_url @event_image.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+
+ </div>
+
+  <p><%= @event.start_time %></p>
+
+  <div class="row">
+    <p><%= @event.number_of_participants %></p>
+    <%= simple_form_for [@event] do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+      <div class="form-actions">
+        <%= f.button :submit, class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+
+
+
+
+
+</div>

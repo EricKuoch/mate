@@ -8,16 +8,53 @@ User.destroy_all
 
 #SPORTS
 
+#football
 file = URI.open('https://simpleicon.com/wp-content/uploads/football.png')
+file_photo = URI.open('https://images.unsplash.com/photo-1579952363873-27f3bade9f55?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')
 football = Sport.create!(name: "Football")
 football.icon.attach(io: file, filename: 'ball.png', content_type: 'image/png')
+football.photo.attach(io: file_photo, filename: 'football.png', content_type: 'image/png')
 puts "#{football.name} created"
 
-pétanque = Sport.create!(name:"Pétanque")
-tennis = Sport.create!(name:"Tennis")
-running = Sport.create!(name:"Running")
-cycling = Sport.create!(name:"Cycling")
-yoga = Sport.create!(name:"Yoga")
+#petanque
+file = URI.open('https://simpleicon.com/wp-content/uploads/football.png')
+file_photo = URI.open('https://images.unsplash.com/photo-1595971649687-0901985665a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80')
+pétanque = Sport.create!(name: "pétanque")
+pétanque.icon.attach(io: file, filename: 'ball.png', content_type: 'image/png')
+pétanque.photo.attach(io: file_photo, filename: 'pétanque.png', content_type: 'image/png')
+puts "#{pétanque.name} created"
+
+#tennis
+file = URI.open('https://simpleicon.com/wp-content/uploads/football.png')
+file_photo = URI.open('https://images.unsplash.com/photo-1545809074-59472b3f5ecc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80')
+tennis = Sport.create!(name: "tennis")
+tennis.icon.attach(io: file, filename: 'ball.png', content_type: 'image/png')
+tennis.photo.attach(io: file_photo, filename: 'tennis.png', content_type: 'image/png')
+puts "#{tennis.name} created"
+
+#running
+file = URI.open('https://simpleicon.com/wp-content/uploads/football.png')
+file_photo = URI.open('https://images.unsplash.com/photo-1552674605-db6ffd4facb5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80')
+running = Sport.create!(name: "running")
+running.icon.attach(io: file, filename: 'ball.png', content_type: 'image/png')
+running.photo.attach(io: file_photo, filename: 'running.png', content_type: 'image/png')
+puts "#{running.name} created"
+
+#cycling
+file = URI.open('https://simpleicon.com/wp-content/uploads/football.png')
+file_photo = URI.open('https://images.unsplash.com/photo-1541625602330-2277a4c46182?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80')
+cycling = Sport.create!(name: "cycling")
+cycling.icon.attach(io: file, filename: 'ball.png', content_type: 'image/png')
+cycling.photo.attach(io: file_photo, filename: 'cycling.png', content_type: 'image/png')
+puts "#{cycling.name} created"
+
+#yoga
+file = URI.open('https://simpleicon.com/wp-content/uploads/football.png')
+file_photo = URI.open('https://images.unsplash.com/photo-1529693662653-9d480530a697?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=889&q=80')
+yoga = Sport.create!(name: "yoga")
+yoga.icon.attach(io: file, filename: 'ball.png', content_type: 'image/png')
+yoga.photo.attach(io: file_photo, filename: 'yoga.png', content_type: 'image/png')
+puts "#{yoga.name} created"
 
 #USERS
 
