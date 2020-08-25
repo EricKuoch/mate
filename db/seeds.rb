@@ -9,8 +9,12 @@ User.destroy_all
 #SPORTS
 
 file = URI.open('https://simpleicon.com/wp-content/uploads/football.png')
+file_photo = URI.open('https://images.unsplash.com/photo-1579952363873-27f3bade9f55?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')
+
 football = Sport.create!(name: "Football")
 football.icon.attach(io: file, filename: 'ball.png', content_type: 'image/png')
+football.icon.attach(io: file_photo, filename: 'football.png', content_type: 'image/png')
+
 puts "#{football.name} created"
 
 pétanque = Sport.create!(name:"Pétanque")
