@@ -4,29 +4,36 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <fieldset class="hidden">
-      <div class="sport-choices">
-        <% Sport.all.each do |sport| %>
-          <input class="hidden" type="hidden" value="<%= sport.id %>" name="event[sport_id]" id="event_sport_id_<%= sport.id %>">
-          <label class="sport-choice" for="event_sport_id_<%= sport.id %>">
-            <%= sport.name %>
-            <% if sport.icon.attached?  %>
-              <%= cl_image_tag sport.icon.key, height: 300, width: 400, crop: :fill %>
-            <% end %>
-          </label>
-        <% end %>
+    <div class="first-form">
+      <fieldset class="hidden" type="hidden">
+        <h4>Select sport type</h4>
+        <div class="sport-choices">
+          <% Sport.all.each do |sport| %>
+            <input class="hidden-radio" type="radio" value="<%= sport.id %>" name="event[sport_id]" id="event_sport_id_<%= sport.id %>">
+            <label class="sport-choice" for="event_sport_id_<%= sport.id %>">
+              <%= sport.name %>
+              <i class="fas fa-check"></i>
+            </label>
+          <% end %>
+        </div>
+      </fieldset>
+      <button class="next btn btn-warning" type="button">Next</button>
+    </div>
+    <div class="form-second">
+      <%= f.input :title %>
+      <%= f.input :location %>
+      <%= f.input :start_time %>
+      <%= f.input :duration %>
+      <button class="btn btn-warning" type="button">Next</button>
+    </div>
+    <div class="form-third">
+      <%= f.input :number_of_participants %>
+      <%= f.input :description %>
+      <div class="form-actions">
+        <%= f.button :submit, class: "btn btn-primary" %>
       </div>
-    </fieldset>
-    <%= f.input :title %>
-    <%= f.input :location %>
-    <%= f.input :start_time %>
-    <%= f.input :duration %>
-    <%= f.input :number_of_participants %>
-    <%= f.input :description %>
+    </div>
 
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, class: "btn btn-primary" %>
-  </div>
 <% end %>

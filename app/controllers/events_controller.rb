@@ -1,9 +1,12 @@
 class EventsController < ApplicationController
 
+
     before_action :set_event, only: [ :show ]
 
   def show
     @event_image = @event.sport.photo
+
+  def index
   end
 
   def new
@@ -14,7 +17,8 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save
-      redirect_to @event, notice: 'Event was successfully created.'
+      raise
+      # redirect_to @event, notice: 'Event was successfully created.'
     else
       render :new
     end
