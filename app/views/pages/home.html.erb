@@ -9,9 +9,21 @@
   </div>
   <hr>
   <div class="search-input-map">
-    <input class="where-at" type="text" placeholder="Where at?">
-    <input class="which-sport" type="text" placeholder="Which sport?">
+    <%= form_tag events_path, method: :get do %>
+    <%= text_field_tag :query,
+    params[:query],
+    class: "form-control where-at",
+    placeholder: "Where at ?"%>
+    <%end%>
+
+    <%= form_tag events_path, method: :get do %>
+    <%= text_field_tag :query,
+    params[:query],
+    class: "form-control which-sport",
+    placeholder: "Which sport?"%>
+    <%end%>
   </div>
+
   <div class="places-suggestions">
     <div class="saved-places">
     <i class="fas fa-band-aid"></i>
