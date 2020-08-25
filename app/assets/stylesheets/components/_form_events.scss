@@ -1,5 +1,38 @@
 .sport-choices {
   display :flex;
-justify-content: space-between;
+justify-content: space-evenly;
+
+flex-wrap : wrap;
 }
 
+.sport-choice {
+  flex : 0 0 30%;
+  background-color: grey;
+  height: 100px;
+  width: 116px;
+  margin: 10px;
+  opacity: 0.4;
+  border-radius: 5px;
+  text-align: center;
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+  &.active {
+    background: green;
+    color:white;
+    opacity:1;
+  }
+}
+
+.hidden-radio {
+  display:none;
+}
+
+.form-second {
+  display:none;
+}
+
+.form-third {
+  display:none;
+}

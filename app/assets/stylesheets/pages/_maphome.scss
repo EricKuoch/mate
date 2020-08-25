@@ -1,0 +1,93 @@
+.map img {
+  height:330px;
+}
+
+.intro h3 {
+  margin-top:15px;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: lighter;
+  text-align: center;
+}
+
+hr {
+  border-top: 1px solid rgb(210,210,210);
+}
+
+.search-input-map {
+  background-color:black;
+  border-radius: 8px;
+  height:64px;
+  width: 300px;
+  margin-left:40px;
+  overflow: hidden;
+}
+
+.where-at {
+  background-color:black;
+  color:white;
+  border:none;
+  height:64px;
+  width:180px;
+  padding-left:15px;
+  font-size:16px;
+  font-family: 'Roboto', sans-serif;
+  border-right:1px solid white;
+  border-right-width: thin;
+  display:inline;
+
+}
+
+::placeholder {
+  color:white;
+}
+
+.which-sport {
+  background-color:black;
+  color:white;
+  border:none;
+  height:64px;
+  width:120px;
+  padding-left:10px;
+  font-size:16px;
+  font-family: 'Roboto', sans-serif;
+  float: right;
+}
+
+.places-suggestions {
+  margin-left:50px;
+  width: 300px;
+  margin-bottom: 40px;
+}
+
+.places-suggestions h3 {
+  margin-top:20px;
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: lighter;
+}
+
+.fas {
+  float:left;
+  padding-right:30px;
+}
+
+.down-nav-bar {
+  margin-top:25px;
+  width:200px;
+  margin-left:80px;
+}
+
+.down-nav-bar h4 {
+  margin-top:10px;
+  font-size:16px;
+}
+
+.find-nav {
+  float:left;
+}
+
+.create-nav {
+  float:right;
+}
+
