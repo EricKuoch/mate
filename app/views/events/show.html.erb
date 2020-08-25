@@ -1,14 +1,13 @@
+<% if @event_image.attached? %>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @event_image.key %>')">
+  <%= cl_image_tag @event_image.key, class: "show-banner-img"%>
+</div>
+
+<% end %>
 <div class="container">
 
- <div class="show-img">
-  <% if @event_image.attached? %>
-    <%= cl_image_tag @event_image.key, height: 300, width: 400, crop: :fill %>
-<%#= cl_image_url @event_image.key, height: 300, width: 400, crop: :fill %>
-  <% end %>
-
- </div>
-
-  <p><%= @event.start_time %></p>
+  <p><%= @event.start_time.strftime("%e %b %Y %H:00")%></p>
+  <p><%= @event.sport.name %></p>
 
   <div class="row">
     <p><%= @event.number_of_participants %></p>
@@ -22,7 +21,11 @@
     <% end %>
   </div>
 
+  <h1><%= @event.title %></h1>
 
+  <h3>  <%= @event.location %></h3>
+
+  <h2><%= @event.description %></h2>
 
 
 
