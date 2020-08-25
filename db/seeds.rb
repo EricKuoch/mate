@@ -1,5 +1,5 @@
 require 'date'
-
+require "open-uri"
 Attendee.destroy_all
 Event.destroy_all
 Sport.destroy_all
@@ -8,7 +8,11 @@ User.destroy_all
 
 #SPORTS
 
+file = URI.open('https://simpleicon.com/wp-content/uploads/football.png')
 football = Sport.create!(name: "Football")
+football.icon.attach(io: file, filename: 'ball.png', content_type: 'image/png')
+puts "#{football.name} created"
+
 pétanque = Sport.create!(name:"Pétanque")
 tennis = Sport.create!(name:"Tennis")
 running = Sport.create!(name:"Running")
