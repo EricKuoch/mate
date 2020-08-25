@@ -1,8 +1,11 @@
 <div class="container">
 
  <div class="show-img">
-<%= cl_image_tag @event.sport.photo.key, height: 300, width: 400, crop: :fill %>
-<%= cl_image_tag @event.sport.photo.key, height: 300, width: 400, crop: :fill %>
+  <% if @event_image.attached? %>
+    <%= cl_image_tag @event_image.key, height: 300, width: 400, crop: :fill %>
+<%#= cl_image_url @event_image.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+
  </div>
 
   <p><%= @event.start_time %></p>
