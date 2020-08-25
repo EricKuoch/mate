@@ -1,4 +1,8 @@
 class EventsController < ApplicationController
+
+  def index
+  end
+
   def new
     @sport = Sport.all
     @event = Event.new
