@@ -20,18 +20,22 @@ hr {
   height:64px;
   width: 300px;
   margin-left:40px;
+  overflow: hidden;
 }
 
-.testw {
+.where-at {
   background-color:rgb(17,17,17);
+  color:white;
   border:none;
   height:64px;
   width:200px;
   padding-left:15px;
   font-size:15px;
   font-family: 'Roboto', sans-serif;
-
+  border-right:1px solid white;
+  border-right-width: thin;
 }
+
 
 ::placeholder {
   color:white;
