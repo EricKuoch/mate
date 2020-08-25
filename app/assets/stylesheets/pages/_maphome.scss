@@ -11,5 +11,28 @@
 }
 
 hr {
-  border-top: 1px solid white;
+  border-top: 1px solid rgb(210,210,210);
+}
+
+.search-input-map {
+  background-color:rgb(17,17,17);
+  border-radius: 5px;
+  height:64px;
+  width: 300px;
+  margin-left:40px;
+}
+
+.testw {
+  background-color:rgb(17,17,17);
+  border:none;
+  height:64px;
+  width:200px;
+  padding-left:15px;
+  font-size:15px;
+  font-family: 'Roboto', sans-serif;
+
+}
+
+::placeholder {
+  color:white;
 }
