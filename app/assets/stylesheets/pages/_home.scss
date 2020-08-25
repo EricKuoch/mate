@@ -1,5 +1,23 @@
 // Specific CSS for your home-page
+.container {
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    width: 10em;
+    font-size: 65px;
+    color: #00AD68;
+    font-weight: bold;
+    margin-left: 60px;
+    margin-top: 150px;
+
+}
+
 body {
   background-color: black;
   color: white;
 }
+
