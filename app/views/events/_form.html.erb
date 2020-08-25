@@ -4,12 +4,25 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.association :sport, as: :radio_buttons %>
+    <fieldset class="hidden">
+      <div class="sport-choices">
+        <% Sport.all.each do |sport| %>
+          <input class="hidden" type="hidden" value="<%= sport.id %>" name="event[sport_id]" id="event_sport_id_<%= sport.id %>">
+          <label class="sport-choice" for="event_sport_id_<%= sport.id %>">
+            <%= sport.name %>
+            <% if sport.icon.attached?  %>
+              <%= cl_image_tag sport.icon.key, height: 300, width: 400, crop: :fill %>
+            <% end %>
+          </label>
+        <% end %>
+      </div>
+    </fieldset>
     <%= f.input :title %>
     <%= f.input :location %>
     <%= f.input :start_time %>
     <%= f.input :duration %>
-    <%= f.input :duration %>
+    <%= f.input :number_of_participants %>
+    <%= f.input :description %>
 
   </div>
 
