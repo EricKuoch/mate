@@ -1,10 +1,10 @@
 class EventsController < ApplicationController
 
-
     before_action :set_event, only: [ :show ]
 
   def show
     @event_image = @event.sport.photo
+  end
 
   def index
   end
