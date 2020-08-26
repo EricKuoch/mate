@@ -30,3 +30,33 @@
   transition: all 0.2s linear;
   }
  }
+
+
+ .btn-sign_up {
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  background-color: #00AD68;
+  border-radius: 22px;
+  padding: 10px 40px; 
+ }
+
+ .btn-log_in {
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  background-color: #00AD68;
+  border-radius: 22px;
+  padding: 10px 40px; 
+ }
+
+ .btn-fb {
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  background-color: blue;
+  border-radius: 22px;
+  padding: 10px 40px; 
+ }
