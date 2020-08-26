@@ -27,26 +27,28 @@ const secondForm = () => {
   })
 }
 
+const changeStep = () => {
 
-const steps = Array.from(document.querySelectorAll(".step"));
-console.log(steps)
-const nextBtn = document.querySelectorAll('.next-btn');
-const prevBtn = document.querySelectorAll('.previous-btn');
-const form = document.querySelector('.form');
+  const nextBtn = document.querySelectorAll('.next-btn');
+  const prevBtn = document.querySelectorAll('.previous-btn');
+  const form = document.querySelector('.form');
 
-nextBtn.forEach((button) =>{
-  button.addEventListener('click', (e) => {
-    changeStep('next');
+  nextBtn.forEach((button) =>{
+    button.addEventListener('click', (e) => {
+      stepIndex('next');
+    })
   })
-})
 
-prevBtn.forEach((button) =>{
-  button.addEventListener('click', () => {
-    changeStep('prev')
+  prevBtn.forEach((button) =>{
+    button.addEventListener('click', () => {
+      stepIndex('prev')
+    });
   });
-});
+}
 
-const changeStep = (btn) => {
+const stepIndex = (btn) => {
+  const steps = Array.from(document.querySelectorAll(".step"));
+  console.log(steps)
   let index = 0;
   const active = document.querySelector('.form .step.active');
 
