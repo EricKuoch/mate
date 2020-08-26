@@ -1,16 +1,30 @@
 
 const initForm = () => {
   const choices = document.querySelectorAll(".sport-choice");
+  const btnNextDisable = document.querySelector(".btn-next-disable");
+
   if (choices) (
     choices.forEach((choice) => {
       choice.addEventListener("click", (event) => {
         choices.forEach((element) => {
-          element.classList.remove("active")
+          element.classList.remove("square-active")
         });
-        event.currentTarget.classList.toggle("active");
+        event.currentTarget.classList.toggle("square-active");
+        btnNextDisable.classList.add("btn-active")
       });
     })
   )
+}
+
+const secondForm = () => {
+  const btnNextDisable = document.querySelector(".btn-step2");
+  const title = document.querySelector("#event_title") //input
+  title.addEventListener("keyup", (event) => {
+    if (title.value !== "") {
+      console.log(btnNextDisable)
+        btnNextDisable.classList.add("btn-active")
+    }
+  })
 }
 
 
@@ -43,9 +57,7 @@ const changeStep = (btn) => {
     index --;
   }
   steps[index].classList.add('active')
+  secondForm();
 }
 
-
-
 export { initForm, changeStep };
-

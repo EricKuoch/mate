@@ -8,7 +8,7 @@ flex-wrap : wrap;
 .sport-choice {
   flex : 0 0 30%;
   background-color: grey;
-  height: 100px;
+  height: 116px;
   width: 116px;
   margin: 10px;
   opacity: 0.4;
@@ -18,7 +18,7 @@ flex-wrap : wrap;
     opacity: 1;
     cursor: pointer;
   }
-  &.active {
+  &.square-active {
     background: green;
     color:white;
     opacity:1;
@@ -35,4 +35,20 @@ flex-wrap : wrap;
 
 .active {
   display: block
+}
+
+.content-center {
+  height: 100vh;
+  text-align:center;
+  display:flex;
+  align-items: center;
+}
+
+#event_duration {
+  width: 100px;
+}
+
+.event_duration {
+  display:flex;
+  align-items : center;
 }
