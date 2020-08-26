@@ -1,6 +1,10 @@
 .index-all {
   margin-left:40px;
 }
+
+.back-btn {
+  float:none;
+}
 .top-calendar {
   margin-top:70px;
 }
@@ -35,6 +39,10 @@
   border-radius:8px;
   color:white;
 
+}
+
+#today-green {
+  color:#00AD68;
 }
 
 .result-title {
