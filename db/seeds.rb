@@ -1,5 +1,9 @@
 require 'date'
 require "open-uri"
+
+
+
+
 Attendee.destroy_all
 Event.destroy_all
 Sport.destroy_all
