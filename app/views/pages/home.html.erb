@@ -10,17 +10,15 @@
   <hr>
   <div class="search-input-map">
     <%= form_tag events_path, method: :get do %>
-    <%= text_field_tag :query,
-    params[:query],
-    class: "form-control where-at",
-    placeholder: "Where at ?"%>
-    <%end%>
-
-    <%= form_tag events_path, method: :get do %>
-    <%= text_field_tag :query,
-    params[:query],
-    class: "form-control which-sport",
-    placeholder: "Which sport?"%>
+      <%= text_field_tag :query_location,
+      params[:query],
+      class: "form-control where-at",
+      placeholder: "Where at ?"%>
+      <%= text_field_tag :query_category,
+      params[:query],
+      class: "form-control which-sport",
+      placeholder: "Which sport?"%>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
     <%end%>
   </div>
 

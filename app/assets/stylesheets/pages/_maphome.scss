@@ -17,10 +17,11 @@ hr {
 .search-input-map {
   background-color:black;
   border-radius: 8px;
-  height:64px;
+  //height:64px;
   width: 300px;
   margin-left:40px;
   overflow: hidden;
+  display:flex;
 }
 
 .where-at {
