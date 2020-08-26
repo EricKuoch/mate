@@ -13,13 +13,39 @@ const initForm = () => {
   )
 }
 
-const stepForm = () => {
-  const next = document.querySelectorAll(".next");
-  next.forEach(next)
-  next.addEventListener('click', (event) => {
-    event.currentTarget.remove("form-second")
-  });
-};
 
-export { stepForm };
-export { initForm };
+const steps = Array.from(document.querySelectorAll(".step"));
+console.log(steps)
+const nextBtn = document.querySelectorAll('.next-btn');
+const prevBtn = document.querySelectorAll('.previous-btn');
+const form = document.querySelector('.form');
+
+nextBtn.forEach((button) =>{
+  button.addEventListener('click', (e) => {
+    changeStep('next');
+  })
+})
+
+prevBtn.forEach((button) =>{
+  button.addEventListener('click', () => {
+    changeStep('prev')
+  })
+})
+
+const changeStep = (btn) => {
+  let index = 0;
+  const active = document.querySelector('.form .step.active');
+  index = steps.indexOf(active);
+  steps[index].classList.remove('active');
+  if(btn === 'next'){
+    index ++;
+  }else if(btn === 'prev'){
+    index --;
+  }
+  steps[index].classList.add('active')
+}
+
+
+
+export { initForm, changeStep };
+

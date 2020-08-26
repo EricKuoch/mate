@@ -26,12 +26,14 @@ require("channels")
 import "bootstrap";
 
 // Internal imports, e.g:
-import { initForm } from '../plugins/init_form';
-import { stepForm } from '../plugins/init_form';
+import { initForm, changeStep } from '../plugins/init_form';
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initForm()
+  if(document.querySelector('.form .step.active')){
+    changeStep()
+  }
 });
