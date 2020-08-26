@@ -1,5 +1,6 @@
 .map img {
   height:330px;
+  width:380px;
 }
 
 .intro h3 {
@@ -17,11 +18,15 @@ hr {
 .search-input-map {
   background-color:black;
   border-radius: 8px;
-  //height:64px;
+  height:64px;
   width: 300px;
   margin-left:40px;
   overflow: hidden;
   display:flex;
+}
+
+.search-map-button {
+  background-color:black
 }
 
 .where-at {

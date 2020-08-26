@@ -7,8 +7,8 @@ class EventsController < ApplicationController
   end
 
   def index
-    sql_query = "location ILIKE :query_location OR sports.name ILIKE :query_category"
-    @filtered_events = Event.joins(:sport).where(sql_query, query_location: "%#{params[:query_location]}%", query_category: params[:query_category])
+    sql_query = "location ILIKE :query_location AND sports.name ILIKE :query_category"
+    @filtered_events = Event.joins(:sport).where(sql_query, query_location: "%#{params[:query_location]}%", query_category: "%#{params[:query_category]}%")
   end
 
   def new
