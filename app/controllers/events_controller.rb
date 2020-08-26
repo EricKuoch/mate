@@ -25,6 +25,18 @@ class EventsController < ApplicationController
     end
   end
 
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  def update
+    attendee_list = []
+    @event = Event.find(params[:id])
+    @event.update(event_params)
+
+    redirect_to event_path(@event)
+  end
+
 private
 
   def set_event
