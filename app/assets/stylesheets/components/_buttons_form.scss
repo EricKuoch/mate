@@ -1,0 +1,32 @@
+.btn-back {
+  font-size: 38px;
+  color:white;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.btn-next-disable {
+  pointer-events: none;
+  background: transparent;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  border-color: white;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 22px;
+  padding: 10px 40px;
+  transition: all 0.2s linear;
+  &.btn-active {
+  pointer-events: inherit;
+  color: black;
+  background-color: white;
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 22px;
+  padding: 10px 40px;
+  transition: all 0.2s linear;
+  }
+ }
