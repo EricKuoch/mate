@@ -6,5 +6,5 @@ class User < ApplicationRecord
   has_many :hobbies
   # has_many :sports, through: :hobbies
   has_many :attendees
-
+  has_many :events
 end
