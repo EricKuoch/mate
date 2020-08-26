@@ -3,17 +3,44 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.association :sport, as: :radio_buttons %>
-    <%= f.input :title %>
-    <%= f.input :location %>
-    <%= f.input :start_time %>
-    <%= f.input :duration %>
-    <%= f.input :duration %>
+  <div class="form">
 
-  </div>
+    <!-- FIRST PART -->
+    <div class="step first-form active">
+      <fieldset class="hidden" type="hidden">
+        <h4>Select sport type</h4>
+        <div class="sport-choices">
+          <% Sport.all.each do |sport| %>
+            <input class="hidden-radio" type="radio" value="<%= sport.id %>" name="event[sport_id]" id="event_sport_id_<%= sport.id %>">
+            <label class="sport-choice" for="event_sport_id_<%= sport.id %>">
+              <%= sport.name %>
+            </label>
+          <% end %>
+        </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, class: "btn btn-primary" %>
+        <button class="btn btn-warning next-btn" type="button">Next</button>
+      </fieldset>
+    </div>
+
+    <!-- SECOND PART -->
+    <div class="step second-form">
+      <%= f.input :title %>
+      <%= f.input :location %>
+      <%= f.input :start_time %>
+      <%= f.input :duration %>
+      <button class="btn btn-warning previous-btn" type="button">Previous</button>
+      <button class="btn btn-warning next-btn" type="button">Next</button>
+    </div>
+
+    <!-- THIRD PART -->
+    <div class="step third-form">
+      <%= f.input :number_of_participants %>
+      <%= f.input :description %>
+      <div class="form-actions">
+        <button class="btn btn-warning previous-btn" type="button">Previous</button>
+        <%= f.button :submit, class: "btn btn-primary" %>
+      </div>
+    </div>
+
   </div>
 <% end %>
