@@ -1,0 +1,61 @@
+.index-all {
+  margin-left:40px;
+}
+.top-calendar {
+  margin-top:70px;
+}
+
+.top-calendar h4 {
+  font-size:16px;
+}
+
+.top-calendar h2 {
+  font-size:26px;
+}
+
+.letter_day {
+  margin-top:15px;
+}
+
+.number_day, .letter_day {
+  display:flex;
+  justify-content:space-between;
+  margin-right:40px;
+
+  div {
+    width:14%;
+    text-align:center;
+  }
+}
+
+.result {
+  margin-top:20px;
+  background-color:black;
+  margin-right:40px;
+  border-radius:8px;
+  color:white;
+
+}
+
+.result-title {
+  padding-top:12px;
+  margin-left:12px;
+  font-size:18px;
+}
+
+.result-title a {
+  color:white;
+}
+
+.result-location {
+  margin-left:12px;
+}
+
+.result-duration {
+  margin-left:12px;
+}
+
+.result-places-left {
+  margin-left:12px;
+  padding-bottom:12px;
+}

@@ -1,6 +1,53 @@
-<div class="all-home">
-  <div class="burgerbtn btn--3">
-  <div class="icon icon--1"></div>
-  <div class="icon icon--2"></div>
-  <div class="icon icon--3"></div>
+<div class="index-all">
+
+  <div class="calendar">
+
+    <div class="top-calendar">
+      <h4>April 7, 2020</h4>
+      <h2>Today</h2>
+    </div>
+    <div class="end-calendar">
+      <div class="letter_day">
+        <div>Mon</div>
+        <div>Tue</div>
+        <div>Wed</div>
+        <div>Thu</div>
+        <div>Fri</div>
+        <div>Sat</div>
+        <div>Sun</div>
+      </div>
+      <div class="number_day">
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+        <div>11</div>
+        <div>12</div>
+        <div>13</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="results">
+  <% @filtered_events.each do |event| %>
+    <div class="result">
+      <%link_to event_path(event) %>
+      <div class="result-title">
+        <%= link_to event.title, event_path(event)%>
+      </div>
+      <hr>
+      <div class="result-location">
+        Location: <%= event.location %>
+      </div>
+      <div class ="result-duration">
+        Duration: <%= event.duration %>h
+      </div>
+      <div class ="result-places-left">
+        Seats: <%= (event.number_of_participants - rand(1..2)) %> left
+      </div>
+    </div>
+    <%end%>
+  </div>
 </div>
+
+
