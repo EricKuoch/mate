@@ -1,6 +1,6 @@
+
 <% if user_signed_in? %>
 
-<div class="all-home">
   <div class="map">
     <img src="https://miro.medium.com/max/4024/0*F4QsnZTYhz_xEO2P.png">
   </div>
@@ -10,17 +10,15 @@
   <hr>
   <div class="search-input-map">
     <%= form_tag events_path, method: :get do %>
-    <%= text_field_tag :query,
-    params[:query],
-    class: "form-control where-at",
-    placeholder: "Where at ?"%>
-    <%end%>
-
-    <%= form_tag events_path, method: :get do %>
-    <%= text_field_tag :query,
-    params[:query],
-    class: "form-control which-sport",
-    placeholder: "Which sport?"%>
+      <%= text_field_tag :query_location,
+      params[:query],
+      class: "form-control where-at",
+      placeholder: "Where at ?"%>
+      <%= text_field_tag :query_category,
+      params[:query],
+      class: "form-control which-sport",
+      placeholder: "Which sport?"%>
+      <%= submit_tag "", class: "btn btn-primary search-map-button" %>
     <%end%>
   </div>
 
@@ -41,8 +39,10 @@
       <h4>Find</h4>
     </div>
     <div class="create-nav">
+      <%= link_to new_event_path do%>
       <i class="fas fa-band-aid"></i>
       <h4>Create</h4>
+      <%end %>
     </div>
   </div>
 </div>
@@ -54,14 +54,15 @@
 </div>
 <div class="container">
   <div class="sign_up">
-    <%= link_to "Sign up", "#",  target: "_blank", class: "signup" %>
+    <%= link_to "Sign up", "/users/sign_up",  target: "_blank", class: "signup" %>
   </div>
 </div>
 <div class="fbk">
   <%= link_to "Continue with facebook", "#", target: "_blank", class: "fb"  %>
 </div>
 <div class="log_in">
-  <%= link_to " Login", "#", target: "_blank", class: "login"  %>
+
+  <%= link_to " Login", "/users/sign_in", target: "_blank", class: "login"  %>
 </div>
 
 <%end %>

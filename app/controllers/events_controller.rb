@@ -7,6 +7,8 @@ class EventsController < ApplicationController
   end
 
   def index
+    sql_query = "location ILIKE :query_location AND sports.name ILIKE :query_category"
+    @filtered_events = Event.joins(:sport).where(sql_query, query_location: "%#{params[:query_location]}%", query_category: "%#{params[:query_category]}%")
   end
 
   def new
@@ -17,11 +19,22 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save
-      raise
-      # redirect_to @event, notice: 'Event was successfully created.'
+      redirect_to @event, notice: 'Event was successfully created.'
     else
       render :new
     end
+  end
+
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  def update
+    attendee_list = []
+    @event = Event.find(params[:id])
+    @event.update(event_params)
+
+    redirect_to event_path(@event)
   end
 
 private
