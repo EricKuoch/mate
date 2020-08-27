@@ -1,8 +1,12 @@
 <% if user_signed_in? %>
 <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-  <div class="map">
-    <img src="https://miro.medium.com/max/4024/0*F4QsnZTYhz_xEO2P.png">
-  </div>
+
+    <div id="map"
+       style="width: 100%; height: 600px;"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+
   <div class="intro">
     <h3>Good afternoon</h3>
   </div>
@@ -48,15 +52,15 @@
 
 <%else%>
 
-<div class="container content-center">
-  <div class="form-log">
-    <%= image_tag "mate.png", alt: "Le logo mate", width: 200, class: "mate-logo" %>
-    <div class="buttons-log">
-      <%= link_to "Sign up", "/users/sign_up",  target: "_blank", class: "btn-sign_up" %>
-      <%= link_to "Continue with facebook", "#", target: "_blank", class: "btn-fb"  %>
-      <%= link_to " Login", "/users/sign_in", target: "_blank", class: "btn-log_in"  %>
+  <div class="container content-center">
+    <div class="form-log">
+      <%= image_tag "mate.png", alt: "Le logo mate", width: 200, class: "mate-logo" %>
+      <div class="buttons-log">
+        <%= link_to "Sign up", "/users/sign_up",  target: "_blank", class: "btn-sign_up" %>
+        <%= link_to "Continue with facebook", "#", target: "_blank", class: "btn-fb"  %>
+        <%= link_to " Login", "/users/sign_in", target: "_blank", class: "btn-log_in"  %>
+      </div>
     </div>
   </div>
-</div>
 
 <%end %>
