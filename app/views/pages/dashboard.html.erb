@@ -1,0 +1,16 @@
+<% @user.events.each do |event| %>
+  <li><%= event.title %> <br> <%= event.start_time %>
+    <% event.attendees.each do |attendee|  %>
+      <ol>
+        <%= attendee.user.nickname %> :
+          <%= simple_form_for attendee do |f| %>
+            <%= f.input :creator_review %>
+            <%= f.input :creator_rating, collection: 1..5 %>
+            <%= hidden_field_tag 'attendee', attendee.id %>
+            <%= f.submit %>
+          <% end %>
+      </ol>
+    <% end %>
+  </li>
+  <br>
+<% end %>
