@@ -1,11 +1,22 @@
 .card-category {
+  margin-top: 5px;
   height: 300px;
   position: relative;
+  border-radius: 10px;
+  filter: blur(8px);
+  -webkit-filter: blur(3px);
 }
 
 .show-banner-img {
   position: absolute;
-  bottom: -60px;
-  left: 70px;
-  width: 75%;
+  bottom: 424px;
+  left: 39px;
+  width: 80%;
+  border-radius: 10px;
 }
+
+.event_form {
+  padding: 20px;
+
+}
+
