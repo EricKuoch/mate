@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   end
   resources :attendees, only: [:edit, :update]
   resources :users, only: [:show]
+  get "/dashboard", to: "pages#dashboard"
 end
