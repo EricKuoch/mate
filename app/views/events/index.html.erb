@@ -13,7 +13,7 @@
         <h2>Today in <%= params[:query_location].capitalize%></h2>
       <% elsif params[:query_location].blank? && params[:query_category].present? %>
         <h2>Today for <%= params[:query_category].capitalize%></h2>
-        <% end %>
+        <%end%>
     </div>
     <div class="end-calendar">
       <div class="letter_day">
