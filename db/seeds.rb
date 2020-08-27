@@ -199,7 +199,7 @@ puts "create #{event5.title}"
 
 #ATTENDEES
 
-attendee1 = Attendee.create!(user:eric, event:event1, rating:2, review:"De la grosse merde, va chiez connard")
+attendee1 = Attendee.create!(user:eric, event:event1, rating:2, review:"De la grosse merde, va chiez connard", creator_review:"Très mauvais joueur")
 attendee2 = Attendee.create!(user:david, event:event5, rating:5, review:"Au top ma belle, tu mérites mieux")
 attendee3 = Attendee.create!(user:franck, event:event3, rating:3, review:"Pas mal, évite d'écraser des hamsters connard")
 attendee4 = Attendee.create!(user:walid, event:event5, rating:4, review:"Physiquement c'était top, n'hésite pas à stimuler notre esprit en posant des questions")

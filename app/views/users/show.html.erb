@@ -1,0 +1,37 @@
+
+<h1>Profile of <%= @user.nickname.capitalize %></h1>
+
+<div class="container">
+  <p> <%= @user.description %></p> <br>
+  <h6>Les reviews que mes mates m'ont laissés:</h6>
+  <% @user.attendees.each do |attendee| %>
+    <li>
+      <%= attendee.creator_review %>
+    </li>
+  <% end %>
+</div>
+
+<div class="container">
+  <h3>Event I've created</h3>
+  <ul>
+    <% @user.events.each do |event| %>
+      <li><%= event.title %> <br> <%= event.start_time %>
+        <% event.attendees.each do |attendee|  %>
+        <ol>
+          <%= attendee.user.nickname %> :
+          <%= attendee.review %>
+          <span><%= "⭐" * attendee.rating + "☆"* (5-attendee.rating.to_i)%></span>
+          <%= attendee.rating %>  <br>
+        </ol>
+        <% end %>
+      </li>
+      <br>
+    <% end %>
+  </ul>
+
+<h2>Event I've joined</h2>
+<% @user.attendees.each do |attendee| %>
+  <strong><%= attendee.event.title %></strong>
+  created by <%= attendee.event.user.nickname %>
+ <% end %>
+</div>
