@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-
+<%= link_to "Log out", destroy_user_session_path, method: :delete %>
   <div class="map">
     <img src="https://miro.medium.com/max/4024/0*F4QsnZTYhz_xEO2P.png">
   </div>
@@ -48,20 +48,13 @@
 
 <%else%>
 
-<div class="container">
-  <div class="logo"><%= image_tag "mate.png", alt: "Le logo mate", width: 200 %></div>
-</div>
-<div class="container">
-  <div class="sign_up">
-    <%= link_to "Sign up", "/users/sign_up",  target: "_blank", class: "signup" %>
+<div class="container content-center">
+  <div class="form-log">
+    <%= image_tag "mate.png", alt: "Le logo mate", width: 200, class: "mate-logo" %>
+    <%= link_to "Sign up", "/users/sign_up",  target: "_blank", class: "btn-sign_up" %>
+    <%= link_to "Continue with facebook", "#", target: "_blank", class: "btn-fb"  %>
+    <%= link_to " Login", "/users/sign_in", target: "_blank", class: "btn-log_in"  %>
   </div>
-</div>
-<div class="fbk">
-  <%= link_to "Continue with facebook", "#", target: "_blank", class: "fb"  %>
-</div>
-<div class="log_in">
-
-  <%= link_to " Login", "/users/sign_in", target: "_blank", class: "login"  %>
 </div>
 
 <%end %>
