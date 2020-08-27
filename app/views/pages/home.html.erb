@@ -1,31 +1,29 @@
 <% if user_signed_in? %>
-
 <div class="home-all">
 
   <div class="top-home">
 
 <!--Classe (top-home) qui regroupe la map + le burger pour permettre une superposition des deux-->
 
-    <div class="menu">
-      <div class="menu-burger">
-        <div class="burger-strip"></div>
-        <div class="burger-strip"></div>
-        <div class="burger-strip"></div>
-      </div>
+  <div class="menu">
+    <div class="menu-burger">
+      <div class="burger-strip"></div>
+      <div class="burger-strip"></div>
+      <div class="burger-strip"></div>
     </div>
-
-    <div class="map">
-      <img src="https://miro.medium.com/max/4024/0*F4QsnZTYhz_xEO2P.png">
+    <div id="map"
+      style = " height:330px;
+  width:380px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-
   </div>
-
 
   <div class="intro">
     <h3>Good afternoon, <%= current_user.nickname.capitalize %></h3>
   </div>
-  <hr>
 
+  <hr>
   <div class="search-input-map">
     <%= form_tag events_path, method: :get do %>
       <%= text_field_tag :query_location,
@@ -72,15 +70,15 @@
 
 <%else%>
 
-<div class="container content-center">
-  <div class="form-log">
-    <%= image_tag "mate.png", alt: "Le logo mate", width: 200, class: "mate-logo" %>
-    <div class="buttons-log">
-      <%= link_to "Sign up", "/users/sign_up",  target: "_blank", class: "btn-sign_up" %>
-      <%= link_to "Continue with facebook", "#", target: "_blank", class: "btn-fb"  %>
-      <%= link_to " Login", "/users/sign_in", target: "_blank", class: "btn-log_in"  %>
+  <div class="container content-center">
+    <div class="form-log">
+      <%= image_tag "mate.png", alt: "Le logo mate", width: 200, class: "mate-logo" %>
+      <div class="buttons-log">
+        <%= link_to "Sign up", "/users/sign_up",  target: "_blank", class: "btn-sign_up" %>
+        <%= link_to "Continue with facebook", "#", target: "_blank", class: "btn-fb"  %>
+        <%= link_to " Login", "/users/sign_in", target: "_blank", class: "btn-log_in"  %>
+      </div>
     </div>
   </div>
-</div>
 
 <%end %>

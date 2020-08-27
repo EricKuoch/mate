@@ -26,8 +26,9 @@ require("channels")
 import "bootstrap";
 
 // Internal imports, e.g:
-import { initForm, changeStep } from '../plugins/init_form';
 // import { initSelect2 } from '../components/init_select2';
+import { initForm, changeStep } from '../plugins/init_form';
+import { initMapbox } from '../plugins/init_mapbox';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -36,4 +37,5 @@ document.addEventListener('turbolinks:load', () => {
   if(document.querySelector('.form .step.active')){
     changeStep()
   }
+  initMapbox()
 });

@@ -26,12 +26,6 @@ body {
   margin: 4px 0;
 }
 
-.map img {
-  height:330px;
-  width:380px;
-}
-
-
 .intro h3 {
   margin-top:15px;
   font-size: 20px;
@@ -166,4 +160,17 @@ hr {
     margin-top: 150px;
 
 }
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  color:black;
+  h2{
+    font-size: 1rem;
+  }
+}
+
 
