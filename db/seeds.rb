@@ -142,7 +142,7 @@ event2 = Event.create!(
 puts "create #{event2.title}"
 
 event3 = Event.create!(
-  user: eric,
+ user: eric,
  title:"Ascension du col de la Croix ",
  description:"Cherche cycliste agueri pour faire la montée de ce col en cette météo sublime",
  location:"9 rue de l'Eglise, Paris",
