@@ -30,3 +30,37 @@
   transition: all 0.2s linear;
   }
  }
+
+.buttons-log {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+ .btn-sign_up {
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  background-color: #00AD68;
+  border-radius: 22px;
+  padding: 10px 40px; 
+  margin-bottom: 15px;
+ }
+
+ .btn-log_in {
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  background-color: #00AD68;
+  border-radius: 22px;
+  padding: 10px 40px; 
+ }
+
+ .btn-fb {
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  background-color: blue;
+  border-radius: 22px;
+  padding: 10px 40px; 
+  margin-bottom: 8em;
+ }

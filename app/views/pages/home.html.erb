@@ -1,12 +1,31 @@
 <% if user_signed_in? %>
 
-  <div class="map">
-    <img src="https://miro.medium.com/max/4024/0*F4QsnZTYhz_xEO2P.png">
+<div class="home-all">
+
+  <div class="top-home">
+
+<!--Classe (top-home) qui regroupe la map + le burger pour permettre une superposition des deux-->
+
+    <div class="menu">
+      <div class="menu-burger">
+        <div class="burger-strip"></div>
+        <div class="burger-strip"></div>
+        <div class="burger-strip"></div>
+      </div>
+    </div>
+
+    <div class="map">
+      <img src="https://miro.medium.com/max/4024/0*F4QsnZTYhz_xEO2P.png">
+    </div>
+
   </div>
+
+
   <div class="intro">
-    <h3>Good afternoon, Julie</h3>
+    <h3>Good afternoon, <%= current_user.nickname.capitalize %></h3>
   </div>
   <hr>
+
   <div class="search-input-map">
     <%= form_tag events_path, method: :get do %>
       <%= text_field_tag :query_location,
@@ -23,45 +42,45 @@
 
   <div class="places-suggestions">
     <div class="saved-places">
-    <i class="fas fa-band-aid"></i>
-    <h3>Saved places</h3>
+      <i class="far fa-star"></i>
+      <h3>Saved places</h3>
   </div>
+
   <div class="set-location">
-    <i class="fas fa-band-aid"></i>
+    <i class="far fa-compass"></i>
     <h3>Set location on map</h3>
   </div>
+
 </div>
   <hr>
-  <div class="down-nav-bar">
-    <div class="find-nav">
-      <i class="fas fa-search"></i>
-      <h4>Find</h4>
+    <div class="down-nav-bar">
+
+      <div class="find-nav">
+       <i class="fas fa-search"></i>
+       <h4>Find</h4>
+      </div>
+
+      <div class="create-nav">
+        <%= link_to new_event_path do%>
+        <i class="fas fa-plus"></i>
+        <h4>Create</h4>
+        <%end %>
+      </div>
     </div>
-    <div class="create-nav">
-      <%= link_to new_event_path do%>
-      <i class="fas fa-plus"></i>
-      <h4>Create</h4>
-      <%end %>
-    </div>
-  </div>
 </div>
+
 
 <%else%>
 
-<div class="container">
-  <div class="logo"><%= image_tag "mate.png", alt: "Le logo mate", width: 200 %></div>
-</div>
-<div class="container">
-  <div class="sign_up">
-    <%= link_to "Sign up", "/users/sign_up",  target: "_blank", class: "signup" %>
+<div class="container content-center">
+  <div class="form-log">
+    <%= image_tag "mate.png", alt: "Le logo mate", width: 200, class: "mate-logo" %>
+    <div class="buttons-log">
+      <%= link_to "Sign up", "/users/sign_up",  target: "_blank", class: "btn-sign_up" %>
+      <%= link_to "Continue with facebook", "#", target: "_blank", class: "btn-fb"  %>
+      <%= link_to " Login", "/users/sign_in", target: "_blank", class: "btn-log_in"  %>
+    </div>
   </div>
-</div>
-<div class="fbk">
-  <%= link_to "Continue with facebook", "#", target: "_blank", class: "fb"  %>
-</div>
-<div class="log_in">
-
-  <%= link_to " Login", "/users/sign_in", target: "_blank", class: "login"  %>
 </div>
 
 <%end %>

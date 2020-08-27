@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
   belongs_to :sport
-
+  belongs_to :user
   has_many :attendees
 
   validates :title, presence: true
