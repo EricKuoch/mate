@@ -1,60 +1,52 @@
-  <% if @event_image.attached? %>
-    <div class="card-category" style="background-image: url('<%= cl_image_path @event_image.key %>')">
-    </div>
-    <div>
-      <%= cl_image_tag @event_image.key, class: "show-banner-img"%>
-    </div>
+<% if @event_image.attached? %>
+  <div class="card-category" style="background-image: url('<%= cl_image_path @event_image.key %>')">
+  </div>
+  <div>
+    <%= cl_image_tag @event_image.key, class: "show-banner-img"%>
+  </div>
 
+<% end %>
+
+<div class="container">
+  <div class="event_form">
+    <%= simple_form_for [@event] do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <p><strong>Day: </strong><%= @event.start_time.strftime("%a, %e %b %Y")%></p>
+    <p><strong>Hour: </strong><%= @event.start_time.strftime("%I:%M %P")%></p>
+    <p><strong>Sport: </strong><%= @event.sport.name %></p>
+    <p><strong>Location: </strong> <%= @event.location  %> </p>
+    <p><strong>Details: </strong><%= @event.description %></p>
+    <p><strong>Remaining places: </strong><%= (@event.number_of_participants - @event.attendees.count) %></p>
+  </div>
+</div>
+
+<div class="container_join">
+  <% if Attendee.find_by(event_id: @event, user_id: current_user ) || @event.attendees.count == @event.number_of_participants %>
+    <%= @event.attendees.count + 1 %>/<%= @event.number_of_participants %> participants
+  <% else %>
+    <%= simple_form_for [@event, Attendee.new()] do |f| %>
+      <%= link_to " Join", "/events", class: "btn-join"  %>
+    <% end %>
   <% end %>
-
-  <div>
-    <div class="container">
-      <div class="event_form">
-        <%= simple_form_for [@event] do |f| %>
-          <%= f.error_notification %>
-          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-        <p><strong>Day: </strong><%= @event.start_time.strftime("%a, %e %b %Y")%></p>
-        <p><strong>Hour: </strong><%= @event.start_time.strftime("%I:%M %P")%></p>
-        <p><strong>Sport: </strong><%= @event.sport.name %></p>
-        <p><strong>Adress: </strong><%= @event.location %></p>
-        <p><strong>Details: </strong><%= @event.description %></p>
-      </div>
-    </div>
-   </div>
-
-    <p><%= @event.number_of_participants %></p>
-
-  <div>
-  </div>
-
-  <div>
-    <p>map</p>
-  </div>
-
-  <div>
-    <%= link_to "join", "#" %>
-  </div>
+</div>
 
 
-
-
-  <div class="row">
-
+<!--     <div class="row">
       <div class="form-actions">
         <%= f.button :submit, class: "btn btn-primary" %>
       </div>
     <% end %>
-    <% if Attendee.find_by(event_id: @event, user_id: current_user ) || @event.attendees.count == @event.number_of_participants %>
-      <%= @event.attendees.count + 1 %>/<%= @event.number_of_participants %> participants
-    <% else %>
-      <%= simple_form_for [@event, Attendee.new()] do |f| %>
-        <%= f.button :submit, class: "btn btn-primary" %>
-      <% end %>
-    <% end %>
 
-    <% @event.attendees.each do |attendee| %>
-      <%= attendee.user.nickname %>
-    <% end %>
-  </div>
+ </div> -->
+
+
+
+
+
+
+
+
+
 
 
