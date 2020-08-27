@@ -11,13 +11,15 @@
       <div class="burger-strip"></div>
       <div class="burger-strip"></div>
     </div>
+
     <div id="map"
       style = " height:330px;
-  width:380px;"
+                width:380px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
+</div>
 
   <div class="intro">
     <h3>Good afternoon, <%= current_user.nickname.capitalize %></h3>
@@ -33,7 +35,7 @@
       <%= text_field_tag :query_category,
       params[:query],
       class: "form-control which-sport",
-      placeholder: "Which sport?"%>
+      placeholder: "Which sport ?"%>
       <%= submit_tag "", class: "btn btn-primary search-map-button" %>
     <%end%>
   </div>
