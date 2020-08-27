@@ -31,16 +31,19 @@
   }
  }
 
-
- .btn-sign_up {
+.buttons-log {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+ .btn-sign_up {
   color: white;
   font-weight: bold;
   font-size: 14px;
   background-color: #00AD68;
   border-radius: 22px;
   padding: 10px 40px; 
+  margin-bottom: 15px;
  }
 
  .btn-log_in {
@@ -59,4 +62,5 @@
   background-color: blue;
   border-radius: 22px;
   padding: 10px 40px; 
+  margin-bottom: 8em;
  }

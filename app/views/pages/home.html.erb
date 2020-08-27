@@ -51,9 +51,11 @@
 <div class="container content-center">
   <div class="form-log">
     <%= image_tag "mate.png", alt: "Le logo mate", width: 200, class: "mate-logo" %>
-    <%= link_to "Sign up", "/users/sign_up",  target: "_blank", class: "btn-sign_up" %>
-    <%= link_to "Continue with facebook", "#", target: "_blank", class: "btn-fb"  %>
-    <%= link_to " Login", "/users/sign_in", target: "_blank", class: "btn-log_in"  %>
+    <div class="buttons-log">
+      <%= link_to "Sign up", "/users/sign_up",  target: "_blank", class: "btn-sign_up" %>
+      <%= link_to "Continue with facebook", "#", target: "_blank", class: "btn-fb"  %>
+      <%= link_to " Login", "/users/sign_in", target: "_blank", class: "btn-log_in"  %>
+    </div>
   </div>
 </div>
 
