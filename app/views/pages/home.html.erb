@@ -1,15 +1,27 @@
 <% if user_signed_in? %>
-<%= link_to "Log out", destroy_user_session_path, method: :delete %>
+<div class="home-all">
 
-    <div id="map"
-       style="width: 100%; height: 600px;"
-       data-markers="<%= @markers.to_json %>"
-       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div class="top-home">
+
+<!--Classe (top-home) qui regroupe la map + le burger pour permettre une superposition des deux-->
+
+  <div class="menu">
+    <div class="menu-burger">
+      <div class="burger-strip"></div>
+      <div class="burger-strip"></div>
+      <div class="burger-strip"></div>
     </div>
-
-  <div class="intro">
-    <h3>Good afternoon</h3>
+    <div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
+    
+  <div class="intro">
+    <h3>Good afternoon, <%= current_user.nickname.capitalize %></h3>
+  </div>
+    
   <hr>
   <div class="search-input-map">
     <%= form_tag events_path, method: :get do %>
@@ -27,28 +39,33 @@
 
   <div class="places-suggestions">
     <div class="saved-places">
-    <i class="fas fa-band-aid"></i>
-    <h3>Saved places</h3>
+      <i class="far fa-star"></i>
+      <h3>Saved places</h3>
   </div>
+
   <div class="set-location">
-    <i class="fas fa-band-aid"></i>
+    <i class="far fa-compass"></i>
     <h3>Set location on map</h3>
   </div>
+
 </div>
   <hr>
-  <div class="down-nav-bar">
-    <div class="find-nav">
-      <i class="fas fa-search"></i>
-      <h4>Find</h4>
+    <div class="down-nav-bar">
+
+      <div class="find-nav">
+       <i class="fas fa-search"></i>
+       <h4>Find</h4>
+      </div>
+
+      <div class="create-nav">
+        <%= link_to new_event_path do%>
+        <i class="fas fa-plus"></i>
+        <h4>Create</h4>
+        <%end %>
+      </div>
     </div>
-    <div class="create-nav">
-      <%= link_to new_event_path do%>
-      <i class="fas fa-plus"></i>
-      <h4>Create</h4>
-      <%end %>
-    </div>
-  </div>
 </div>
+
 
 <%else%>
 
