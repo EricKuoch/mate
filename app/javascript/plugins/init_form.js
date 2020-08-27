@@ -18,12 +18,27 @@ const initForm = () => {
 
 const secondForm = () => {
   const btnNextDisable = document.querySelector(".btn-step2");
-  const title = document.querySelector("#event_title") //input
-  title.addEventListener("keyup", (event) => {
-    if (title.value !== "") {
-      console.log(btnNextDisable)
+  const inputTitle = document.querySelector("#event_title") //input
+  const inputLocation = document.querySelector("#event_location") //input
+  const inputStartTime = document.querySelector("#event_start_time_1i") //input
+  const inputDuration = document.querySelector("#event_duration") //input
+  const keyupList = [inputTitle,inputLocation];
+  const clickList = [inputStartTime,inputDuration];
+  keyupList.forEach((input) => {
+    input.addEventListener("keyup", (event) => {
+    const inputs = [inputTitle.value, inputLocation.value, inputStartTime.value, inputDuration.value]
+     if (!inputs.includes("")) {
         btnNextDisable.classList.add("btn-active")
-    }
+      }
+    })
+  })
+  clickList.forEach((click) => {
+    click.addEventListener("click", (event) => {
+    const inputs = [inputTitle.value, inputLocation.value, inputStartTime.value, inputDuration.value]
+     if (!inputs.includes("")) {
+        btnNextDisable.classList.add("btn-active")
+      }
+    })
   })
 }
 
