@@ -42,6 +42,11 @@ const secondForm = () => {
   })
 }
 
+
+const thirdForm = () => {
+  
+}
+
 const changeStep = () => {
 
   const nextBtn = document.querySelectorAll('.next-btn');
