@@ -1,3 +1,11 @@
+<div class="menu-burger">
+      <div class="burger-strip"></div>
+      <div class="burger-strip"></div>
+      <div class="burger-strip"></div>
+</div>
+
+<%= render 'shared/burger' %>
+
 <% if @event_image.attached? %>
   <div class="card-category" style="background-image: url('<%= cl_image_path @event_image.key %>')">
   </div>
