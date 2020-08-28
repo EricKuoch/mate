@@ -11,8 +11,8 @@
   </div>
 
   <div class="bottom-side-bar">
-      <h2><%=link_to "Home", root_path  %></h2>
-      <h2><%=link_to "My dashboard", dashboard_path  %></h2>
+      <h2><i class="fas fa-home"></i> <%=link_to "Home", root_path  %></h2>
+      <h2><i class="fas fa-edit"></i><%=link_to "My dashboard", dashboard_path  %></h2>
       <h2>Help</h2>
       <h2>Settings</h2>
       <h2><%=link_to "Logout", destroy_user_session_path, method: :delete %></h2>
