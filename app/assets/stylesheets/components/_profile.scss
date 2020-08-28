@@ -1,0 +1,35 @@
+.profile-header {
+  display: flex;
+}
+.profile-header-number ul{
+  display:flex;
+  justify-content:space-between;
+  list-style-type: none;
+  li{
+        padding-left: 20px;
+  }
+  p{
+    color:#8e8e8e
+  }
+}
+.profile-description h5{
+  line-height: 0.3;
+  font-weight: lighter;
+}
+.profile-description p {
+  font-weight: lighter;
+  font-size: 13.5px;
+}
+
+.review{
+  font-size: 14px;
+  font-weight: lighter;
+}
+.event-title{
+font-size: 20px;
+    font-weight: 45;
+}
+
+.events-created h3{
+  color:#00AD68
+}
