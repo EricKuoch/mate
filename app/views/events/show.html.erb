@@ -12,12 +12,14 @@
     <%= simple_form_for [@event] do |f| %>
       <%= f.error_notification %>
       <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-    <p><strong>Day: </strong><%= @event.start_time.strftime("%a, %e %b %Y")%></p>
-    <p><strong>Hour: </strong><%= @event.start_time.strftime("%I:%M %P")%></p>
-    <p><strong>Sport: </strong><%= @event.sport.name %></p>
-    <p><strong>Location: </strong> <%= @event.location  %> </p>
-    <p><strong>Details: </strong><%= @event.description %></p>
-    <p><strong>Remaining places: </strong><%= (@event.number_of_participants - @event.attendees.count) %></p>
+    <p align="center"><strong style="color: #C3C3C3; font-size: 30px;"><%= @event.start_time.strftime("%a, %e %b %Y")%></strong></p>
+    <p align="center"><strong style="color: #6B6A6A"> <%= @event.start_time.strftime("%I:%M %P")%></strong></p>
+    <h2><strong style="color: #C3C3C3"><%= @event.title %></strong></h2>
+    <p><strong style="color: #6B6A6A; font-size: 15px"><%= @event.location  %></strong></p>
+    <p>Organised by: <%= @event.user.nickname %></p>
+    <p style="margin-top: 14px;"><strong style="color:#C3C3C3;  font-size: 20px">Details: </strong></p>
+    <p><strong style="color: #6B6A6A; font-size: 16px"><%= @event.description %></strong></p>
+    <p style="margin-top: 10px;"><strong>Remaining places: </strong><%= (@event.number_of_participants - @event.attendees.count) %></p>
   </div>
 </div>
 
@@ -26,7 +28,7 @@
     <%= @event.attendees.count + 1 %>/<%= @event.number_of_participants %> participants
   <% else %>
     <%= simple_form_for [@event, Attendee.new()] do |f| %>
-      <%= link_to " Join", "/events", class: "btn-join"  %>
+     <p><%= link_to " Join", "/events", class: "btn-join"  %></p>
     <% end %>
   <% end %>
 </div>
