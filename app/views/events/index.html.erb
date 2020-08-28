@@ -8,11 +8,11 @@
     <div class="top-calendar">
       <h4>April 7, 2020</h4>
       <% if params[:query_location].present? &&  params[:query_category].present?  %>
-        <h2>Today in <%= params[:query_location].capitalize%> for <%=params[:query_category].capitalize%></h2>
+        <h2>Today's events in <%= params[:query_location].capitalize%> for <%=params[:query_category].capitalize%></h2>
       <% elsif params[:query_location].present? && params[:query_category].blank? %>
-        <h2>Today in <%= params[:query_location].capitalize%></h2>
+        <h2>Today's events in <%= params[:query_location].capitalize%></h2>
       <% elsif params[:query_location].blank? && params[:query_category].present? %>
-        <h2>Today for <%= params[:query_category].capitalize%></h2>
+        <h2>Today's events for <%= params[:query_category].capitalize%></h2>
         <%end%>
     </div>
     <div class="end-calendar">
@@ -40,7 +40,6 @@
   <div class="results">
   <% @filtered_events.each do |event| %>
     <div class="result">
-      <%link_to event_path(event) %>
       <div class="result-title">
         <%= link_to event.title, event_path(event)%>
       </div>
