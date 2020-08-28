@@ -14,5 +14,16 @@ class PagesController < ApplicationController
 
   def dashboard
     @user = current_user
+    @created_events = current_user.events
+    @futur_events = []
+    @past_events = []
+
+    @user.attendees.each do |attendee|
+      if attendee.event.start_time > Date.today
+        @futur_events << attendee.event
+      else
+        @past_events << attendee.event
+      end
+    end
   end
 end
