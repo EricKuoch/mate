@@ -3,7 +3,7 @@ const initForm = () => {
   const choices = document.querySelectorAll(".sport-choice");
   const btnNextDisable = document.querySelector(".btn-next-disable");
 
-  if (choices) (
+  if (choices) {
     choices.forEach((choice) => {
       choice.addEventListener("click", (event) => {
         choices.forEach((element) => {
@@ -13,7 +13,7 @@ const initForm = () => {
         btnNextDisable.classList.add("btn-active")
       });
     })
-  )
+  }
 }
 
 const secondForm = () => {
@@ -44,7 +44,7 @@ const secondForm = () => {
 
 
 const thirdForm = () => {
-  
+
 }
 
 const changeStep = () => {

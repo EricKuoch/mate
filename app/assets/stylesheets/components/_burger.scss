@@ -1,25 +1,27 @@
 
 
 .side-bar {
-  opacity:0.9;
+  opacity:0.96;
   overflow:hidden;
   z-index:1000;
   position: absolute;
   width:80%;
   height:670px;
   background-color:black;
-
+  transition-property: width;
+  transition-duration: 0.3s;
 }
 
 .side-bar-hidden {
   width:0px;
+
 }
 
 
 .top-side-bar {
-  display:flex;
-  justify-content:space-evenly;
-  margin-left:30px;
+  display:grid;
+
+  margin-left:37px;
 
 }
 
@@ -29,7 +31,7 @@
 
 .bottom-side-bar {
   margin-left:30px;
-  margin-top:130px;
+  margin-top:57px;
 
   h2 {
   font-size:20px;
@@ -40,4 +42,10 @@
     color:white;
   }
   }
+}
+
+.quit-nav{
+      display: flex;
+    justify-content: flex-end;
+    margin: 20px;
 }
