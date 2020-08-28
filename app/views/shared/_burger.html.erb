@@ -1,5 +1,20 @@
-<div class="burgerbtn btn--3">
-  <div class="icon icon--1"></div>
-  <div class="icon icon--2"></div>
-  <div class="icon icon--3"></div>
+<div class="side-bar side-bar-hidden">
+
+    <div class="quit-nav">
+      <i class="fas fa-times"></i>
+    </div>
+  <div class="top-side-bar">
+      <div class="avatar">
+        <%= cl_image_tag current_user.avatar.key%>
+      </div>
+      <%= link_to "#{current_user.nickname.capitalize}", user_path(current_user) %>
+  </div>
+
+  <div class="bottom-side-bar">
+      <h2><%=link_to "Home", root_path  %></h2>
+      <h2><%=link_to "My dashboard", dashboard_path  %></h2>
+      <h2>Help</h2>
+      <h2>Settings</h2>
+      <h2><%=link_to "Logout", destroy_user_session_path, method: :delete %></h2>
+  </div>
 </div>

@@ -29,7 +29,8 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { initForm, changeStep } from '../plugins/init_form';
 import { initMapbox } from '../plugins/init_mapbox';
-import { initProfile } from '../plugins/init_profile';
+import { initBurger } from '../plugins/init_burger';
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
@@ -37,6 +38,6 @@ document.addEventListener('turbolinks:load', () => {
   if(document.querySelector('.form .step.active')){
     changeStep()
   }
-  initProfile()
   initMapbox()
+  initBurger()
 });

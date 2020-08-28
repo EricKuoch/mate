@@ -1,3 +1,12 @@
+
+<div class="menu-burger">
+      <div class="burger-strip"></div>
+      <div class="burger-strip"></div>
+      <div class="burger-strip"></div>
+</div>
+
+<%= render 'shared/burger' %>
+
 <% if @event_image.attached? %>
   <div class="card-category" style="background-image: url('<%= cl_image_path @event_image.key %>')">
   </div>
@@ -26,6 +35,7 @@
   <% else %>
     <%= simple_form_for [@event, Attendee.new()] do |f| %>
       <%= f.button :submit, 'join', class: "btn btn-primary" %>
+
     <% end %>
   <% end %>
   <br>
@@ -37,17 +47,6 @@
 </div>
 
 
-<!-- <div class="container_join">
-  <% if Attendee.find_by(event_id: @event, user_id: current_user ) %>
-    <%= @event.attendees.count + 1 %>/<%= @event.number_of_participants %> participants
-  <% else %>
-    <%= simple_form_for [@event, Attendee.new()] do |f| %>
-    <%= f.button :submit, class: "btn btn-primary" %>
-    <% end %>
-  <% end %>
-</div> -->
-
-<div class="row">
 
 
 
