@@ -19,28 +19,36 @@
     <p>Organised by: <%= @event.user.nickname %></p>
     <p style="margin-top: 14px;"><strong style="color:#C3C3C3;  font-size: 20px">Details: </strong></p>
     <p><strong style="color: #6B6A6A; font-size: 16px"><%= @event.description %></strong></p>
-    <p style="margin-top: 10px;"><strong>Remaining places: </strong><%= (@event.number_of_participants - @event.attendees.count) %></p>
+
+  <% end %>
+  <% if Attendee.find_by(event_id: @event, user_id: current_user )%>
+    <p><strong>For the moment, we have: <%= @event.attendees.count + 1%>/<%= @event.number_of_participants %> participants: </strong></p>
+  <% else %>
+    <%= simple_form_for [@event, Attendee.new()] do |f| %>
+      <%= f.button :submit, 'join', class: "btn btn-primary" %>
+    <% end %>
+  <% end %>
+  <br>
+  <p><strong style="color: #C3C3C3; font-size: 16px">Who else is coming ?</strong></p>
+    <% @event.attendees.each do |attendee| %>
+  <p><strong style="color: #C3C3C3; font-size: 16px"><%= attendee.user.nickname %></strong></p>
+  <% end %>
   </div>
 </div>
 
-<div class="container_join">
-  <% if Attendee.find_by(event_id: @event, user_id: current_user ) || @event.attendees.count == @event.number_of_participants %>
+
+<!-- <div class="container_join">
+  <% if Attendee.find_by(event_id: @event, user_id: current_user ) %>
     <%= @event.attendees.count + 1 %>/<%= @event.number_of_participants %> participants
   <% else %>
     <%= simple_form_for [@event, Attendee.new()] do |f| %>
-     <p><%= link_to " Join", "/events", class: "btn-join"  %></p>
+    <%= f.button :submit, class: "btn btn-primary" %>
     <% end %>
   <% end %>
-</div>
+</div> -->
 
+<div class="row">
 
-<!--     <div class="row">
-      <div class="form-actions">
-        <%= f.button :submit, class: "btn btn-primary" %>
-      </div>
-    <% end %>
-
- </div> -->
 
 
 
