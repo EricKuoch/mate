@@ -1,37 +1,53 @@
-
-<h1>Profile of <%= @user.nickname.capitalize %></h1>
-
 <div class="container">
-  <p> <%= @user.description %></p> <br>
+
+  <div class="profile-header">
+    <div class="avatar">
+    <%= cl_image_tag @user.avatar.key%>
+    </div>
+    <div class="profile-header-number">
+      <ul>
+        <li><%= @user.events.size %><br> <p>created</p> </li>
+        <li><%= @user.attendees.size %> <br> <p>joined</p>  </li>
+        <li>28 <br> <p>mates</p> </li>
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="profile-description">
+    <h5> @<strong><%= @user.nickname.capitalize %></strong> </h5>
+    <p> <%= @user.description %></p> <br>
+  </div>
+
+
+  <div class="events-created">
+    <h3>My events</h3>
+      <% @user.events.each do |event| %>
+        #<span class="event-title"><%= event.title %> </span>  <br>
+          <% event.attendees.each do |attendee|  %>
+          <ul>
+            <div class="review">
+
+              <p>@<strong><%= attendee.user.nickname %></strong> <%= attendee.review %></p>
+              <p><span><%= "⭐" * attendee.rating + "☆"* (5-attendee.rating.to_i)%></span>(<%= attendee.rating %>) </p>
+            </div>
+          </ul>
+          <% end %>
+
+        <br>
+      <% end %>
+  </div>
+
+  <h2>Participations</h2>
+  <% @user.attendees.each do |attendee| %>
+    <strong><%= attendee.event.title %></strong>
+    created by <%= attendee.event.user.nickname %>
+  <% end %>
+
   <h6>Les reviews que mes mates m'ont laissés:</h6>
   <% @user.attendees.each do |attendee| %>
     <li>
       <%= attendee.creator_review %>
     </li>
   <% end %>
-</div>
-
-<div class="container">
-  <h3>Event I've created</h3>
-  <ul>
-    <% @user.events.each do |event| %>
-      <li><%= event.title %> <br> <%= event.start_time %>
-        <% event.attendees.each do |attendee|  %>
-        <ol>
-          <%= attendee.user.nickname %> :
-          <%= attendee.review %>
-          <span><%= "⭐" * attendee.rating + "☆"* (5-attendee.rating.to_i)%></span>
-          <%= attendee.rating %>  <br>
-        </ol>
-        <% end %>
-      </li>
-      <br>
-    <% end %>
-  </ul>
-
-<h2>Event I've joined</h2>
-<% @user.attendees.each do |attendee| %>
-  <strong><%= attendee.event.title %></strong>
-  created by <%= attendee.event.user.nickname %>
- <% end %>
 </div>

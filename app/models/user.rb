@@ -7,4 +7,5 @@ class User < ApplicationRecord
   # has_many :sports, through: :hobbies
   has_many :attendees
   has_many :events
+  has_one_attached :avatar
 end

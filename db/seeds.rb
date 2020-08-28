@@ -62,11 +62,13 @@ puts "#{yoga.name} created"
 
 #USERS
 
+file_avatar = URI.open("https://lh3.googleusercontent.com/pw/ACtC-3c-DkbFLeYyuAhJFwPZ9mFW4rZiUS0HWhYRG8ZZ8k5NE2uG0aCKO54Iemq6A399MHVXRLuSlXuVUGWbn4mzutv2Umc7fyYnW8FJTbK-88CTWd7XpCmVMpMjzqy8CMaDRWIbACfHk70Pvz__fMzXlBdq=w1161-h772-no?authuser=0")
 eric = User.create!(nickname:"rico",
  email:"eric@gmail.com",
  password: 123456,
  average_rating: 5,
- description:"🎳 Joueur amateur de Pétanque, niveau B3. Vous me trouverez dans le sud de la France")
+ description:"Joueur amateur de Pétanque🎳")
+eric.avatar.attach(io:file_avatar, filename:'eric.png', content_type:'image/png')
 
 david = User.create!(nickname:"Davido",
  email:"david@gmail.com",
@@ -74,11 +76,13 @@ david = User.create!(nickname:"Davido",
  average_rating: 2,
  description: "🧘 Pratiquant de Yoga en salle ou en nature.")
 
+file_avatar1 = URI.open("https://lh3.googleusercontent.com/pw/ACtC-3eAH0ngA1qx3P2vSOMTO1XCStLg8uskEDuLjf9_dCKov17hMk-8l0Cka9KW8p9fuyttmYAUXd9lQryDMy9cK4CTR3-FPLh1m-eJF-k7CBRkZRxzDqIz13TloKGMkml01IR6GYWjtR5wRZQ8Bj7gJQat=w1234-h821-no?authuser=0")
 franck = User.create!(nickname:"Francky",
  email:"franck@gmail.com",
  password: 123456,
  average_rating: 4,
  description: "🧘 Pro de Vélo, à la recheche de sensation")
+franck.avatar.attach(io:file_avatar1, filename:'franck.png', content_type:'image/png')
 
 walid = User.create!(nickname:"Walidos",
  email:"walid@gmail.com",
@@ -164,14 +168,14 @@ event4 = Event.create!(
 puts "create #{event4.title}"
 
 event5 = Event.create!(
-  user: walid,
- title:"Yoga avec les filles",
- description:" Retrouvez aujourd'hui Sothiya à 12h à Gaudelet pour votre cours de Yoga, ce sera le moment de prendre une pause pour vous détendre",
- location: "16 villa Gaudelet, Paris",
- duration: 3,
- start_time: DateTime.new(2020,9,4,16),
- number_of_participants: 6,
- sport:yoga)
+  user: stephane,
+  title:"Yoga avec les filles",
+  description:" Retrouvez aujourd'hui Sothiya à 12h à Gaudelet pour votre cours de Yoga, ce sera le moment de prendre une pause pour vous détendre",
+  location: "16 villa Gaudelet, Paris",
+  duration: 3,
+  start_time: DateTime.new(2020,9,4,16),
+  number_of_participants: 6,
+  sport:yoga)
 puts "create #{event5.title}"
 
 event6 = Event.create!(
@@ -187,7 +191,7 @@ puts "create #{event5.title}"
 
 event7 = Event.create!(
   user: eric,
- title:"Football entre mec",
+ title:"Match de Foot dans Paris !",
  description:"Salut les gars, on est combien aujourd'hui ? ",
  location: "73 Rue de Turbigo, 75003 Paris",
  duration: 2,
@@ -199,12 +203,24 @@ puts "create #{event5.title}"
 
 #ATTENDEES
 
-attendee1 = Attendee.create!(user:eric, event:event1, rating:2, review:"De la grosse merde, va chiez connard", creator_review:"Très mauvais joueur")
-attendee2 = Attendee.create!(user:david, event:event5, rating:5, review:"Au top ma belle, tu mérites mieux")
-attendee3 = Attendee.create!(user:franck, event:event3, rating:3, review:"Pas mal, évite d'écraser des hamsters connard")
-attendee4 = Attendee.create!(user:walid, event:event5, rating:4, review:"Physiquement c'était top, n'hésite pas à stimuler notre esprit en posant des questions")
-attendee5 = Attendee.create!(user:zac, event:event7, rating:4, review:"Au top les mecs")
-attendee6 = Attendee.create!(user:mina, event:event3, rating:2, review:"La prochaine fois évite de matter mon cul toute la montée")
+attendee14 = Attendee.create!(user:eric, event:event1, rating:2, review:"De la grosse merde, va chiez connard", creator_review:"Très mauvais joueur",creator_rating:2)
+attendee13 = Attendee.create!(user:eric, event:event2, rating:2, review:"Super soirée pétanque ! A refaire", creator_review:"Super doué même après avoir bu 6 bières", creator_rating:5)
+attendee12 = Attendee.create!(user:eric, event:event5, rating:2, review:"Super yoga apres le travail", creator_rating:5)
 
+attendee2 = Attendee.create!(user:david, event:event5, rating:5, review:"C'était un super cours de Yoga !", creator_review:"David est super chill pendant les cours de Yoga")
+attendee3 = Attendee.create!(user:franck, event:event3, rating:3, review:"Pas mal, même si on s'est perdu quelques heures !", creator_review:"Bon cycliste, mais manque un peu de sens de l'orientation")
+attendee4 = Attendee.create!(user:walid, event:event5, rating:4, review:"Physiquement c'était top, j'ai pu codé l'esprit tranquille toute la semaine grâce à ce cours de Yoga" )
+attendee6 = Attendee.create!(user:mina, event:event3, rating:2, review:"Evenement complètement nul, on s'est perdu pendant 2 heures...")
 
+attendee5 = Attendee.create!(user:zac, event:event7, rating:4, review:"Au top les mecs !")
+attendee7 = Attendee.create!(user:nicolas, event:event7, rating:4, review:"C'était super dommage qu'on ai perdu")
+attendee8 = Attendee.create!(user:matthieu, event:event7, rating:5, review:"Genial !")
+attendee9 = Attendee.create!(user:walid, event:event7, rating:3, review:"Assez cool")
+attendee11 = Attendee.create!(user:franck, event:event7, rating:2, review:"Que des bras cassés dans mon équipe ! C'etait naze")
+
+attendee15 = Attendee.create!(user:zac, event:event1, rating:4, review:"")
+attendee16 = Attendee.create!(user:nicolas, event:event1, rating:4, review:"")
+attendee17 = Attendee.create!(user:matthieu, event:event1, rating:5, review:"")
+attendee18 = Attendee.create!(user:walid, event:event1, rating:3, review:"")
+attendee19 = Attendee.create!(user:franck, event:event1, rating:2, review:"")
 
