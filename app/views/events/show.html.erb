@@ -31,7 +31,7 @@
 
   <% end %>
   <% if Attendee.find_by(event_id: @event, user_id: current_user )%>
-    <p><strong>For the moment, we have: <%= @event.attendees.count + 1%>/<%= @event.number_of_participants %> participants: </strong></p>
+    <p><strong>For the moment, we have: <%= @event.attendees.count%>/<%= @event.number_of_participants %> participants: </strong></p>
   <% else %>
     <%= simple_form_for [@event, Attendee.new()] do |f| %>
       <%= f.button :submit, 'join', class: "btn btn-primary" %>
