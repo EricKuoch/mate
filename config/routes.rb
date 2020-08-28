@@ -9,4 +9,8 @@ Rails.application.routes.draw do
   resources :attendees, only: [:edit, :update]
   resources :users, only: [:show]
   get "/dashboard", to: "pages#dashboard"
+  get "/dashboard/created", to: "pages#events_created"
+  get "/dashboard/joins", to: "pages#dashboard"
+
+
 end
