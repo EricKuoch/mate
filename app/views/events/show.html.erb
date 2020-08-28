@@ -22,11 +22,11 @@
 </div>
 
 <div class="container_join">
-  <% if Attendee.find_by(event_id: @event, user_id: current_user ) || @event.attendees.count == @event.number_of_participants %>
-    <%= @event.attendees.count + 1 %>/<%= @event.number_of_participants %> participants
+  <% if Attendee.find_by(event_id: @event, user_id: current_user) %>
+    <%= @event.attendees.count %>/<%= @event.number_of_participants %> participants
   <% else %>
     <%= simple_form_for [@event, Attendee.new()] do |f| %>
-      <%= link_to " Join", "/events", class: "btn-join"  %>
+      <%= f.button :submit, class: "btn-join" %>
     <% end %>
   <% end %>
 </div>
@@ -34,7 +34,6 @@
 
 <!--     <div class="row">
       <div class="form-actions">
-        <%= f.button :submit, class: "btn btn-primary" %>
       </div>
     <% end %>
 
