@@ -1,3 +1,17 @@
+
+
+<div class="menu-burger">
+      <div class="burger-strip"></div>
+      <div class="burger-strip"></div>
+      <div class="burger-strip"></div>
+    </div>
+    <div class="header">
+    <%= render 'shared/burger' %>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
 <div class="container">
 
   <div class="profile-header">
@@ -27,9 +41,8 @@
           <% event.attendees.each do |attendee|  %>
           <ul>
             <div class="review">
-
               <p>@<strong><%= attendee.user.nickname %></strong> <%= attendee.review %></p>
-              <p><span><%= "⭐" * attendee.rating + "☆"* (5-attendee.rating.to_i)%></span>(<%= attendee.rating %>) </p>
+              <p><span><%= "⭐" * attendee.rating + "☆"* (5-attendee.rating)%></span>(<%= attendee.rating %>) </p>
             </div>
           </ul>
           <% end %>
