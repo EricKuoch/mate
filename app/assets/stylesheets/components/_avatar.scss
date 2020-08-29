@@ -23,3 +23,16 @@
   height:40px;
   border-radius: 50%;
 }
+.avatar-nav {
+  display:flex;
+}
+.avatar-nav img {
+  width: 60px;
+  height:60px;
+  border-radius: 50%;
+   background-size: cover;
+}
+.name-nav {
+  display:grid;
+  margin-left: 18px;
+}

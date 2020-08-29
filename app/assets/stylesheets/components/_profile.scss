@@ -1,5 +1,8 @@
 .profile-header {
   display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 7px;
+  margin-top: 10px;
 }
 .profile-header-number ul{
   display:flex;
@@ -32,4 +35,25 @@ font-size: 20px;
 
 .events-created h3{
   color:#00AD68
+}
+
+.title-profile{
+  display:flex;
+  justify-content:space-evenly;
+    border-top: solid 1px white;
+    padding-top: 15px;
+}
+
+.my-events {
+  background-color: #50ae69cc;
+  border-radius: 19px;
+  padding: 5px 14px;
+  margin-bottom: 4px;
+  h5 {
+   margin-bottom: 0px;
+  }
+}
+.navbar-brand .menu-burger {
+  margin: -30px 5px;
+  top:0px;
 }
