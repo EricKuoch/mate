@@ -14,4 +14,3 @@ const initProfile = () => {
     })
   )
 }
-export { initProfile };
