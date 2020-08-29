@@ -22,10 +22,10 @@
       <%= f.error_notification %>
       <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
     <p align="center"><strong style="color: #C3C3C3; font-size: 30px;"><%= @event.start_time.strftime("%a, %e %b %Y")%></strong></p>
-    <p align="center"><strong style="color: #6B6A6A"> <%= @event.start_time.strftime("%I:%M %P")%></strong></p>
+    <p align="center"><strong style="color: #6B6A6A"> <%= @event.start_time.strftime("%I:%M %P")%> - <%= (@event.start_time + (@event.duration*3600)).strftime("%I:%M %P") %></strong></p>
     <h2><strong style="color: #C3C3C3"><%= @event.title %></strong></h2>
     <p><strong style="color: #6B6A6A; font-size: 15px"><%= @event.location  %></strong></p>
-    <p>Organised by: <%= @event.user.nickname %></p>
+    <p>Organised by: <%= @event.user.nickname %></p
     <p style="margin-top: 14px;"><strong style="color:#C3C3C3;  font-size: 20px">Details: </strong></p>
     <p><strong style="color: #6B6A6A; font-size: 16px"><%= @event.description %></strong></p>
 
