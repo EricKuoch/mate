@@ -190,7 +190,7 @@ event6 = Event.create!(
 puts "create #{event5.title}"
 
 event7 = Event.create!(
-  user: eric,
+ user: eric,
  title:"Match de Foot dans Paris !",
  description:"Salut les gars, on est combien aujourd'hui ? ",
  location: "73 Rue de Turbigo, 75003 Paris",
@@ -199,6 +199,31 @@ event7 = Event.create!(
  number_of_participants: 22,
  sport:football)
 puts "create #{event5.title}"
+
+# past events
+event8 = Event.create!(
+  user: eric,
+ title:"Tournoi de tennis sur un rooftop !",
+ description:"Super evenement de petanque? ",
+ location: "73 Rue de Turbigo, 75003 Paris",
+ duration: 2,
+ start_time: DateTime.new(2020,8,29,19),
+ number_of_participants: 6,
+ sport:tennis)
+puts "create #{event5.title}"
+
+event9 = Event.create!(
+  user: eric,
+ title:"Petanque super cool",
+ description:"Petanque chez Bouboule ",
+ location: "73 Rue de Turbigo, 75003 Paris",
+ duration: 2,
+ start_time: DateTime.new(2020,8,27,19),
+ number_of_participants: 6,
+ sport:yoga)
+puts "create #{event5.title}"
+
+
 
 
 #ATTENDEES
@@ -223,4 +248,15 @@ attendee16 = Attendee.create!(user:nicolas, event:event1, rating:4, review:"")
 attendee17 = Attendee.create!(user:matthieu, event:event1, rating:5, review:"")
 attendee18 = Attendee.create!(user:walid, event:event1, rating:3, review:"")
 attendee19 = Attendee.create!(user:franck, event:event1, rating:2, review:"")
+
+attendee20 = Attendee.create!(user:walid, event:event8, rating:4, review:"")
+attendee21 = Attendee.create!(user:franck, event:event8, rating:5, review:"")
+attendee22 = Attendee.create!(user:matthieu, event:event8, rating:5, review:"")
+attendee23 = Attendee.create!(user:david, event:event8, rating:5, review:"")
+
+attendee24 = Attendee.create!(user:stephane, event:event9, rating:4, review:"")
+attendee25 = Attendee.create!(user:nicolas, event:event9, rating:5, review:"")
+attendee26 = Attendee.create!(user:mina, event:event9, rating:5, review:"")
+attendee27 = Attendee.create!(user:franck, event:event9, rating:5, review:"")
+
 

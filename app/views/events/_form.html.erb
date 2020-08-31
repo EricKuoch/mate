@@ -30,9 +30,9 @@
       <div class="step second-form">
 
         <h4>Event details</h4>
-        <%= f.input :title%>
-        <%= f.input :location %>
-        <%= f.input :start_time, label: "Date" %>
+        <%= f.input :title, label: "Tell us more about your event ?"%>
+        <%= f.input :location, label: "Where will you train ?" %>
+        <%= f.input :start_time, as: :string, label: "Let's meet at:", required: false, input_html: {class: "datepicker"} %>
         <%= f.input :duration, label: "How many time (hours) ?", collection: 1..5%>
         <a class="btn btn-step2 btn-next-disable next-btn" type="button">Next</a>
       </div>
