@@ -13,7 +13,6 @@
     <%= render 'shared/burger' %>
     </div>
 <div class="container">
-
   <div class="profile-header">
     <div class="avatar-nav">
     <%= cl_image_tag @user.avatar.key%>
@@ -29,7 +28,7 @@
 
   <div class="profile-description">
     <h5> @<strong><%= @user.nickname.capitalize %></strong> <div class="popup"> (✭<%= @average_rating.round(2)%>)
-     <span class="popuptext" id="myPopup">Equate of your events ratings</span>
+     <span class="popuptext" id="myPopup">Your events ratings</span>
     </div> </h5>
     <p> <%= @user.description %></p>
   </div>
@@ -42,33 +41,27 @@
       <h5>Joined <i class="fas fa-handshake"></i></h5>
     </div>
   </div>
-  <% @user.events.each do |event| %>
-  <div class="card-product">
-
-    <div class="card-product-infos">
-      <span class="event-title"><%= event.title %> </span>  <br>
-       <% event.attendees.each do |attendee| %>
-        <%= attendee.rating %>
-        <%= %>
-      <% end %>
-      <p><%= event.start_time %> </p>
-      <% event.attendees.each do |attendee| %>
-        <%= attendee.user.nickname %>
-      <% end %>
-       <!--  <div class="reviews">
-            <% event.attendees.each do |attendee|  %>
-            <ul>
-              <div class="review">
-                <p>@<strong><%= attendee.user.nickname %></strong> <%= attendee.review %></p>
-                <p><span><%= "⭐" * attendee.rating + "☆"* (5-attendee.rating)%></span>(<%= attendee.rating %>) </p>
-              </div>
-            </ul>
+  <!-- LIST OF EVENTS  -->
+  <div class="myBtn">
+    <% @user.events.each do |event| %>
+      <div class="card-product ">
+        <div class="card-product-infos">
+          <span class="event-title"><%= event.title %> </span>  <br>
+          <% event.attendees.each do |attendee| %>
+            <%=  attendee.rating %>
+          <% end %>
+          <p><%= event.start_time.strftime("%d-%m-%Y") %> </p>
+          <div id="myModal" class="modal">
+            <%= event.title %>
+            <% event.attendees.each do |attendee| %>
+              <p> <%= attendee.user.nickname %> <span><%= "⭐" * attendee.rating + "☆"* (5-attendee.rating)%></span>(<%= attendee.rating %>) </p>
+              <p> <%= attendee.review %></p>
             <% end %>
-          </div> -->
-          <br>
-    </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
-  <% end %>
 
 
   <div class="events-created">
