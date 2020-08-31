@@ -14,12 +14,15 @@
           <h4>Select sport type</h4>
           <div class="sport-choices">
             <% Sport.all.each do |sport| %>
-              <input class="hidden-radio" type="radio" value="<%= sport.id %>" name="event[sport_id]" id="event_sport_id_<%= sport.id %>">
-              <label class="sport-choice" for="event_sport_id_<%= sport.id %>">
-                <%= sport.name.capitalize %>
-              </label>
+              <div class="content-sport">
+                <input class="hidden-radio" type="radio" value="<%= sport.id %>" name="event[sport_id]" id="event_sport_id_<%= sport.id %>">
+                <label class="sport-choice" for="event_sport_id_<%= sport.id %>">
+                 <%= image_tag sport.icon, class:"sport-icon" %>
+                  <p><%= sport.name.capitalize %></p>
+                </label            >
+              </div>
             <% end %>
-          </div>
+            </div>
 
           <a class="btn btn-step1 btn-next-disable next-btn" type="button">Next</a>
         </fieldset>
@@ -40,7 +43,7 @@
       <div class="step third-form">
         <h4>Event details</h4>
         <%= f.input :number_of_participants %>
-        <%= f.input :description %>
+        <%= f.input :description, as: :text %>
         <div class="form-actions">
           <%= f.button :submit, class: "btn-create-event" %>
         </div>

@@ -20,7 +20,7 @@ const secondForm = () => {
   const btnNextDisable = document.querySelector(".btn-step2");
   const inputTitle = document.querySelector("#event_title") //input
   const inputLocation = document.querySelector("#event_location") //input
-  const inputStartTime = document.querySelector("#event_start_time_1i") //input
+  const inputStartTime = document.querySelector("#event_start_time_1i") //input à regler
   const inputDuration = document.querySelector("#event_duration") //input
   const keyupList = [inputTitle,inputLocation];
   const clickList = [inputStartTime,inputDuration];

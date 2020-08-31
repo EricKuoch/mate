@@ -10,10 +10,10 @@
 .btn-next-disable {
   pointer-events: none;
   background: transparent;
-  color: white;
+  color: black;
   font-weight: bold;
   font-size: 14px;
-  border-color: white;
+  border-color: black;
   border-style: solid;
   border-width: 2px;
   border-radius: 22px;
@@ -21,9 +21,8 @@
   transition: all 0.2s linear;
   &.btn-active {
   pointer-events: inherit;
-  color: black;
-  background-color: white;
-  border-color: black;
+  color: #00AD68;
+  border-color: #00AD68;
   border-style: solid;
   border-width: 2px;
   border-radius: 22px;
@@ -31,6 +30,20 @@
   transition: all 0.2s linear;
   }
  }
+
+
+ .btn-create-event {
+  background: transparent;
+  color: black;
+  font-weight: bold;
+  font-size: 14px;
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 22px;
+  padding: 10px 40px;
+}
+
 // boutons pour /home
 .buttons-log {
   display: flex;
@@ -78,14 +91,3 @@
   padding: 16px 47px;
   margin-left: 126px;
  }
-.btn-create-event {
-  color: white;
-  font-weight: bold;
-  font-size: 14px;
-  background-color: black;
-  border-color: #00AD68;
-  border-style: solid;
-  border-width: 2px;
-  border-radius: 22px;
-  padding: 16px 47px;
-}
