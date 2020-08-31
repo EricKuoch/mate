@@ -1,16 +1,71 @@
-<% @user.events.each do |event| %>
-  <li><%= event.title %> <br> <%= event.start_time %>
-    <% event.attendees.each do |attendee|  %>
-      <ol>
-        <%= attendee.user.nickname %> :
-          <%= simple_form_for attendee do |f| %>
-            <%= f.input :creator_review %>
-            <%= f.input :creator_rating, collection: 1..5 %>
-            <%= hidden_field_tag 'attendee', attendee.id %>
-            <%= f.submit %>
-          <% end %>
-      </ol>
+<div class="container-onglets">
+  <div class="onglets active-onglet" data-anime="1">Created Event</div>
+  <div class="onglets"data-anime="2">Event Join</div>
+</div>
+<div class="container-dashboard">
+
+  <div class="contenu activeContenu" data-anime="1">
+                                                  <%# EVENEMENTS CREER %>
+    <%# evenement creeer passer %>
+    <h3>EVENEMENTS PAST</h3>
+    <% @past_events_create.each do |event| %>
+      <div class="card d-flex flex-row">
+        <%= cl_image_tag event.sport.photo.key, :width => 100 %>
+        <div class="card-body">
+          <p><%= event.sport.name %> : <%= event.title %> | <%= event.start_time %></p>    
+        </div>
+        <% event.attendees.each do |attendee|  %>
+        <% if(@user != attendee.user) %>
+          <%= attendee.user.nickname %> :
+            <%= simple_form_for attendee do |f| %>
+              <%= f.input :creator_review %>
+              <%= f.input :creator_rating, collection: 1..5 %>
+              <%= hidden_field_tag 'attendee', attendee.id %>
+              <%= f.submit %>
+            <% end %>
+        <% end %>
+      <% end %>
+      </div>
     <% end %>
-  </li>
-  <br>
-<% end %>
+
+    <%# evenement creeer futur %>
+      <h3>EVENEMENTS creeer futur </h3>
+    <% @futur_events_create.each do |event| %>
+      <div class="card d-flex flex-row">
+        <%= cl_image_tag event.sport.photo.key, :width => 100 %>
+        <div class="card-body">
+          <p><%= event.sport.name %> : <%= event.title %> | <%= event.start_time %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="contenu" data-anime="2">
+                                                <%# EVENEMENTS JOIN %>
+    <%# EVENEMENT JOIN PAST %>
+    <h3>Evenement auquel j'AI participé</h3>
+    <% @past_events_join.each do |event| %>
+      <div class="card d-flex flex-row">
+        <%= cl_image_tag event.sport.photo.key, :width => 100 %>
+        <div class="card-body">
+          <p><%= event.sport.name %> : <%= event.title %></p>
+          <p><%= event.start_time %></p>
+        </div>
+      </div>
+    <% end %>
+
+      <%# EVENEMENT JOIN FUTUR %>
+      <h3>Evenement auquel je VAIS participé</h3>
+    <% @futur_events_join.each do |event| %>
+      <div class="card d-flex flex-row">
+        <%= cl_image_tag event.sport.photo.key, :width => 200 %>
+        <div class="card-body">
+          <p><%= event.sport.name %> : <%= event.title %></p>
+          <p><%= event.start_time %></p>      
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
