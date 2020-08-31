@@ -20,8 +20,8 @@
 
 .top-side-bar {
   display:grid;
-
   margin-left:37px;
+
 
 }
 
@@ -32,7 +32,7 @@
 .bottom-side-bar {
   margin-left:30px;
   margin-top:57px;
-
+  border-top:solid 1px white;
   h2 {
   font-size:20px;
   line-height: 46px;
@@ -45,7 +45,8 @@
 }
 
 .quit-nav{
-      display: flex;
+    display: flex;
     justify-content: flex-end;
     margin: 20px;
+    margin-bottom: 0px;
 }
