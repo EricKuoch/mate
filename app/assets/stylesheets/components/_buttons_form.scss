@@ -10,27 +10,51 @@
 .btn-next-disable {
   pointer-events: none;
   background: transparent;
-  color: white;
+  color: black;
   font-weight: bold;
   font-size: 14px;
-  border-color: white;
-  border-style: solid;
-  border-width: 2px;
-  border-radius: 22px;
-  padding: 10px 40px;
-  transition: all 0.2s linear;
-  &.btn-active {
-  pointer-events: inherit;
-  color: black;
-  background-color: white;
   border-color: black;
   border-style: solid;
   border-width: 2px;
   border-radius: 22px;
   padding: 10px 40px;
   transition: all 0.2s linear;
+  &.btn-active {
+    pointer-events: inherit;
+    color: #00AD68;
+    border-color: #00AD68;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 22px;
+    padding: 10px 40px;
+    transition: all 0.2s linear;
   }
  }
+
+
+//  .btn-create-event {
+//   pointer-events: none;
+//   background: transparent;
+//   color: black;
+//   font-weight: bold;
+//   font-size: 14px;
+//   border-color: black;
+//   border-style: solid;
+//   border-width: 2px;
+//   border-radius: 22px;
+//   padding: 10px 40px;
+//   &.btn-active {
+//     pointer-events: inherit;
+//     color: #00AD68;
+//     border-color: #00AD68;
+//     border-style: solid;
+//     border-width: 2px;
+//     border-radius: 22px;
+//     padding: 10px 40px;
+//     transition: all 0.2s linear;
+//   }
+// }
+
 // boutons pour /home
 .buttons-log {
   display: flex;
@@ -78,14 +102,36 @@
   padding: 16px 47px;
   margin-left: 126px;
  }
-.btn-create-event {
+
+ .btn-feedback {
   color: white;
-  font-weight: bold;
-  font-size: 14px;
-  background-color: black;
-  border-color: #00AD68;
-  border-style: solid;
-  border-width: 2px;
-  border-radius: 22px;
-  padding: 16px 47px;
+    font-weight: bold;
+    font-size: 14px;
+    background-color: #00AD68;
+    border-width: 0px;
+    border-radius: 22px;
+    padding: 6px 20px;
+        margin-left: 60px;
 }
+
+.btn-feedback-event {
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    background-color: #00AD68;
+    border-width: 0px;
+    border-radius: 22px;
+    padding: 6px 20px;
+    margin-left: 70px;
+}
+.btn-let-him_know {
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    background-color: #167FFB;;
+    border-width: 0px;
+    border-radius: 30px;
+    padding: 6px 20px;
+}
+
+

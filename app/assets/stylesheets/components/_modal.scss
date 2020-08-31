@@ -1,27 +1,27 @@
-/* The Modal (background) */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    padding-top: 100px;
-    left: 17px;
-    top: 120px;
-    width: 90%;
-    height: 50%;
-    overflow: auto;
-    background-color: black;
-    background-color: rgba(0, 0, 0, 0.9);
-    border-radius: 5px;
-}
+// /* The Modal (background) */
+// .modal {
+//     display: none;
+//     position: fixed;
+//     z-index: 1;
+//     padding-top: 100px;
+//     left: 17px;
+//     top: 120px;
+//     width: 90%;
+//     height: 50%;
+//     overflow: auto;
+//     background-color: black;
+//     background-color: rgba(0, 0, 0, 0.9);
+//     border-radius: 5px;
+// }
 
 /* Modal Content */
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
+// .modal-content {
+//   background-color: #fefefe;
+//   margin: auto;
+//   padding: 20px;
+//   border: 1px solid #888;
+//   width: 80%;
+// }
 
 /* The Close Button */
 .close {
@@ -36,4 +36,13 @@
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+.modal-body {
+  background-color: rgba(0, 0, 0, 0.9);
+  max-height: 80vh;
+  overflow: scroll;
+}
+
+.modal-header {
+  background-color: #191919;
 }

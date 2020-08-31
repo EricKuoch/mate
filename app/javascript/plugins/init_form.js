@@ -20,10 +20,12 @@ const secondForm = () => {
   const btnNextDisable = document.querySelector(".btn-step2");
   const inputTitle = document.querySelector("#event_title") //input
   const inputLocation = document.querySelector("#event_location") //input
+
   const inputStartTime = document.querySelector("#event_start_time")
   const inputDuration = document.querySelector("#event_duration")
+
   const keyupList = [inputTitle,inputLocation];
-  // const clickList = [inputStartTime,inputDuration];
+  const clickList = [inputStartTime,inputDuration];
   keyupList.forEach((input) => {
     input.addEventListener("keyup", (event) => {
     const inputs = [inputTitle.value, inputLocation.value]
@@ -43,7 +45,17 @@ const secondForm = () => {
 }
 
 const thirdForm = () => {
-
+  const btnNextDisable = document.querySelector(".btn-step3");
+  const inputNumberParticipants = document.querySelector("#event_number_of_participants") //input
+  inputNumberParticipants.addEventListener("keyup", (event) => {
+    console.log(btnNextDisable)
+    if (inputNumberParticipants.value !== "") {
+      btnNextDisable.classList.add("btn-active")
+    }
+    else {
+      btnNextDisable.classList.remove("btn-active")
+    }
+  })
 }
 
 const changeStep = () => {
@@ -80,6 +92,7 @@ const stepIndex = (btn) => {
   }
   steps[index].classList.add('active')
   secondForm();
+  thirdForm();
 }
 
 export { initForm, changeStep };

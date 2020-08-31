@@ -7,8 +7,14 @@ class EventsController < ApplicationController
   end
 
   def index
+    # sql_query = "location ILIKE :query_location AND sports.name ILIKE :query_category AND start_time = :date"
+
     sql_query = "location ILIKE :query_location AND sports.name ILIKE :query_category"
     @filtered_events = Event.joins(:sport).where(sql_query, query_location: "%#{params[:query_location]}%", query_category: "%#{params[:query_category]}%")
+    sql_query = "location ILIKE :query_location AND sports.name ILIKE :query_category"
+    @filtered_events = @filtered_events.select do |event|
+      event if event.start_time.to_date == Date.parse(params[:start_time])
+    end
   end
 
   def new
@@ -48,7 +54,7 @@ private
   end
 
   def event_params
-    params.require(:event).permit(:title, :location,:duration, :description, :start_time, :number_of_participants, :sport_id)
+    params.require(:event).permit(:title, :location, :description, :start_time, :duration, :number_of_participants, :sport_id)
   end
 
 end
