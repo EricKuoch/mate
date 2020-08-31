@@ -1,21 +1,20 @@
 
-
-<div class="menu-burger">
-      <div class="burger-strip"></div>
-      <div class="burger-strip"></div>
-      <div class="burger-strip"></div>
-    </div>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+ <a class="navbar-brand" href="#">
+    <img src="https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fwww.comparetv.com.au%2Fwp-content%2Fuploads%2F2019%2F01%2Fprovider-mate-logo-big.png" />
+</a>
+  <div class="menu-burger">
+    <div class="burger-strip"></div>
+    <div class="burger-strip"></div>
+    <div class="burger-strip"></div>
+  </div>
+</div>
     <div class="header">
     <%= render 'shared/burger' %>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
 <div class="container">
-
   <div class="profile-header">
-    <div class="avatar">
+    <div class="avatar-nav">
     <%= cl_image_tag @user.avatar.key%>
     </div>
     <div class="profile-header-number">
@@ -27,31 +26,48 @@
     </div>
   </div>
 
-
   <div class="profile-description">
-    <h5> @<strong><%= @user.nickname.capitalize %></strong> </h5>
-    <p> <%= @user.description %></p> <br>
+    <h5> @<strong><%= @user.nickname.capitalize %></strong> <div class="popup"> (✭<%= @average_rating.round(2)%>)
+     <span class="popuptext" id="myPopup">Your events ratings</span>
+    </div> </h5>
+    <p> <%= @user.description %></p>
+  </div>
+
+  <div class="title-profile">
+    <div class="my-events">
+      <h5>My events <i class="fas fa-child"></i></h5>
+    </div>
+    <div class="handshake">
+      <h5>Joined <i class="fas fa-handshake"></i></h5>
+    </div>
+  </div>
+  <!-- LIST OF EVENTS  -->
+  <div class="myBtn">
+    <% @user.events.each do |event| %>
+      <div class="card-product ">
+        <div class="card-product-infos">
+          <span class="event-title"><%= event.title %> </span>  <br>
+          <% event.attendees.each do |attendee| %>
+            <%=  attendee.rating %>
+          <% end %>
+          <p><%= event.start_time.strftime("%d-%m-%Y") %> </p>
+          <div id="myModal" class="modal">
+            <%= event.title %>
+            <% event.attendees.each do |attendee| %>
+              <p> <%= attendee.user.nickname %> <span><%= "⭐" * attendee.rating + "☆"* (5-attendee.rating)%></span>(<%= attendee.rating %>) </p>
+              <p> <%= attendee.review %></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 
 
   <div class="events-created">
-    <h3>My events</h3>
-      <% @user.events.each do |event| %>
-        #<span class="event-title"><%= event.title %> </span>  <br>
-          <% event.attendees.each do |attendee|  %>
-          <ul>
-            <div class="review">
-              <p>@<strong><%= attendee.user.nickname %></strong> <%= attendee.review %></p>
-              <p><span><%= "⭐" * attendee.rating + "☆"* (5-attendee.rating)%></span>(<%= attendee.rating %>) </p>
-            </div>
-          </ul>
-          <% end %>
-
-        <br>
-      <% end %>
   </div>
 
-  <h2>Participations</h2>
+  <h2>Participations <i class="fas fa-handshake"></i></h2>
   <% @user.attendees.each do |attendee| %>
     <strong><%= attendee.event.title %></strong>
     created by <%= attendee.event.user.nickname %>
