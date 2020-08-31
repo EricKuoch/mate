@@ -4,9 +4,7 @@
 
     <div class="form">
       <div class="back-btn-link">
-        <%= link_to root_path do %>
-        <i class="fas fa-chevron-left back-btn-new"></i>
-        <%end %>
+        <i class="fas fa-chevron-left previous-btn back-btn-new"></i>
       </div>
       <!-- FIRST PART -->
       <div class="step first-form active">
@@ -45,7 +43,7 @@
         <%= f.input :number_of_participants %>
         <%= f.input :description, as: :text %>
         <div class="form-actions">
-          <%= f.button :submit, class: "btn-create-event" %>
+          <%= f.button :submit, class: "btn-next-disable btn-step3" %>
         </div>
       </div>
 

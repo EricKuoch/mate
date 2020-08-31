@@ -20,29 +20,40 @@
   padding: 10px 40px;
   transition: all 0.2s linear;
   &.btn-active {
-  pointer-events: inherit;
-  color: #00AD68;
-  border-color: #00AD68;
-  border-style: solid;
-  border-width: 2px;
-  border-radius: 22px;
-  padding: 10px 40px;
-  transition: all 0.2s linear;
+    pointer-events: inherit;
+    color: #00AD68;
+    border-color: #00AD68;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 22px;
+    padding: 10px 40px;
+    transition: all 0.2s linear;
   }
  }
 
 
- .btn-create-event {
-  background: transparent;
-  color: black;
-  font-weight: bold;
-  font-size: 14px;
-  border-color: black;
-  border-style: solid;
-  border-width: 2px;
-  border-radius: 22px;
-  padding: 10px 40px;
-}
+//  .btn-create-event {
+//   pointer-events: none;
+//   background: transparent;
+//   color: black;
+//   font-weight: bold;
+//   font-size: 14px;
+//   border-color: black;
+//   border-style: solid;
+//   border-width: 2px;
+//   border-radius: 22px;
+//   padding: 10px 40px;
+//   &.btn-active {
+//     pointer-events: inherit;
+//     color: #00AD68;
+//     border-color: #00AD68;
+//     border-style: solid;
+//     border-width: 2px;
+//     border-radius: 22px;
+//     padding: 10px 40px;
+//     transition: all 0.2s linear;
+//   }
+// }
 
 // boutons pour /home
 .buttons-log {
