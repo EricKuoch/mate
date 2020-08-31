@@ -189,7 +189,7 @@ event6 = Event.create!(
 puts "create #{event5.title}"
 
 event7 = Event.create!(
-  user: eric,
+ user: eric,
  title:"Match de Foot dans Paris !",
  description:"Salut les gars, on est combien aujourd'hui ? ",
  location: "73 Rue de Turbigo, 75003 Paris",

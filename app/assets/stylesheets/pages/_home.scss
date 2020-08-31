@@ -5,6 +5,9 @@ body {
   color: white;
 }
 
+.form-control {
+  border-radius:0px;
+}
 
 // CSS STYLE IF USER IS LOGIN //
 
@@ -14,7 +17,7 @@ body {
 
 .menu-burger {
   position: absolute;
-  // top: 45px;
+  top: 45px;
   left: 40px;
   z-index:1000;
 

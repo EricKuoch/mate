@@ -2,7 +2,7 @@ const initDashboard = () => {
   const onglets = document.querySelectorAll('.onglets');
   const contenus = document.querySelectorAll('.contenu')
   let index = 0;
-  
+
   onglets.forEach(onglet => {
       onglet.addEventListener('click', () => {
           if (onglet.classList.contains('active-onglet')) {
@@ -24,7 +24,7 @@ const initDashboard = () => {
             }
           })
       })
-  }) 
+  })
 }
 
 export { initDashboard };
