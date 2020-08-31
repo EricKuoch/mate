@@ -32,7 +32,13 @@
 
       <div class="letter_day">
         <%= link_to events_path(start_time: today, query_location: params[:query_location], query_category: params[:query_category]) do %>
-        <div style="color:white;"><%= today.strftime("%a")%></div>
+        <div id="date-button-selection1" style="color:white;"><%= today.strftime("%a")%></div>
+        <script>
+        function myFunction() {
+        document.getElementById("#date-button-selection1").style.color = "red";
+        }
+        </script>
+
         <%end%>
 
         <%= link_to events_path(start_time: day2, query_location: params[:query_location], query_category: params[:query_category]) do %>

@@ -35,6 +35,7 @@ import { initBurger } from '../plugins/init_burger';
 import { initPopup } from '../plugins/init_popup';
 import { initModal } from '../plugins/init_modal';
 
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
