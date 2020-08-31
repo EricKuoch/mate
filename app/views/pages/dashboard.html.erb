@@ -7,12 +7,12 @@
   <div class="contenu activeContenu" data-anime="1">
                                                   <%# EVENEMENTS CREER %>
     <%# evenement creeer passer %>
-    <h3>EVENEMENTS PAST</h3>
+    <h3>EVENTS PAST</h3>
     <% @past_events_create.each do |event| %>
       <div class="card d-flex flex-row">
         <%= cl_image_tag event.sport.photo.key, :width => 100 %>
         <div class="card-body">
-          <p><%= event.sport.name %> : <%= event.title %> | <%= event.start_time %></p>    
+          <p><%= event.sport.name %> : <%= event.title %> | <%= event.start_time %></p>
         </div>
         <% event.attendees.each do |attendee|  %>
         <% if(@user != attendee.user) %>
@@ -61,7 +61,7 @@
         <%= cl_image_tag event.sport.photo.key, :width => 200 %>
         <div class="card-body">
           <p><%= event.sport.name %> : <%= event.title %></p>
-          <p><%= event.start_time %></p>      
+          <p><%= event.start_time %></p>
         </div>
       </div>
     <% end %>
