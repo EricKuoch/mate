@@ -42,7 +42,6 @@ document.addEventListener('turbolinks:load', () => {
     changeStep()
   }
   initMapbox()
-
   initDashboard()
   initBurger()
   initPopup()
