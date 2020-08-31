@@ -25,7 +25,7 @@ const secondForm = () => {
   const inputDuration = document.querySelector("#event_duration")
 
   const keyupList = [inputTitle,inputLocation];
-  // const clickList = [inputStartTime,inputDuration];
+  const clickList = [inputStartTime,inputDuration];
   keyupList.forEach((input) => {
     input.addEventListener("keyup", (event) => {
     const inputs = [inputTitle.value, inputLocation.value]

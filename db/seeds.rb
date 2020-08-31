@@ -179,7 +179,7 @@ event5 = Event.create!(
 puts "create #{event5.title}"
 
 event6 = Event.create!(
-  user: eric,
+ user: eric,
  title:"Course à pied le long des quais",
  description:" Retrouvez moi aujourd'hui à 12h à Gaudelet pour 1h de footing, ça va être cool",
  location: "89 Quai de Valmy",
