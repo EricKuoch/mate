@@ -1,22 +1,24 @@
-
-<div class="menu-burger">
-      <div class="burger-strip"></div>
-      <div class="burger-strip"></div>
-      <div class="burger-strip"></div>
+<div class="container_top_show_event">
+  <div class="menu-burger">
+        <div class="burger-strip"></div>
+        <div class="burger-strip"></div>
+        <div class="burger-strip"></div>
+  </div>
+  <%= render 'shared/burger' %>
 </div>
 
-<%= render 'shared/burger' %>
+<div class="image_show-event">
+  <%= cl_image_tag @event_image.key, class: "show-banner-img"%>
+</div>
 
-<% if @event_image.attached? %>
-  <div class="card-category" style="background-image: url('<%= cl_image_path @event_image.key %>')">
-  </div>
-  <div>
-    <%= cl_image_tag @event_image.key, class: "show-banner-img"%>
-  </div>
+<div class="row_button">
+  <button type="button" class="btn btn-dark btn-sm"><%= @event.sport %></button>
+<button type="button" class="btn btn-success btn-sm">Small button</button>
+</div>
 
-<% end %>
 
-<div class="container">
+
+<div class="container_event_form">
   <div class="event_form">
     <%= simple_form_for [@event] do |f| %>
       <%= f.error_notification %>
@@ -24,8 +26,8 @@
     <p align="center"><strong style="color: #C3C3C3; font-size: 30px;"><%= @event.start_time.strftime("%a, %e %b %Y")%></strong></p>
     <p align="center"><strong style="color: #6B6A6A"> <%= @event.start_time.strftime("%I:%M %P")%> - <%= (@event.start_time + (@event.duration*3600)).strftime("%I:%M %P") %></strong></p>
     <h2><strong style="color: #C3C3C3"><%= @event.title %></strong></h2>
-    <p><strong style="color: #6B6A6A; font-size: 15px"><%= @event.location  %></strong></p>
-    <p>Organised by: <%= @event.user.nickname %></p
+    <p style="font-style: italic;">Organised by: <%= @event.user.nickname %></p
+    <p><strong style="color: #00AD68; font-size: 12px"><%= @event.location  %></strong></p>
     <p style="margin-top: 14px;"><strong style="color:#C3C3C3;  font-size: 20px">Details: </strong></p>
     <p><strong style="color: #6B6A6A; font-size: 16px"><%= @event.description %></strong></p>
 

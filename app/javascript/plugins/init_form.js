@@ -43,7 +43,6 @@ const secondForm = () => {
     })
   })
 }
-12
 
 const thirdForm = () => {
   const btnNextDisable = document.querySelector(".btn-step3");
