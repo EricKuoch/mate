@@ -47,3 +47,4 @@ document.addEventListener('turbolinks:load', () => {
   initPopup()
   initModal()
 });
+
