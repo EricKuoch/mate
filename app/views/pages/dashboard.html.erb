@@ -13,6 +13,7 @@
 
 <%= render 'shared/burger' %>
 
+<div class="container">
 
    <div class="container-onglets">
       <div class="onglets active-onglet" data-anime="1">Your past events</div>
@@ -23,13 +24,13 @@
     <h3>Events you created</h3>
     <% @past_events_create.each do |event| %>
       <div class="card-product">
-        <div class="date">
-          <h6><%= event.start_time.strftime("%d-%m-%Y") %></h6>
+        <div class="card-info-events">
+          <h6><%= event.start_time.strftime("%d-%m-%y") %> <small>(<%= event.sport.name %>) </small> </h6>
+          <h5> <%= event.title %>  </h5>
+          <button type="button" class="btn-feedback" data-toggle="modal" data-target="#exampleModalLong<%= event.id %>">
+            Rate the attendees
+          </button>
         </div>
-        <%= event.sport.name %> : <%= event.title %>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong<%= event.id %>">
-          Give a feedback to the attendees
-        </button>
       </div>
     <% end %>
 
@@ -39,7 +40,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle<%= event.id %> ">Modal title</h5>
+              <h5 class="modal-title" id="exampleModalLongTitle<%= event.id %> ">How was your mates?</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -47,17 +48,16 @@
             <div class="modal-body">
                 <% event.attendees.each do |attendee| %>
                   <% if(@user != attendee.user) %>
-                   <p><%= attendee.user.nickname %> :</p>
+                  <div class="attendees-name">
+                   <p><strong><%= attendee.user.nickname %> : </strong>  </p>
+                  </div>
                       <%= simple_form_for attendee do |f| %>
-                      <%= f.input :creator_review, label:"How was #{attendee.user.nickname} ?", class: "input" %>
+                      <%= f.input :creator_review, label:"You can leave a review to #{attendee.user.nickname}", class: "input" %>
                         <%= f.input :creator_rating, label:"Give #{attendee.user.nickname} a rating !", collection: 1..5 %>
-                        <%= f.button :submit, 'Let him know', class: 'btn btn-primary'%>
+                        <%= f.button :submit, 'Let him know', class: 'btn-let-him_know'%>
                       <% end %>
                   <% end %>
                 <% end %>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
@@ -67,11 +67,13 @@
     <h3>Events you joined</h3>
     <% @past_events_join.each do |event| %>
       <div class="card-product">
-        <h4><%= event.start_time.strftime("%d-%m-%Y") %></h4>
-        <%= event.sport.name %> : <%= event.title %>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong<%= event.id %>">
-          Give a feedback to the event
-        </button>
+        <div class="card-info-events">
+          <h6><%= event.start_time.strftime("%d-%m-%Y") %> <small>(<%= event.sport.name %>) </small> </h6>
+          <h5><%= event.title %> </h5>
+          <button type="button" class="btn-feedback-event" data-toggle="modal" data-target="#exampleModalLong<%= event.id %>">
+            Rate the event
+          </button>
+        </div>
       </div>
     <% end %>
 
@@ -81,7 +83,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle<%= event.id %> ">Modal title</h5>
+              <h5 class="modal-title" id="exampleModalLongTitle<%= event.id %> "> <strong> How was the events? </strong></h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -89,9 +91,9 @@
             <div class="modal-body">
               <% event.attendees.each do |attendee| %>
                 <%= simple_form_for attendee do |f| %>
-                  <%= f.input :review, label: "How was the event?" %>
+                  <%= f.input :review, label: "Leave a review !" %>
                   <%= f.input :rating, label: "Give a rating !" %>
-                  <%= f.button :submit, 'Leave a feedback', class: 'btn btn-primary'%>
+                  <%= f.button :submit, 'Leave a feedback', class: 'btn-let-him_know'%>
                 <% end %>
               <% end %>
             </div>
@@ -123,4 +125,6 @@
             <p><%= event.start_time %></p>
       <% end %>
   </div>
+
+</div>
 
