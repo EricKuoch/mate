@@ -1,71 +1,126 @@
-<div class="container-onglets">
-  <div class="onglets active-onglet" data-anime="1">Created Event</div>
-  <div class="onglets"data-anime="2">Event Join</div>
+<!-- NAVBAR -->
+
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+ <a class="navbar-brand" href="#">
+    <img src="https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fwww.comparetv.com.au%2Fwp-content%2Fuploads%2F2019%2F01%2Fprovider-mate-logo-big.png" />
+</a>
+  <div class="menu-burger">
+    <div class="burger-strip"></div>
+    <div class="burger-strip"></div>
+    <div class="burger-strip"></div>
+  </div>
 </div>
-<div class="container-dashboard">
+
+<%= render 'shared/burger' %>
+
+
+   <div class="container-onglets">
+      <div class="onglets active-onglet" data-anime="1">Your past events</div>
+      <div class="onglets"data-anime="2">Incoming events </div>
+    </div>
 
   <div class="contenu activeContenu" data-anime="1">
-                                                  <%# EVENEMENTS CREER %>
-    <%# evenement creeer passer %>
-    <h3>EVENTS PAST</h3>
+    <h3>Events you created</h3>
     <% @past_events_create.each do |event| %>
-      <div class="card d-flex flex-row">
-        <%= cl_image_tag event.sport.photo.key, :width => 100 %>
-        <div class="card-body">
-          <p><%= event.sport.name %> : <%= event.title %> | <%= event.start_time %></p>
+      <div class="card-product">
+        <div class="date">
+          <h6><%= event.start_time.strftime("%d-%m-%Y") %></h6>
         </div>
-        <% event.attendees.each do |attendee|  %>
-        <% if(@user != attendee.user) %>
-          <%= attendee.user.nickname %> :
-            <%= simple_form_for attendee do |f| %>
-              <%= f.input :creator_review %>
-              <%= f.input :creator_rating, collection: 1..5 %>
-              <%= hidden_field_tag 'attendee', attendee.id %>
-              <%= f.submit %>
-            <% end %>
-        <% end %>
-      <% end %>
+        <%= event.sport.name %> : <%= event.title %>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong<%= event.id %>">
+          Give a feedback to the attendees
+        </button>
       </div>
     <% end %>
 
-    <%# evenement creeer futur %>
-      <h3>EVENEMENTS creeer futur </h3>
-    <% @futur_events_create.each do |event| %>
-      <div class="card d-flex flex-row">
-        <%= cl_image_tag event.sport.photo.key, :width => 100 %>
-        <div class="card-body">
-          <p><%= event.sport.name %> : <%= event.title %> | <%= event.start_time %></p>
+    <!-- Modal -->
+    <% @past_events_create.each do |event| %>
+      <div class="modal fade" id="exampleModalLong<%= event.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle<%= event.id %>" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle<%= event.id %> ">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <% event.attendees.each do |attendee| %>
+                  <% if(@user != attendee.user) %>
+                   <p><%= attendee.user.nickname %> :</p>
+                      <%= simple_form_for attendee do |f| %>
+                      <%= f.input :creator_review, label:"How was #{attendee.user.nickname} ?", class: "input" %>
+                        <%= f.input :creator_rating, label:"Give #{attendee.user.nickname} a rating !", collection: 1..5 %>
+                        <%= f.button :submit, 'Let him know', class: 'btn btn-primary'%>
+                      <% end %>
+                  <% end %>
+                <% end %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <h3>Events you joined</h3>
+    <% @past_events_join.each do |event| %>
+      <div class="card-product">
+        <h4><%= event.start_time.strftime("%d-%m-%Y") %></h4>
+        <%= event.sport.name %> : <%= event.title %>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong<%= event.id %>">
+          Give a feedback to the event
+        </button>
+      </div>
+    <% end %>
+
+
+    <% @past_events_join.each do |event| %>
+      <div class="modal fade" id="exampleModalLong<%= event.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle<%= event.id %>" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle<%= event.id %> ">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <% event.attendees.each do |attendee| %>
+                <%= simple_form_for attendee do |f| %>
+                  <%= f.input :review, label: "How was the event?" %>
+                  <%= f.input :rating, label: "Give a rating !" %>
+                  <%= f.button :submit, 'Leave a feedback', class: 'btn btn-primary'%>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
     <% end %>
   </div>
+
+<!-- INCOMING EVENTS -->
 
   <div class="contenu" data-anime="2">
-                                                <%# EVENEMENTS JOIN %>
-    <%# EVENEMENT JOIN PAST %>
-    <h3>Evenement auquel j'AI participé</h3>
-    <% @past_events_join.each do |event| %>
-      <div class="card d-flex flex-row">
-        <%= cl_image_tag event.sport.photo.key, :width => 100 %>
-        <div class="card-body">
-          <p><%= event.sport.name %> : <%= event.title %></p>
-          <p><%= event.start_time %></p>
+      <%# EVENEMENT JOIN PAST %>
+      <h3> Incoming events </h3>
+      <% @futur_events_create.each do |event| %>
+        <div class="card-product">
+          <div class="card-product-infos">
+            <p> <%= event.start_time.strftime("%d-%m-%Y") %> </p>
+            <p><%= event.sport.name %> : <%= event.title %> | </p>
+            <p><strong>For the moment, we have: <%= event.attendees.size%>/<%= event.number_of_participants %> participants: </strong></p>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
 
-      <%# EVENEMENT JOIN FUTUR %>
-      <h3>Evenement auquel je VAIS participé</h3>
-    <% @futur_events_join.each do |event| %>
-      <div class="card d-flex flex-row">
-        <%= cl_image_tag event.sport.photo.key, :width => 200 %>
-        <div class="card-body">
-          <p><%= event.sport.name %> : <%= event.title %></p>
-          <p><%= event.start_time %></p>
-        </div>
-      </div>
-    <% end %>
+        <%# EVENEMENT JOIN FUTUR %>
+        <h3>Evenement auquel je VAIS participé</h3>
+      <% @futur_events_join.each do |event| %>
+            <p><%= event.sport.name %> : <%= event.title %></p>
+            <p><%= event.start_time %></p>
+      <% end %>
   </div>
-</div>
-
 

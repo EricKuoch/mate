@@ -218,10 +218,45 @@ event9 = Event.create!(
  description:"Petanque chez Bouboule ",
  location: "73 Rue de Turbigo, 75003 Paris",
  duration: 2,
- start_time: DateTime.new(2020,8,27,19),
+ start_time: DateTime.new(2020,8,16,19),
  number_of_participants: 6,
- sport:yoga)
+ sport:pétanque)
 puts "create #{event5.title}"
+
+event10 = Event.create!(
+  user: david,
+ title:"Petanque super cool",
+ description:"Petanque chez Bouboule ",
+ location: "118 Avenue Michelet, Paris",
+ duration: 2,
+ start_time: DateTime.new(2020,8,13,19),
+ number_of_participants: 6,
+ sport:pétanque)
+puts "create #{event5.title}"
+
+event11 = Event.create!(
+  user: david,
+ title:"football test",
+ description:"football le long de la seine ",
+ location: "Quai de la corse, Paris",
+ duration: 2,
+ start_time: DateTime.new(2020,8,20,19),
+ number_of_participants: 6,
+ sport:football)
+puts "create #{event5.title}"
+
+event12 = Event.create!(
+  user: david,
+ title:"Football tres chill",
+ description:"En petit comité ",
+ location: "18 rue ramponeau, Paris",
+ duration: 2,
+ start_time: DateTime.new(2020,8,21,19),
+ number_of_participants: 6,
+ sport:football)
+puts "create #{event5.title}"
+
+
 
 
 
@@ -258,5 +293,9 @@ attendee24 = Attendee.create!(user:stephane, event:event9, rating:4, review:"")
 attendee25 = Attendee.create!(user:nicolas, event:event9, rating:5, review:"")
 attendee26 = Attendee.create!(user:mina, event:event9, rating:5, review:"")
 attendee27 = Attendee.create!(user:franck, event:event9, rating:5, review:"")
+
+attendee24 = Attendee.create!(user:eric, event:event10, rating:4, review:"")
+attendee25 = Attendee.create!(user:eric, event:event11, rating:5, review:"")
+attendee26 = Attendee.create!(user:eric, event:event12, rating:5, review:"")
 
 

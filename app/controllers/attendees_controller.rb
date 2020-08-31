@@ -18,11 +18,12 @@ class AttendeesController < ApplicationController
   def update
     @attendee = Attendee.find(params[:id])
     @attendee.update(attendee_params)
+
   end
 
   private
 
   def attendee_params
-    params.require(:attendee).permit(:id)
+    params.require(:attendee).permit(:creator_rating, :creator_review)
   end
 end
