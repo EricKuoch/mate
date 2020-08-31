@@ -15,7 +15,7 @@
           <p><%= event.sport.name %> : <%= event.title %> | <%= event.start_time %></p>    
         </div>
         <% event.attendees.each do |attendee|  %>
-        <ol>
+        <% if(@user != attendee.user) %>
           <%= attendee.user.nickname %> :
             <%= simple_form_for attendee do |f| %>
               <%= f.input :creator_review %>
@@ -23,7 +23,7 @@
               <%= hidden_field_tag 'attendee', attendee.id %>
               <%= f.submit %>
             <% end %>
-        </ol>
+        <% end %>
       <% end %>
       </div>
     <% end %>

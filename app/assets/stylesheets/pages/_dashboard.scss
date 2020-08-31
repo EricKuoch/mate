@@ -50,7 +50,7 @@
 }
 
 .contenu .card .card-body p {
-    padding: 20px;
+    // padding: 20px;
 
 }
 
@@ -65,4 +65,13 @@
 .activeContenu {
     transition: opacity 0.5s ease;
     opacity: 1;
+}
+
+.card {
+    height: 150px;
+    img {
+        height: 150px;
+        width:150px;
+        object-fit: cover;
+    }
 }
