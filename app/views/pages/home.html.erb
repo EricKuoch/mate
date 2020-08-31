@@ -1,6 +1,5 @@
 <% if user_signed_in? %>
 <div class="home-all">
-
   <div class="top-home">
 
 <!--Classe (top-home) qui regroupe la map + le burger pour permettre une superposition des deux-->
@@ -12,11 +11,15 @@
       <div class="burger-strip"></div>
     </div>
 
+    <%= render 'shared/burger' %>
+
     <div id="map"
+
       style = " height:330px;
                 width:380px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+
     </div>
   </div>
 </div>
@@ -53,20 +56,6 @@
 
 </div>
   <hr>
-    <div class="down-nav-bar">
-
-      <div class="find-nav">
-       <i class="fas fa-search"></i>
-       <h4>Find</h4>
-      </div>
-
-      <div class="create-nav">
-        <%= link_to new_event_path do%>
-        <i class="fas fa-plus"></i>
-        <h4>Create</h4>
-        <%end %>
-      </div>
-    </div>
 </div>
 
 

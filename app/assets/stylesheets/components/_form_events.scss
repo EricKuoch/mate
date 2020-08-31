@@ -1,10 +1,20 @@
+.back-btn-new {
+  margin-bottom:50px;
+  margin-right:230px;
+  float:none;
+  font-size:22px;
+  color:white;
+}
+
 .sport-choices {
+
   display :flex;
   justify-content: space-evenly;
   flex-wrap : wrap;
 }
 
 .sport-choice {
+
   flex : 0 0 30%;
   background-color: grey;
   height: 116px;
@@ -18,7 +28,7 @@
     cursor: pointer;
   }
   &.square-active {
-    background: green;
+    background: #00AD68;
     color:white;
     opacity:1;
   }
@@ -55,5 +65,8 @@
 
 .event_form {
   width: auto;
+}
+.form {
+  margin-bottom:50px;
 }
 

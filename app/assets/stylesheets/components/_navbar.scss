@@ -1,0 +1,30 @@
+
+.down-nav-bar {
+  margin-top:10px;
+  width:100vw;
+  text-align:center;
+  position:fixed ;
+  bottom: 0;
+  background-color: rgb(34, 34, 34);
+  display:flex;
+  padding-bottom: 15px;
+}
+
+.down-nav-bar h4 {
+  color:white;
+
+  font-size:16px;
+
+}
+
+.find-nav {
+  float:left;
+  width:50%;
+  border-right:1px solid white;
+
+}
+
+.create-nav {
+  float:right;
+  width:50%;
+}
