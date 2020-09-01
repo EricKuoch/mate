@@ -1,4 +1,5 @@
 <% if user_signed_in? %>
+
 <div class="home-all">
   <div class="top-home">
 
@@ -31,6 +32,7 @@
   <hr>
   <div class="search-input-map">
     <%= form_tag events_path, method: :get do %>
+      <%= hidden_field_tag :start_time, Date.today %>
       <%= text_field_tag :query_location,
       params[:query],
       class: "form-control where-at",
@@ -49,13 +51,12 @@
       <h3>Saved places</h3>
   </div>
 
-  <div class="set-location">
+  <div class="set-location" id="current-location">
     <i class="far fa-compass"></i>
-    <h3>Set location on map</h3>
+    <h3>Current location</h3>
   </div>
 
 </div>
-  <hr>
 </div>
 
 

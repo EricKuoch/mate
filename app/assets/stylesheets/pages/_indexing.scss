@@ -17,7 +17,7 @@
 }
 
 .top-calendar h2 {
-  font-size:26px;
+  font-size:22px;
 }
 
 .letter_day {
@@ -27,7 +27,6 @@
 .number_day, .letter_day {
   display:flex;
   justify-content:space-between;
-  margin-right:40px;
 
   div {
     width:14%;
@@ -125,5 +124,15 @@
   padding-right:10px;
   margin-left:25px;
   font-size:18px;
+}
+
+.no-result-on-events {
+  margin-top:46px;
+  text-align:center;
+
+
+  h1 {
+    font-size:20px;
+  }
 }
 

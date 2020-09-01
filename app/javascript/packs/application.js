@@ -35,6 +35,8 @@ import { initDashboard} from '../plugins/init_dashboard';
 import { initBurger } from '../plugins/init_burger';
 import { initPopup } from '../plugins/init_popup';
 import { initModal } from '../plugins/init_modal';
+
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
@@ -48,3 +50,4 @@ document.addEventListener('turbolinks:load', () => {
   initPopup()
   initModal()
 });
+

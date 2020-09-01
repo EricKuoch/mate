@@ -14,15 +14,17 @@
 }
 
 .sport-choice {
-
-  flex : 0 0 30%;
   background-color: grey;
-  height: 116px;
-  width: 116px;
+  height: 100px;
+  width: 100px;
   margin: 10px;
   opacity: 0.4;
   border-radius: 5px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   &:hover {
     opacity: 1;
     cursor: pointer;
@@ -32,6 +34,12 @@
     color:white;
     opacity:1;
   }
+}
+
+.sport-icon {
+  height: 40px;
+  width: 40px;
+  margin-bottom: 8px;
 }
 
 .hidden-radio {

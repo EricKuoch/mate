@@ -1,88 +1,153 @@
+<!-- Configuration des dates -->
+<% today = Date.today %>
+<% day2 = Date.today + 1 %>
+<% day3 = Date.today + 2 %>
+<% day4 = Date.today + 3 %>
+<% day5 = Date.today + 4 %>
+<% day6 = Date.today + 5 %>
+<% day7 = Date.today + 6 %>
+
 <div class="container">
   <div class="back-btn-link">
     <%= link_to root_path do %>
     <i class="fas fa-chevron-left back-btn"></i>
     <%end %>
   </div>
+
   <div class="calendar">
+
     <div class="top-calendar">
-      <h4>April 7, 2020</h4>
+
       <% if params[:query_location].present? &&  params[:query_category].present?  %>
-        <h2>Today's events in <%= params[:query_location].capitalize%> for <%=params[:query_category].capitalize%></h2>
+        <h2>Events in <%= params[:query_location].capitalize%> for <%=params[:query_category].capitalize%></h2>
       <% elsif params[:query_location].present? && params[:query_category].blank? %>
-        <h2>Today's events in <%= params[:query_location].capitalize%></h2>
+        <h2>Events in <%= params[:query_location].capitalize%></h2>
       <% elsif params[:query_location].blank? && params[:query_category].present? %>
-        <h2>Today's events for <%= params[:query_category].capitalize%></h2>
+        <h2>Events for <%= params[:query_category].capitalize%></h2>
         <%end%>
     </div>
+
     <div class="end-calendar">
+
       <div class="letter_day">
-        <div id="today-green">Mon</div>
-        <div>Tue</div>
-        <div>Wed</div>
-        <div>Thu</div>
-        <div>Fri</div>
-        <div>Sat</div>
-        <div>Sun</div>
+        <%= link_to events_path(start_time: today, query_location: params[:query_location], query_category: params[:query_category]) do %>
+        <div style="color:white;"><%= today.strftime("%a")%></div>
+        <%end%>
+
+        <%= link_to events_path(start_time: day2, query_location: params[:query_location], query_category: params[:query_category]) do %>
+        <div style="color:white;"><%= day2.strftime("%a")%></div>
+        <%end%>
+
+        <%= link_to events_path(start_time: day3, query_location: params[:query_location], query_category: params[:query_category]) do %>
+        <div style="color:white;"><%= day3.strftime("%a")%></div>
+        <%end%>
+
+        <%= link_to events_path(start_time: day4, query_location: params[:query_location], query_category: params[:query_category]) do %>
+        <div style="color:white;"><%= day4.strftime("%a")%></div>
+        <%end%>
+
+        <%= link_to events_path(start_time: day5, query_location: params[:query_location], query_category: params[:query_category]) do %>
+        <div style="color:white;"><%= day5.strftime("%a")%></div>
+        <%end%>
+
+        <%= link_to events_path(start_time: day6, query_location: params[:query_location], query_category: params[:query_category]) do %>
+        <div style="color:white;"><%= day6.strftime("%a")%></div>
+        <%end%>
+
+        <%= link_to events_path(start_time: day7, query_location: params[:query_location], query_category: params[:query_category]) do %>
+        <div style="color:white;"><%= day7.strftime("%a")%></div>
+        <%end%>
       </div>
+
       <div class="number_day">
-        <div id="today-green">7</div>
-        <div>8</div>
-        <div>9</div>
-        <div>10</div>
-        <div>11</div>
-        <div>12</div>
-        <div>13</div>
+        <%= link_to events_path(start_time: today, query_location: params[:query_location], query_category: params[:query_category]) do %>
+        <div id="date-button-selection1" style="color:white;"><%= today.strftime("%d")%></div>
+        <%end%>
+
+        <%= link_to events_path(start_time: day2, query_location: params[:query_location], query_category: params[:query_category]) do %>
+        <div style="color:white;"><%= day2.strftime("%d").to_i%></div>
+        <%end %>
+
+        <%= link_to events_path(start_time: day3, query_location: params[:query_location], query_category: params[:query_category]) do %>
+        <div style="color:white;"><%= day3.strftime("%d").to_i%></div>
+        <%end %>
+
+        <%= link_to events_path(start_time: day4, query_location: params[:query_location], query_category: params[:query_category]) do %>
+        <div style="color:white;"><%= day4.strftime("%d").to_i%></div>
+        <%end %>
+
+        <%= link_to events_path(start_time: day5, query_location: params[:query_location], query_category: params[:query_category]) do %>
+        <div style="color:white;"><%= day5.strftime("%d").to_i%></div>
+        <%end %>
+
+        <%= link_to events_path(start_time: day6, query_location: params[:query_location], query_category: params[:query_category]) do %>
+        <div style="color:white;"><%= day6.strftime("%d").to_i%></div>
+        <%end%>
+
+        <%= link_to events_path(start_time: day7, query_location: params[:query_location], query_category: params[:query_category]) do %>
+        <div style="color:white;"><%= day7.strftime("%d").to_i%></div>
+        <%end%>
       </div>
+
     </div>
   </div>
 
-  <div class="results">
-  <% @filtered_events.each do |event| %>
-    <div class="result">
-      <div class="result-title">
-        <%= link_to event.title, event_path(event)%>
-      </div>
+  <% if @filtered_events.blank? %>
 
-      <div class="avatars-index">
-      <img class="d-block avatar-user1" src="https://avatars0.githubusercontent.com/u/60097128?s=64&v=4&amp;v=4" width="32" height="32">
-      <img class="d-block avatar-user2" src="https://avatars0.githubusercontent.com/u/64777708?s=460&u=7a2932075dd648657fdaa76a019c2667e5b3f160&v=4&amp;v=4" width="32" height="32">
-      <p>+<%= rand(1..8) %></p>
-      </div>
-
-      <div class ="result-description">
-        <%= event.description %>
-      </div>
-
-      <div class="events-info-index">
-
-        <div class="infow-results">
-          <i class="far fa-clock clock-result"></i>
-          <div class="right-result">
-          <p>Time</p>
-          <%="10:00 AM"%>
-          </div>
-        </div>
-
-        <div class ="infow-results">
-          <i class="far fa-hourglass hourglass-result"></i>
-          <div class="right-result">
-          <p>Duration</p>
-          <%=event.duration%>h
-          </div>
-        </div>
-
-        <div class ="infow-results">
-          <i class="fas fa-chair chair-result"></i>
-          <div class="right-result">
-          <p>Seats</p>
-          <%=(event.number_of_participants - rand(1..2))%> left
-          </div>
-          </div>
-        </div>
-      </div>
-    <%end%>
+  <div class="no-result-on-events">
+      <h1>No results for <%= params[:start_time] %></h1>
   </div>
+
+  <%else%>
+
+  <div class="results">
+
+    <% @filtered_events.each do |event| %>
+
+      <div class="result">
+
+        <div class="result-title">
+          <%= link_to event.title, event_path(event)%>
+        </div>
+
+        <div class="avatars-index">
+        <img class="d-block avatar-user1" src="https://avatars0.githubusercontent.com/u/60097128?s=64&v=4&amp;v=4" width="32" height="32">
+        <img class="d-block avatar-user2" src="https://avatars0.githubusercontent.com/u/64777708?s=460&u=7a2932075dd648657fdaa76a019c2667e5b3f160&v=4&amp;v=4" width="32" height="32">
+        <p>+<%= rand(1..8) %></p>
+        </div>
+
+        <div class ="result-description">
+        <%= event.description %>
+        </div>
+
+        <div class="events-info-index">
+
+          <div class="infow-results">
+            <i class="far fa-clock clock-result"></i>
+            <div class="right-result">
+              <p>Time</p>
+              <%="10:00 AM"%>
+            </div>
+          </div>
+
+          <div class ="infow-results">
+            <i class="far fa-hourglass hourglass-result"></i>
+              <div class="right-result">
+                <p>Duration</p>
+                <%=event.duration%>h
+              </div>
+            </div>
+
+          <div class ="infow-results">
+            <i class="fas fa-chair chair-result"></i>
+              <div class="right-result">
+                <p>Seats</p>
+                <%=(event.number_of_participants - rand(1..2))%> left
+              </div>
+            </div>
+          </div>
+        </div>
+      <%end%>
+    </div>
+  <%end%>
 </div>
-
-

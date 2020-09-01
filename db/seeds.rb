@@ -18,10 +18,11 @@ file_photo = URI.open('https://images.unsplash.com/photo-1579952363873-27f3bade9
 football = Sport.create!(name: "Football")
 football.icon.attach(io: file, filename: 'ball.png', content_type: 'image/png')
 football.photo.attach(io: file_photo, filename: 'football.png', content_type: 'image/png')
+
 puts "#{football.name} created"
 
 #petanque
-file = URI.open('https://simpleicon.com/wp-content/uploads/football.png')
+file = URI.open('http://simpleicon.com/wp-content/uploads/snooker_3.png')
 file_photo = URI.open('https://images.unsplash.com/photo-1595971649687-0901985665a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80')
 pétanque = Sport.create!(name: "pétanque")
 pétanque.icon.attach(io: file, filename: 'ball.png', content_type: 'image/png')
@@ -29,7 +30,7 @@ pétanque.photo.attach(io: file_photo, filename: 'pétanque.png', content_type: 
 puts "#{pétanque.name} created"
 
 #tennis
-file = URI.open('https://simpleicon.com/wp-content/uploads/football.png')
+file = URI.open('http://simpleicon.com/wp-content/uploads/tennis.png')
 file_photo = URI.open('https://images.unsplash.com/photo-1545809074-59472b3f5ecc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80')
 tennis = Sport.create!(name: "tennis")
 tennis.icon.attach(io: file, filename: 'ball.png', content_type: 'image/png')
@@ -37,7 +38,7 @@ tennis.photo.attach(io: file_photo, filename: 'tennis.png', content_type: 'image
 puts "#{tennis.name} created"
 
 #running
-file = URI.open('https://simpleicon.com/wp-content/uploads/football.png')
+file = URI.open('https://upload-icon.s3.us-east-2.amazonaws.com/uploads/icons/png/3073256691536052225-512.png')
 file_photo = URI.open('https://images.unsplash.com/photo-1552674605-db6ffd4facb5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80')
 running = Sport.create!(name: "running")
 running.icon.attach(io: file, filename: 'ball.png', content_type: 'image/png')
@@ -45,7 +46,7 @@ running.photo.attach(io: file_photo, filename: 'running.png', content_type: 'ima
 puts "#{running.name} created"
 
 #cycling
-file = URI.open('https://simpleicon.com/wp-content/uploads/football.png')
+file = URI.open('http://simpleicon.com/wp-content/uploads/bicycle.png')
 file_photo = URI.open('https://images.unsplash.com/photo-1541625602330-2277a4c46182?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80')
 cycling = Sport.create!(name: "cycling")
 cycling.icon.attach(io: file, filename: 'ball.png', content_type: 'image/png')
@@ -53,7 +54,7 @@ cycling.photo.attach(io: file_photo, filename: 'cycling.png', content_type: 'ima
 puts "#{cycling.name} created"
 
 #yoga
-file = URI.open('https://simpleicon.com/wp-content/uploads/football.png')
+file = URI.open('https://upload-icon.s3.us-east-2.amazonaws.com/uploads/icons/png/17048682711556887340-512.png')
 file_photo = URI.open('https://images.unsplash.com/photo-1529693662653-9d480530a697?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=889&q=80')
 yoga = Sport.create!(name: "yoga")
 yoga.icon.attach(io: file, filename: 'ball.png', content_type: 'image/png')
@@ -178,7 +179,7 @@ event5 = Event.create!(
 puts "create #{event5.title}"
 
 event6 = Event.create!(
-  user: eric,
+ user: eric,
  title:"Course à pied le long des quais",
  description:" Retrouvez moi aujourd'hui à 12h à Gaudelet pour 1h de footing, ça va être cool",
  location: "89 Quai de Valmy",
@@ -189,7 +190,7 @@ event6 = Event.create!(
 puts "create #{event5.title}"
 
 event7 = Event.create!(
-  user: eric,
+ user: eric,
  title:"Match de Foot dans Paris !",
  description:"Salut les gars, on est combien aujourd'hui ? ",
  location: "73 Rue de Turbigo, 75003 Paris",
@@ -198,6 +199,66 @@ event7 = Event.create!(
  number_of_participants: 22,
  sport:football)
 puts "create #{event5.title}"
+
+# past events
+event8 = Event.create!(
+  user: eric,
+ title:"Tournoi de tennis sur un rooftop !",
+ description:"Super evenement de petanque? ",
+ location: "73 Rue de Turbigo, 75003 Paris",
+ duration: 2,
+ start_time: DateTime.new(2020,8,29,19),
+ number_of_participants: 6,
+ sport:tennis)
+puts "create #{event5.title}"
+
+event9 = Event.create!(
+  user: eric,
+ title:"Petanque super cool",
+ description:"Petanque chez Bouboule ",
+ location: "73 Rue de Turbigo, 75003 Paris",
+ duration: 2,
+ start_time: DateTime.new(2020,8,16,19),
+ number_of_participants: 6,
+ sport:pétanque)
+puts "create #{event5.title}"
+
+event10 = Event.create!(
+  user: david,
+ title:"Petanque super cool",
+ description:"Petanque chez Bouboule ",
+ location: "118 Avenue Michelet, Paris",
+ duration: 2,
+ start_time: DateTime.new(2020,8,13,19),
+ number_of_participants: 6,
+ sport:pétanque)
+puts "create #{event5.title}"
+
+event11 = Event.create!(
+  user: david,
+ title:"football test",
+ description:"football le long de la seine ",
+ location: "Quai de la corse, Paris",
+ duration: 2,
+ start_time: DateTime.new(2020,8,20,19),
+ number_of_participants: 6,
+ sport:football)
+puts "create #{event5.title}"
+
+event12 = Event.create!(
+  user: david,
+ title:"Football tres chill",
+ description:"En petit comité ",
+ location: "18 rue ramponeau, Paris",
+ duration: 2,
+ start_time: DateTime.new(2020,8,21,19),
+ number_of_participants: 6,
+ sport:football)
+puts "create #{event5.title}"
+
+
+
+
 
 
 #ATTENDEES
@@ -222,4 +283,19 @@ attendee16 = Attendee.create!(user:nicolas, event:event1, rating:4, review:"")
 attendee17 = Attendee.create!(user:matthieu, event:event1, rating:5, review:"")
 attendee18 = Attendee.create!(user:walid, event:event1, rating:3, review:"")
 attendee19 = Attendee.create!(user:franck, event:event1, rating:2, review:"")
+
+attendee20 = Attendee.create!(user:walid, event:event8, rating:4, review:"")
+attendee21 = Attendee.create!(user:franck, event:event8, rating:5, review:"")
+attendee22 = Attendee.create!(user:matthieu, event:event8, rating:5, review:"")
+attendee23 = Attendee.create!(user:david, event:event8, rating:5, review:"")
+
+attendee24 = Attendee.create!(user:stephane, event:event9, rating:4, review:"")
+attendee25 = Attendee.create!(user:nicolas, event:event9, rating:5, review:"")
+attendee26 = Attendee.create!(user:mina, event:event9, rating:5, review:"")
+attendee27 = Attendee.create!(user:franck, event:event9, rating:5, review:"")
+
+attendee24 = Attendee.create!(user:eric, event:event10, rating:4, review:"")
+attendee25 = Attendee.create!(user:eric, event:event11, rating:5, review:"")
+attendee26 = Attendee.create!(user:eric, event:event12, rating:5, review:"")
+
 
