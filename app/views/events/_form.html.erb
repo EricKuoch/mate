@@ -3,9 +3,9 @@
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
     <div class="form">
-      <div class="back-btn-link">
+      <%# if (initForm) %>
         <i class="fas fa-chevron-left previous-btn back-btn-new"></i>
-      </div>
+      <%# end %>
       <!-- FIRST PART -->
       <div class="step first-form active">
         <fieldset class="hidden" type="hidden">
