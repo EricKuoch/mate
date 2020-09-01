@@ -33,7 +33,6 @@ const initMapbox = () => {
       const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
       const element = document.createElement('div');
       element.className = 'marker';
-      element.style.backgroundImage = `url('${marker.image_url}')`;
       element.style.backgroundSize = 'contain';
 
       new mapboxgl.Marker()

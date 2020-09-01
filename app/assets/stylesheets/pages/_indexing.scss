@@ -17,7 +17,7 @@
 }
 
 .top-calendar h2 {
-  font-size:22px;
+  font-size:20px;
 }
 
 .letter_day {
@@ -36,7 +36,7 @@
 
 .result {
   margin-top:20px;
-  background-color:rgb(28, 28, 28);
+  background-color:rgb(49, 49, 49);
   border-radius: 4px;
   color:white;
 
@@ -78,7 +78,8 @@
 }
 
 .result-title a {
-  color:white;
+  color:#00AD68;
+;
 }
 
 
@@ -130,9 +131,9 @@
   margin-top:46px;
   text-align:center;
 
-
   h1 {
-    font-size:20px;
+    font-size:18px;
+    font-weight:lighter;
   }
 }
 
