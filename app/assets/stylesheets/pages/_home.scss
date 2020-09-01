@@ -42,6 +42,7 @@ body {
 hr {
   border-top: 1px solid rgb(210,210,210);
 }
+// SEARCH
 
 .search-input-map {
   background-color:black;
@@ -49,8 +50,11 @@ hr {
   height:64px;
   width: 300px;
   margin-left:40px;
-  overflow: hidden;
+  // overflow: hidden;
   display:flex;
+  form {
+    display:flex;
+  }
 }
 
 .search-map-button {
@@ -75,6 +79,10 @@ hr {
 
 ::placeholder {
   color:white;
+}
+
+.ap-dataset-places {
+  color: black;
 }
 
 .which-sport {
