@@ -7,19 +7,15 @@
   <%= render 'shared/burger' %>
 </div>
 
-<div class="image_show-event">
+<!-- <div class="image_show-event">
   <%= cl_image_tag @event_image.key, class: "show-banner-img"%>
+</div> -->
+
+<div class="container_event_form" style="filter: blur(3px);
+background-image: url(<%= cl_image_path @event_image.key %>); height: 285px; ">
 </div>
 
-<div class="row_button">
-  <button type="button" class="btn btn-dark btn-sm" style="border-radius: 8px; background-color: black; color: white; font-weight: bold; width: 116px;height: 48px"><%= @event.sport.name.capitalize %></button>
-  <button type="button" class="btn btn-success btn-sm" style="border-radius: 8px; background-color: #00AD68; color: white; font-weight: bold; width: 117px;height: 48px"><%= @event.start_time.strftime("%a, %e %b %Y")%></button>
-</div>
-
-
-
-<div class="container_event_form">
-  <div class="event_form">
+<div class="event_form">
     <%= simple_form_for [@event] do |f| %>
       <%= f.error_notification %>
       <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -30,12 +26,12 @@
         <p style="font-style: italic; font-size: 14px; font-family: Roboto, sans-serif">Organised by: <%= @event.user.nickname %></p
         <p align="center"><strong style="color: #6B6A6A"> <%= @event.start_time.strftime("%I:%M %P")%> - <%= (@event.start_time + (@event.duration*3600)).strftime("%I:%M %P") %></strong></p>
         <p style="margin-top: -10px;"><strong style="padding-top: 10px; color: #00AD68; font-size: 14px; font-size: 14px; font-family: Roboto, sans-serif"><%= @event.location  %></strong></p>
-        <p style="margin-top: 30px;"><strong style="color:white;  font-size: 16px">Details: </strong></p>
+        <p style="margin-top: 20px;"><strong style="color:white;  font-size: 16px">Details: </strong></p>
         <p style="color: white; font-size: 14px; font-family: Roboto, sans-serif"><%= @event.description %></p>
       <% end %>
 
         <% if Attendee.find_by(event_id: @event, user_id: current_user )%>
-          <p style="margin-top: 40px;font-size: 14px; font-family: Roboto, sans-serif"><strong>For the moment, we have: <%= @event.attendees.count%>/<%= @event.number_of_participants %> participants: </strong></p>
+          <p style="margin-top: 80px;px;font-size: 14px; font-family: Roboto, sans-serif"><strong>For the moment, we have: <%= @event.attendees.count%>/<%= @event.number_of_participants %> participants: </strong></p>
         <% else %>
           <%= simple_form_for [@event, Attendee.new()] do |f| %>
             <%= f.button :submit, 'join', class: "btn btn-primary" %>
@@ -47,9 +43,13 @@
         <p><strong style="color: #C3C3C3; font-size: 14px; font-family: Roboto, sans-serif""><%= attendee.user.nickname %></strong></p>
         <% end %>
   </div>
+
+
+
+<div class="row_button ">
+  <span class="badge badge-dark align-middle" style="border-radius: 8px; background-color: black; color: white; font-weight: bold; width: 117px;height: 48px"><%= @event.sport.name.capitalize %></span>
+  <span class="badge badge-success" style="border-radius: 8px; background-color: #00AD68; color: white; font-weight: bold; width: 117px;height: 48px"><%= @event.start_time.strftime("%a, %e %b %Y")%></span>
 </div>
-
-
 
 
 

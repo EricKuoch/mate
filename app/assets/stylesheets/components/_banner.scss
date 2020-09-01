@@ -8,13 +8,18 @@
 
 .show-banner-img {
   // position: absolute;
-  bottom: 390px;
+  // bottom: 390px;
+  height: 265px;
   width: 100%;
-  border-radius: 0px 0px -10px -10px;
+  filter: blur(5px);
+
+
 }
 
 .event_form {
   padding: 50px;
-  margin-top: -60px;
+  margin-top: -289px;
+  position:relative;
+
 }
 

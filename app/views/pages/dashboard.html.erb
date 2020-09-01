@@ -13,7 +13,8 @@
 <div class="container">
 
    <div class="container-onglets">
-      <div class="onglets active-onglet" data-anime="1">Your past events</div>
+      <div class="onglets active-onglet" data-anime="1">
+      Your past events</div>
       <div class="onglets"data-anime="2">Incoming events </div>
     </div>
 
@@ -48,10 +49,14 @@
                   <div class="attendees-name">
                    <p><strong><%= attendee.user.nickname %> : </strong>  </p>
                   </div>
-                      <%= simple_form_for attendee do |f| %>
+                      <%= simple_form_for attendee, remote:true do |f| %>
                       <%= f.input :creator_review, label:"You can leave a review to #{attendee.user.nickname}", class: "input" %>
                         <%= f.input :creator_rating, label:"Give #{attendee.user.nickname} a rating !", collection: 1..5 %>
-                        <%= f.button :submit, 'Let him know', class: 'btn-let-him_know'%>
+                        <% if attendee.creator_review.nil? %>
+                          <%= f.button :submit, 'Let him know', class: 'btn-let-him_know'%>
+                        <% else %>
+                          <button> Thanks for reviewing</button>
+                        <% end %>
                       <% end %>
                   <% end %>
                 <% end %>
@@ -104,22 +109,31 @@
 
   <div class="contenu" data-anime="2">
       <%# EVENEMENT JOIN PAST %>
-      <h3> Incoming events </h3>
+      <h3> Events you created </h3>
       <% @futur_events_create.each do |event| %>
         <div class="card-product">
-          <div class="card-product-infos">
-            <p> <%= event.start_time.strftime("%d-%m-%Y") %> </p>
-            <p><%= event.sport.name %> : <%= event.title %> | </p>
+          <div class="card-info-events">
+            <div class="icon-container">
+              <h6> <%= event.start_time.strftime("%d-%m-%Y") %> </h6>
+              <%= image_tag event.sport.icon, class:"sport-icon" %>
+            </div>
+
+            <h5><%= event.title %> | </h5>
             <p><strong>For the moment, we have: <%= event.attendees.size%>/<%= event.number_of_participants %> participants: </strong></p>
           </div>
         </div>
       <% end %>
 
-        <%# EVENEMENT JOIN FUTUR %>
-        <h3>Evenement auquel je VAIS participé</h3>
+      <h3>Events you joined</h3>
       <% @futur_events_join.each do |event| %>
-            <p><%= event.sport.name %> : <%= event.title %></p>
-            <p><%= event.start_time %></p>
+        <div class="card-product">
+          <div class="card-info-events">
+            <h6> <%= event.start_time.strftime("%d-%m-%Y") %><small>(<%= event.sport.name %>) </small> </h6>
+            <h5><%= event.title %> | </h5>
+            <p><strong>For the moment, we have: <%= event.attendees.size%>/<%= event.number_of_participants %> participants: </strong></p>
+
+          </div>
+        </div>
       <% end %>
   </div>
 

@@ -64,6 +64,7 @@
 
 #event_duration {
   width: 100px;
+  margin-left: 10px;
 }
 
 .event_duration {
@@ -101,4 +102,11 @@
   position: relative;
   flex-grow: 1;
   margin-top: 35px;
+}
+.label-duration {
+  margin-bottom : 0px;
+}
+
+.form-control.input-step2 {
+  border-radius: 6px;
 }

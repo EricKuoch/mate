@@ -23,7 +23,7 @@
   </div>
 
   <div class="profile-description">
-    <h5> @<strong><%= @user.nickname.capitalize %></strong> <div class="popup"> (✭<%= @average_rating.round(2)%>)
+    <h5> @<strong><%= @user.nickname.capitalize %></strong> <div class="popup"> (✭<%#= @average_rating.round(2)%>)
      <span class="popuptext" id="myPopup">Your events ratings</span>
     </div> </h5>
     <p> <%= @user.description %></p>
@@ -50,7 +50,7 @@
           <div id="myModal" class="modal">
             <%= event.title %>
             <% event.attendees.each do |attendee| %>
-              <p> <%= attendee.user.nickname %> <span><%= "⭐" * attendee.rating + "☆"* (5-attendee.rating)%></span>(<%= attendee.rating %>) </p>
+              <p> <%= attendee.user.nickname %> <span><%#= "⭐" * attendee.rating + "☆"* (5-attendee.rating)%></span>(<%#= attendee.rating %>) </p>
               <p> <%= attendee.review %></p>
             <% end %>
           </div>
