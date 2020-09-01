@@ -34,6 +34,7 @@
         <%= f.input :location, label: "Where will you train ?", input_html: {class: "input-step2"}%>
         <%= f.input :start_time, as: :string, label: "Let's meet at:", required: false, input_html: {class: "datepicker input-step2"} %>
         <%= f.input :duration, label: "How long (hours) ?", collection: 1..5, label_html:{class: "label-duration"}, input_html: {class: "input-step2"}%>
+
         <a class="btn btn-step2 btn-next-disable next-btn" type="button">Next</a>
       </div>
 
