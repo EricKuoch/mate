@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   resources :events, only: [:index, :create, :show, :new, :update] do
     resources :attendees, only: [:create]
   end
-  resources :attendees, only: [:edit, :update]
+  resources :attendees, only: [:edit, :update] do
+    member do
+      get :accepted
+      get :declined
+    end
+  end
   resources :users, only: [:show]
   get "/dashboard", to: "pages#dashboard"
   get "/dashboard/created", to: "pages#events_created"

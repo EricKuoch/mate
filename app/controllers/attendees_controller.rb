@@ -20,6 +20,19 @@ class AttendeesController < ApplicationController
     @attendee.update(attendee_params)
   end
 
+  def accepted
+    @attendee = Attendee.find(params[:id])
+    @attendee.status = "accepted"
+    @attendee.save
+    redirect_to event_path(@attendee.event)
+  end
+
+  def declined
+    @attendee = Attendee.find(params[:id])
+    @attendee.status = "declined"
+    @attendee.save
+  end
+
   private
 
   def attendee_params

@@ -86,3 +86,35 @@
       margin-left: 115px;
       margin-top: 20px;
 }
+
+.card-request{
+  display:flex;
+}
+
+.card-request-profile p {
+ font-size: 11px;
+}
+
+// .collection-radio-btn {
+//   input {
+//     display:none;
+//   }
+//   input:checked + label {
+//     color:red;
+//   }
+// }
+
+.declined .fa-times {
+ border: 1px solid red;
+color: red;
+padding: 15px;
+border-radius: 50%;
+margin-left: 85px;
+margin-bottom: 4px;
+}
+.accepted .fa-check {
+ border: 1px solid #00AD68;
+color: #00AD68;
+padding: 15px;
+border-radius: 50%;
+}
