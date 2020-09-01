@@ -28,7 +28,6 @@
   <div class="intro">
     <h3>Good afternoon, <%= current_user.nickname.capitalize %></h3>
   </div>
-
   <hr>
   <div class="search-input-map">
     <%= form_tag events_path, method: :get do %>
@@ -41,7 +40,7 @@
       params[:query],
       class: "form-control which-sport",
       placeholder: "Which sport ?"%>
-      <%= submit_tag "", class: "btn btn-primary search-map-button" %>
+      <%= submit_tag "", class: "d-none btn btn-primary search-map-button" %>
     <%end%>
   </div>
 
