@@ -12,7 +12,15 @@
 }
 
 .row_button {
-  padding: 50px;
+  padding: 34px;
   display: flex;
   justify-content: space-between;
+}
+
+.container_event_form {
+  filter: blur(1px);
+  padding-top: 65px;
+  background-position:relative;
+  opacity: 0.5;
+  height: 307px;
 }
