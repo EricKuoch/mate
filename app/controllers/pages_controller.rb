@@ -7,7 +7,9 @@ class PagesController < ApplicationController
       {
         lat: event.latitude,
         lng: event.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { event: event })
+        infoWindow: render_to_string(partial: "info_window", locals: { event: event }),
+        image_url: helpers.asset_url("#{event.sport.name.downcase}.png")
+
       }
     end
   end

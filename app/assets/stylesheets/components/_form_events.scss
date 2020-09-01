@@ -79,6 +79,30 @@
   margin-bottom:50px;
 }
 
+.navbar-form {
+  position: relative;
+  width: 100%;
+  .back-btn-link {
+    position: absolute;
+    top: 1.7em;
+    left: 2em;
+  }
+  .navbar {
+    justify-content: center;
+  }
+  .navbar-brand {
+    margin-right: 0!important;
+    img {
+      margin-left: 0!important;
+    }
+  }
+}
+
+.form-inputs {
+  position: relative;
+  flex-grow: 1;
+  margin-top: 35px;
+}
 .label-duration {
   margin-bottom : 0px;
 }

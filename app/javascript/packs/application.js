@@ -42,6 +42,7 @@ import { initSlider } from "../plugins/init_slider";
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+
   initForm()
   if(document.querySelector('.form .step.active')){
     changeStep()

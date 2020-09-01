@@ -1,6 +1,12 @@
-  <div class="container content-center">
+  <div class="container content-center" style="flex-direction: column;">
       <!-- <h1>Unlock passive income with your animal</h1>
       <p>Tell us a little about your animal</p> -->
+    <div class="navbar-form">
+      <%= render 'shared/navbar_mate' %>
+      <div class="back-btn-link">
+        <i class="fas fa-chevron-left previous-btn back-btn-new d-none" ></i>
+      </div>
+    </div>
       <div class="form-inputs">
         <%= render 'form', event: @event %>
       </div>

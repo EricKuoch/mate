@@ -73,7 +73,7 @@ eric.avatar.attach(io:file_avatar, filename:'eric.png', content_type:'image/png'
 david = User.create!(nickname:"Davido",
  email:"david@gmail.com",
  password: 123456,
- average_rating: 2,
+ average_rating: 4.3,
  description: "🧘 Pratiquant de Yoga en salle ou en nature.")
 
 file_avatar1 = URI.open("https://lh3.googleusercontent.com/pw/ACtC-3eAH0ngA1qx3P2vSOMTO1XCStLg8uskEDuLjf9_dCKov17hMk-8l0Cka9KW8p9fuyttmYAUXd9lQryDMy9cK4CTR3-FPLh1m-eJF-k7CBRkZRxzDqIz13TloKGMkml01IR6GYWjtR5wRZQ8Bj7gJQat=w1234-h821-no?authuser=0")
@@ -87,19 +87,19 @@ franck.avatar.attach(io:file_avatar1, filename:'franck.png', content_type:'image
 walid = User.create!(nickname:"Walidos",
  email:"walid@gmail.com",
  password: 123456,
- average_rating: 4,
+ average_rating: 4.5,
  description: "Recherche à me stimuler intellectuellement à travers le Yoga")
 
 zac = User.create!(nickname:"Zachy",
  email:"zac@gmail.com",
  password: 123456,
- average_rating: 3,
+ average_rating: 5,
  description: "J'adore le foot, cherche à toucher un peu le ballon le weekend")
 
 stephane = User.create!(nickname:"Steph",
  email:"stephane@gmail.com",
  password: 123456,
- average_rating: 1,
+ average_rating: 1.6,
  description: "Fan de Tennis, joueur de Normandie")
 
 nicolas = User.create!(nickname:"Nico",

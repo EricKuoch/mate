@@ -66,6 +66,9 @@ const changeStep = () => {
   nextBtn.forEach((button) =>{
     button.addEventListener('click', (e) => {
       stepIndex('next');
+      prevBtn.forEach((btn) =>{
+        btn.classList.remove('d-none')
+      })
     })
   })
 
