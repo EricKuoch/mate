@@ -22,7 +22,7 @@ body {
   left: 40px;
   width:40px;
   height:40px;
-  background-color:black;
+  background-color:white;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -33,8 +33,8 @@ body {
 .burger-strip {
   width: 20px;
   height: 4px;
-  border-radius:1px;
-  background-color: white;
+  border-radius:14%;
+  background-color: black;
   margin: 4px 0;
 }
 
@@ -141,6 +141,17 @@ hr {
     justify-content: center;
     margin-top: 35px;
     font-weight: bold;
+}
+
+.btn-sign_up {
+  width:130px;
+  text-decoration:none;
+  color:white;
+}
+.btn-log_in {
+  width:130px;
+  text-decoration:none;
+  color:white;
 }
 
 
