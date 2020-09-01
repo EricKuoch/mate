@@ -35,7 +35,7 @@ import { initBurger } from '../plugins/init_burger';
 import { initPopup } from '../plugins/init_popup';
 import { initModal } from '../plugins/init_modal';
 import { datepicker} from "../plugins/flatpickr";
-
+import { initAutocomplete } from "../plugins/init_autocomplete";
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -51,5 +51,6 @@ document.addEventListener('turbolinks:load', () => {
   initPopup()
   initModal()
   datepicker()
+  initAutocomplete()
 });
 
