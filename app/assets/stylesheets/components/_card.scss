@@ -31,4 +31,28 @@
 
 .card-info-events {
   margin-left: 20px;
+  h6 {
+   line-height: 0.9;
+  }
+  p {
+    color:#00AD68;
+  }
 }
+
+.card-product-event {
+  overflow: hidden;
+  height: 120px;
+  background: #313131;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  align-items: center;
+  margin :5px;
+  padding: 30px;
+}
+.card-request{
+  display: flex;
+  justify-content: space-between;
+  p{
+    line-height: 20px;
+  }
+}
+
