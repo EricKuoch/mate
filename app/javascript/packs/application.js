@@ -24,7 +24,6 @@ require("channels")
 
 // External imports
 import "bootstrap";
-import "../plugins/flatpickr"
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -35,6 +34,8 @@ import { initDashboard} from '../plugins/init_dashboard';
 import { initBurger } from '../plugins/init_burger';
 import { initPopup } from '../plugins/init_popup';
 import { initModal } from '../plugins/init_modal';
+import { datepicker} from "../plugins/flatpickr";
+
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -49,5 +50,6 @@ document.addEventListener('turbolinks:load', () => {
   initBurger()
   initPopup()
   initModal()
+  datepicker()
 });
 
