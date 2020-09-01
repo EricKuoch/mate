@@ -46,9 +46,8 @@ const secondForm = () => {
 
 const thirdForm = () => {
   const btnNextDisable = document.querySelector(".btn-step3");
-  const inputNumberParticipants = document.querySelector("#event_number_of_participants") //input
-  inputNumberParticipants.addEventListener("keyup", (event) => {
-    console.log(btnNextDisable)
+  const inputNumberParticipants = document.querySelector(".custom-range") //input
+  inputNumberParticipants.addEventListener("change", (event) => {
     if (inputNumberParticipants.value !== "") {
       btnNextDisable.classList.add("btn-active")
     }

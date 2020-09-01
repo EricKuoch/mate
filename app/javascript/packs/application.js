@@ -36,6 +36,7 @@ import { initPopup } from '../plugins/init_popup';
 import { initModal } from '../plugins/init_modal';
 import { datepicker} from "../plugins/flatpickr";
 import { initAutocomplete } from "../plugins/init_autocomplete";
+import { initSlider } from "../plugins/init_slider";
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -46,12 +47,13 @@ document.addEventListener('turbolinks:load', () => {
   if(document.querySelector('.form .step.active')){
     changeStep()
   }
-  initMapbox()
-  initDashboard()
-  initBurger()
-  initPopup()
-  initModal()
-  datepicker()
-  initAutocomplete()
+  initMapbox();
+  initDashboard();
+  initBurger();
+  initPopup();
+  initModal();
+  datepicker();
+  initAutocomplete();
+  initSlider();
 });
 
