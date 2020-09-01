@@ -34,7 +34,7 @@ const initMapbox = () => {
       const element = document.createElement('div');
       element.className = 'marker';
       element.style.backgroundImage = `url('${marker.image_url}')`;
-      element.style.backgroundColor = 'white';
+      element.style.backgroundColor = 'black';
       element.style.backgroundPosition = 'center';
       element.style.backgroundRepeat = 'no-repeat';
       element.style.backgroundSize = '20px';
