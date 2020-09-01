@@ -33,13 +33,22 @@ const initMapbox = () => {
       const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
       const element = document.createElement('div');
       element.className = 'marker';
-      element.style.backgroundSize = 'contain';
+      element.style.backgroundImage = `url('${marker.image_url}')`;
+      element.style.backgroundColor = 'black';
+      element.style.backgroundPosition = 'center';
+      element.style.backgroundRepeat = 'no-repeat';
+      element.style.backgroundSize = '20px';
+      element.style.width = '30px';
+      element.style.height = '30px';
 
-      new mapboxgl.Marker()
+
+
+      new mapboxgl.Marker(element)
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(map);
       fitMapToMarkers(map, markers);
+
     });
   }
 };

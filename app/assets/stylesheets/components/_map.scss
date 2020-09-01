@@ -19,3 +19,11 @@ a.mapboxgl-ctrl-logo {
   margin-top:35px;
   margin-right:30px;
 }
+
+.marker {
+  display: block;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+}
