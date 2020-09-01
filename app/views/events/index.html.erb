@@ -19,11 +19,11 @@
     <div class="top-calendar">
 
       <% if params[:query_location].present? &&  params[:query_category].present?  %>
-        <h2>Events in <%= params[:query_location].capitalize%> for <%=params[:query_category].capitalize%></h2>
+        <h2>Incoming events in <%= params[:query_location].capitalize%> for <%=params[:query_category]%></h2>
       <% elsif params[:query_location].present? && params[:query_category].blank? %>
-        <h2>Events in <%= params[:query_location].capitalize%></h2>
+        <h2>Incoming events in <%= params[:query_location].capitalize%></h2>
       <% elsif params[:query_location].blank? && params[:query_category].present? %>
-        <h2>Events for <%= params[:query_category].capitalize%></h2>
+        <h2>Incoming events for <%= params[:query_category]%></h2>
         <%end%>
     </div>
 
