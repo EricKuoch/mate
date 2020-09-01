@@ -17,19 +17,20 @@
 
    <div class="container-onglets">
       <div class="onglets active-onglet" data-anime="1">
-      Your past events</div>
-      <div class="onglets"data-anime="2">Incoming events </div>
+      <p> Past events </p></div>
+      <div class="onglets"data-anime="2"><p>Incoming events  </p> </div>
+      <div class="onglets"data-anime="3"> <p>Requests(0) </p> </div>
     </div>
 
   <div class="contenu activeContenu" data-anime="1">
-    <h3>Events you created</h3>
+    <h5>Events you created</h5>
     <% @past_events_create.each do |event| %>
       <div class="card-product">
         <div class="card-info-events">
-          <h6><%= event.start_time.strftime("%d-%m-%y") %> <small>(<%= event.sport.name %>) </small> </h6>
-          <h5> <%= event.title %>  </h5>
+          <h6> <small><%= event.start_time.strftime("%d-%m-%y") %> (<%= event.sport.name %>) </small> </h6>
+          <h6> <%= event.title %>  </h6>
           <button type="button" class="btn-feedback" data-toggle="modal" data-target="#exampleModalLong<%= event.id %>">
-            Rate the attendees
+            <i class="far fa-star"></i> Rate the attendees
           </button>
         </div>
       </div>
@@ -69,14 +70,15 @@
       </div>
     <% end %>
 
-    <h3>Events you joined</h3>
+
+    <h5>Events you joined</h5>
     <% @past_events_join.each do |event| %>
       <div class="card-product">
         <div class="card-info-events">
-          <h6><%= event.start_time.strftime("%d-%m-%Y") %> <small>(<%= event.sport.name %>) </small> </h6>
-          <h5><%= event.title %> </h5>
+          <h6><small><%= event.start_time.strftime("%d-%m-%Y") %> (<%= event.sport.name %>) </small> </h6>
+          <h6><%= event.title %> </h6>
           <button type="button" class="btn-feedback-event" data-toggle="modal" data-target="#exampleModalLong<%= event.id %>">
-            Rate the event
+            <i class="far fa-star"></i> Rate the event
           </button>
         </div>
       </div>
@@ -112,32 +114,44 @@
 
   <div class="contenu" data-anime="2">
       <%# EVENEMENT JOIN PAST %>
-      <h3> Events you created </h3>
+      <h5> Events you created </h5>
       <% @futur_events_create.each do |event| %>
         <div class="card-product">
           <div class="card-info-events">
             <div class="icon-container">
-              <h6> <%= event.start_time.strftime("%d-%m-%Y") %> </h6>
-              <%= image_tag event.sport.icon, class:"sport-icon" %>
+              <h6><small><%= event.start_time.strftime("%d-%m-%Y") %> (<%= event.sport.name %>) </small> </h6>
+              <h6><%= event.title %> </h6>
             </div>
-
-            <h5><%= event.title %> | </h5>
-            <p><strong>For the moment, we have: <%= event.attendees.size%>/<%= event.number_of_participants %> participants: </strong></p>
+            <p><strong> <%=(event.number_of_participants - event.attendees.size) %> participants is missed </strong></p>
           </div>
         </div>
       <% end %>
 
-      <h3>Events you joined</h3>
+      <h5>Events you joined</h5>
       <% @futur_events_join.each do |event| %>
         <div class="card-product">
           <div class="card-info-events">
-            <h6> <%= event.start_time.strftime("%d-%m-%Y") %><small>(<%= event.sport.name %>) </small> </h6>
-            <h5><%= event.title %> | </h5>
-            <p><strong>For the moment, we have: <%= event.attendees.size%>/<%= event.number_of_participants %> participants: </strong></p>
-
+           <h6><small><%= event.start_time.strftime("%d-%m-%Y") %> (<%= event.sport.name %>) </small> </h6>
+            <h6><%= event.title %> </h6>
+            <p><strong><%=(event.number_of_participants - event.attendees.size) %> participants is missed </strong></p>
           </div>
         </div>
       <% end %>
+  </div>
+<!-- REQUESTS -->
+
+  <div class="contenu" data-anime="3">
+    <% @futur_events_create.each do |event| %>
+        <% event.attendees.each do |attendee| %>
+      <div class="card-product">
+          <%= attendee.user.nickname %>
+          <%= simple_form_for attendee do |f| %>
+            <%= f.collection_radio_buttons :status, [['accept', 'accepted'] ,['reject', 'rejected']], :first, :last %>
+          <% end %>
+        <%= event.title %>
+      </div>
+        <% end %>
+    <% end %>
   </div>
 
 </div>

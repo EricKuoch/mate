@@ -2,7 +2,7 @@ class AttendeesController < ApplicationController
   def create
    @event = Event.find(params[:event_id])
     # recuperer event_id
-   @attendee = Attendee.new(event_id: params[:event_id])
+   @attendee = Attendee.new(event_id: params[:event_id], status:"pending")
    # recuperer user_id
    @attendee.user = current_user
     if @event.attendees.size < @event.number_of_participants
@@ -18,12 +18,11 @@ class AttendeesController < ApplicationController
   def update
     @attendee = Attendee.find(params[:id])
     @attendee.update(attendee_params)
-
   end
 
   private
 
   def attendee_params
-    params.require(:attendee).permit(:creator_rating, :creator_review)
+    params.require(:attendee).permit(:creator_rating, :creator_review, :status)
   end
 end

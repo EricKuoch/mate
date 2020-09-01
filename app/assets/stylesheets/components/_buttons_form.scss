@@ -105,24 +105,32 @@
 
  .btn-feedback {
   color: white;
-    font-weight: bold;
     font-size: 14px;
     background-color: #00AD68;
     border-width: 0px;
     border-radius: 22px;
     padding: 6px 20px;
-        margin-left: 60px;
+    margin-top: 4px;
+  .far {
+    float:none;
+    padding-right: 0px;
+  }
 }
 
 .btn-feedback-event {
-    color: white;
-    font-weight: bold;
+ color: white;
     font-size: 14px;
     background-color: #00AD68;
     border-width: 0px;
     border-radius: 22px;
     padding: 6px 20px;
-    margin-left: 70px;
+    margin-top: 4px;
+  .far {
+    float:none;
+    padding-right: 0px;
+  }
+
+
 }
 .btn-let-him_know {
     color: white;
