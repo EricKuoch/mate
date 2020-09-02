@@ -24,7 +24,7 @@ background-image: url(<%= cl_image_path @event_image.key %>); height: 285px; ">
       <p align="center"><strong style="color: #C3C3C3; font-size: 30px;"><%= @event.start_time.strftime("%a, %e %b %Y")%></strong></p>
     </div> -->
       <h2><strong style="color: white"><%= @event.title %></strong></h2>
-        <p style="font-style: italic; font-size: 14px; font-family: Roboto, sans-serif">Organised by: <%= @event.user.nickname %></p
+        <p style="font-style: italic; font-size: 14px; font-family: Roboto, sans-serif">Organised by: <%= @event.user.nickname.capitalize %></p
         <p align="center"><strong style="color: #6B6A6A"> <%= @event.start_time.strftime("%I:%M %P")%> - <%= (@event.start_time + (@event.duration*3600)).strftime("%I:%M %P") %></strong></p>
         <p style="margin-top: -10px;"><strong style="padding-top: 10px; color: #00AD68; font-size: 14px; font-size: 14px; font-family: Roboto, sans-serif"><%= @event.location  %></strong></p>
 </div>
