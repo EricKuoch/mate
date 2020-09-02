@@ -1,6 +1,5 @@
 <!-- NAVBAR -->
 
-<%= render 'shared/navbar_mate' %>
   <div class="menu-burger">
     <div class="burger-strip"></div>
     <div class="burger-strip"></div>
@@ -9,13 +8,15 @@
 </div>
 
 <%= render 'shared/burger' %>
+<%= render 'shared/navbar_mate' %>
+
 
 <div class="container">
 
    <div class="container-onglets">
       <div class="onglets active-onglet" data-anime="1">
       <p> Past events </p></div>
-      <div class="onglets"data-anime="2"><p>Incoming events  </p> </div>
+      <div class="onglets"data-anime="2"><p>Incoming events</p> </div>
       <div class="onglets"data-anime="3"> <p>Requests </div>
     </div>
 
@@ -72,7 +73,7 @@
     <% @past_events_join.each do |event| %>
       <div class="card-product">
         <div class="card-info-events">
-          <h6><small><%= event.start_time.strftime("%d-%m-%Y") %> (<%= event.sport.name %>) </small> </h6>
+          <h6><small><%= event.start_time.strftime("%d-%m-%Y") %> (<%= event.sport.name %>) by <%= event.user.nickname %></small> </h6>
           <h6><%= event.title %> </h6>
           <button type="button" class="btn-feedback-event" data-toggle="modal" data-target="#exampleModalLong<%= event.id %>">
             <i class="far fa-star"></i> Rate the event
@@ -140,28 +141,34 @@
   <div class="contenu" data-anime="3">
     <% @futur_events_create.each do |event| %>
       <% event.attendees.each do |attendee| %>
-        <div class="card-product-event">
-          <div class="avatar-card">
-            <%= cl_image_tag attendee.user.avatar.key%>
+        <% if attendee.status == 'pending' %>
+          <div class="card-product-event">
+            <div class="avatar-request">
+              <div class="avatar-card">
+                <%= cl_image_tag attendee.user.avatar.key%>
+              </div>
+              <div class="card-request">
+                <div class="card-request-profile">
+                  <%= attendee.user.nickname %> <br>
+                  <p> <%= "⭐" * attendee.user.average_rating + "☆"* (5-attendee.user.average_rating)%></span> (<%= attendee.user.average_rating %>/5) </p>
+                </div>
+                <div class="declined">
+                  <%= link_to declined_attendee_path(attendee) do  %>
+                    <i class="fas fa-times"></i>
+                  <% end %>
+                </div>
+                <div class="accepted">
+                  <%= link_to accepted_attendee_path(attendee) do %>
+                    <i class="fas fa-check"></i>
+                  <% end %>
+                </div>
+            </div>
+            </div>
+            <div class="card-title-event">
+              <strong> <p><%= event.title %> </p> </strong>
+            </div>
           </div>
-          <div class="card-request">
-            <div class="card-request-profile">
-              <%= attendee.user.nickname %> <br>
-              <p> <%= "⭐" * attendee.user.average_rating + "☆"* (5-attendee.user.average_rating)%></span> (<%= attendee.user.average_rating %>/5) </p>
-            </div>
-            <div class="declined">
-              <%= link_to declined_attendee_path(attendee) do  %>
-                <i class="fas fa-times"></i>
-              <% end %>
-            </div>
-            <div class="accepted">
-              <%= link_to accepted_attendee_path(attendee) do %>
-                <i class="fas fa-check"></i>
-              <% end %>
-            </div>
-          </div>
-          <strong> <p><%= event.title %> </p> </strong>
-        </div>
+        <% end %>
       <% end %>
     <% end %>
   </div>

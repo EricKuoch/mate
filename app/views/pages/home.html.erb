@@ -1,31 +1,31 @@
 <% if user_signed_in? %>
 
-<div class="home-all">
-  <div class="top-home">
+  <div class="home-all">
+    <div class="top-home">
 
-<!--Classe (top-home) qui regroupe la map + le burger pour permettre une superposition des deux-->
+  <!--Classe (top-home) qui regroupe la map + le burger pour permettre une superposition des deux-->
 
-  <div class="menu">
-    <div class="menu-burger">
-      <div class="burger-striper">
-        <div class="burger-strip"></div>
-        <div class="burger-strip"></div>
-        <div class="burger-strip"></div>
+    <div class="menu">
+      <div class="menu-burger">
+        <div class="burger-striper">
+          <div class="burger-strip"></div>
+          <div class="burger-strip"></div>
+          <div class="burger-strip"></div>
+        </div>
+      </div>
+
+      <%= render 'shared/burger' %>
+
+      <div id="map"
+
+        style = " height:400px;
+                  width:380px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+
       </div>
     </div>
-
-    <%= render 'shared/burger' %>
-
-    <div id="map"
-
-      style = " height:400px;
-                width:380px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-
-    </div>
   </div>
-</div>
 
 
 
@@ -44,14 +44,9 @@
       params[:query],
       class: "form-control which-sport",
       placeholder: "Which sport ?"%>
-      <%= submit_tag "", class: "d-none btn btn-primary search-map-button" %>
+      <%= submit_tag "Go", class: "btn search-map-button"%>
     <%end%>
   </div>
-
-
-
-</div>
-
 
 <%else%>
 

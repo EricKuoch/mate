@@ -15,7 +15,7 @@ User.destroy_all
 #football
 file = URI.open('https://simpleicon.com/wp-content/uploads/football.png')
 file_photo = URI.open('https://images.unsplash.com/photo-1579952363873-27f3bade9f55?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')
-football = Sport.create!(name: "Football")
+football = Sport.create!(name: "football")
 football.icon.attach(io: file, filename: 'ball.png', content_type: 'image/png')
 football.photo.attach(io: file_photo, filename: 'football.png', content_type: 'image/png')
 
@@ -69,7 +69,7 @@ eric = User.create!(nickname:"rico",
  password: 123456,
  description:"Joueur amateur de Pétanque🎳")
 eric.avatar.attach(io:file_avatar, filename:'eric.png', content_type:'image/png')
-
+eric.save!
 
 file_avatar1 = URI.open("https://lh3.googleusercontent.com/pw/ACtC-3eAH0ngA1qx3P2vSOMTO1XCStLg8uskEDuLjf9_dCKov17hMk-8l0Cka9KW8p9fuyttmYAUXd9lQryDMy9cK4CTR3-FPLh1m-eJF-k7CBRkZRxzDqIz13TloKGMkml01IR6GYWjtR5wRZQ8Bj7gJQat=w1234-h821-no?authuser=0")
 franck = User.create!(nickname:"Francky",
@@ -308,30 +308,30 @@ attendee3 = Attendee.create!(user:franck, event:event3, rating:3, review:"Pas ma
 attendee4 = Attendee.create!(user:walid, event:event5, rating:4, review:"Physiquement c'était top, j'ai pu codé l'esprit tranquille toute la semaine grâce à ce cours de Yoga" )
 attendee6 = Attendee.create!(user:mina, event:event3, rating:2, review:"Evenement complètement nul, on s'est perdu pendant 2 heures...")
 
-attendee5 = Attendee.create!(user:zac, event:event7, rating:4, review:"Au top les mecs !")
-attendee7 = Attendee.create!(user:nicolas, event:event7, rating:4, review:"C'était super dommage qu'on ai perdu")
-attendee8 = Attendee.create!(user:mathieu, event:event7, rating:5, review:"Genial !")
-attendee9 = Attendee.create!(user:walid, event:event7, rating:3, review:"Assez cool")
-attendee11 = Attendee.create!(user:franck, event:event7, rating:2, review:"Que des bras cassés dans mon équipe ! C'etait naze")
+attendee5 = Attendee.create!(user:zac, event:event7, rating:4)
+attendee7 = Attendee.create!(user:nicolas, event:event7, rating:4)
+attendee8 = Attendee.create!(user:mathieu, event:event7, rating:5)
+attendee9 = Attendee.create!(user:walid, event:event7, rating:3)
+attendee11 = Attendee.create!(user:franck, event:event7, rating:2)
 
-attendee15 = Attendee.create!(user:zac, event:event1, rating:4, review:"")
-attendee16 = Attendee.create!(user:nicolas, event:event1, rating:4, review:"")
-attendee17 = Attendee.create!(user:mathieu, event:event1, rating:5, review:"")
-attendee18 = Attendee.create!(user:walid, event:event1, rating:3, review:"")
-attendee19 = Attendee.create!(user:franck, event:event1, rating:2, review:"")
+attendee15 = Attendee.create!(user:zac, event:event1, rating:4, review:"Super j'ai adoré")
+attendee16 = Attendee.create!(user:nicolas, event:event1, rating:4, review:"Je me suis fait de nouveaux potes")
+attendee17 = Attendee.create!(user:mathieu, event:event1, rating:5, review:"Genial a refaire")
+attendee18 = Attendee.create!(user:walid, event:event1, rating:3, review:"Super")
+attendee19 = Attendee.create!(user:franck, event:event1, rating:2, review:"Tres cool")
 
-attendee20 = Attendee.create!(user:walid, event:event8, rating:4, review:"")
-attendee21 = Attendee.create!(user:franck, event:event8, rating:5, review:"")
-attendee22 = Attendee.create!(user:mathieu, event:event8, rating:5, review:"")
-attendee23 = Attendee.create!(user:david, event:event8, rating:5, review:"")
+attendee20 = Attendee.create!(user:walid, event:event8, rating:4, review:"Super")
+attendee21 = Attendee.create!(user:franck, event:event8, rating:5, review:"Genial")
+attendee22 = Attendee.create!(user:mathieu, event:event8, rating:5, review:"Cool event")
+attendee23 = Attendee.create!(user:david, event:event8, rating:5, review:"A refaire")
 
-attendee24 = Attendee.create!(user:stephane, event:event9, rating:4, review:"")
-attendee25 = Attendee.create!(user:nicolas, event:event9, rating:5, review:"")
-attendee26 = Attendee.create!(user:mina, event:event9, rating:5, review:"")
+attendee24 = Attendee.create!(user:stephane, event:event9, rating:4, review:"On se revoit la semaine pro")
+attendee25 = Attendee.create!(user:nicolas, event:event9, rating:5, review:"Genial!")
+attendee26 = Attendee.create!(user:mina, event:event9, rating:5, review:"Super evenement")
 attendee27 = Attendee.create!(user:franck, event:event9, rating:5, review:"")
 
-attendee24 = Attendee.create!(user:eric, event:event10, rating:4, review:"")
-attendee25 = Attendee.create!(user:eric, event:event11, rating:5, review:"")
-attendee26 = Attendee.create!(user:eric, event:event12, rating:5, review:"")
+attendee24 = Attendee.create!(user:eric, event:event10, rating:4, review:"Cool")
+attendee25 = Attendee.create!(user:eric, event:event11, rating:5, review:"Awesome")
+attendee26 = Attendee.create!(user:eric, event:event12, rating:5, review:"Genialissime")
 
 

@@ -22,6 +22,7 @@ class AttendeesController < ApplicationController
 
   def accepted
     @attendee = Attendee.find(params[:id])
+
     @attendee.status = "accepted"
     @attendee.save
     redirect_to event_path(@attendee.event)
@@ -36,6 +37,6 @@ class AttendeesController < ApplicationController
   private
 
   def attendee_params
-    params.require(:attendee).permit(:creator_rating, :creator_review, :status)
+    params.require(:attendee).permit(:review, :rating, :creator_rating, :creator_review, :status)
   end
 end
