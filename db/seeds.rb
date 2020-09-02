@@ -70,56 +70,72 @@ eric = User.create!(nickname:"rico",
  description:"Joueur amateur de Pétanque🎳")
 eric.avatar.attach(io:file_avatar, filename:'eric.png', content_type:'image/png')
 
-david = User.create!(nickname:"Davido",
- email:"david@gmail.com",
- password: 123456,
- average_rating: 4.3,
- description: "🧘 Pratiquant de Yoga en salle ou en nature.")
 
 file_avatar1 = URI.open("https://lh3.googleusercontent.com/pw/ACtC-3eAH0ngA1qx3P2vSOMTO1XCStLg8uskEDuLjf9_dCKov17hMk-8l0Cka9KW8p9fuyttmYAUXd9lQryDMy9cK4CTR3-FPLh1m-eJF-k7CBRkZRxzDqIz13TloKGMkml01IR6GYWjtR5wRZQ8Bj7gJQat=w1234-h821-no?authuser=0")
 franck = User.create!(nickname:"Francky",
  email:"franck@gmail.com",
  password: 123456,
- average_rating: 4,
+ average_rating: 4.2,
  description: "🧘 Pro de Vélo, à la recheche de sensation")
 franck.avatar.attach(io:file_avatar1, filename:'franck.png', content_type:'image/png')
 
+file_avatar2 = URI.open("https://lh3.googleusercontent.com/pw/ACtC-3eAH0ngA1qx3P2vSOMTO1XCStLg8uskEDuLjf9_dCKov17hMk-8l0Cka9KW8p9fuyttmYAUXd9lQryDMy9cK4CTR3-FPLh1m-eJF-k7CBRkZRxzDqIz13TloKGMkml01IR6GYWjtR5wRZQ8Bj7gJQat=w1234-h821-no?authuser=0")
+david = User.create!(nickname:"Davido",
+ email:"david@gmail.com",
+ password: 123456,
+ average_rating: 4.3,
+ description: "🧘 Pratiquant de Yoga en salle ou en nature.")
+david.avatar.attach(io:file_avatar2, filename:'david.png', content_type:'image/png')
+
+file_avatar3 = URI.open("https://lh3.googleusercontent.com/pw/ACtC-3eAH0ngA1qx3P2vSOMTO1XCStLg8uskEDuLjf9_dCKov17hMk-8l0Cka9KW8p9fuyttmYAUXd9lQryDMy9cK4CTR3-FPLh1m-eJF-k7CBRkZRxzDqIz13TloKGMkml01IR6GYWjtR5wRZQ8Bj7gJQat=w1234-h821-no?authuser=0")
 walid = User.create!(nickname:"Walidos",
  email:"walid@gmail.com",
  password: 123456,
  average_rating: 4.5,
  description: "Recherche à me stimuler intellectuellement à travers le Yoga")
+walid.avatar.attach(io:file_avatar3, filename:'walid.png', content_type:'image/png')
 
+file_avatar4 = URI.open("https://lh3.googleusercontent.com/pw/ACtC-3eAH0ngA1qx3P2vSOMTO1XCStLg8uskEDuLjf9_dCKov17hMk-8l0Cka9KW8p9fuyttmYAUXd9lQryDMy9cK4CTR3-FPLh1m-eJF-k7CBRkZRxzDqIz13TloKGMkml01IR6GYWjtR5wRZQ8Bj7gJQat=w1234-h821-no?authuser=0")
 zac = User.create!(nickname:"Zachy",
  email:"zac@gmail.com",
  password: 123456,
  average_rating: 5,
  description: "J'adore le foot, cherche à toucher un peu le ballon le weekend")
+zac.avatar.attach(io:file_avatar4, filename:'zac.png', content_type:'image/png')
+puts "create #{zac.nickname}"
 
+
+file_avatar5 = URI.open("https://lh3.googleusercontent.com/pw/ACtC-3eAH0ngA1qx3P2vSOMTO1XCStLg8uskEDuLjf9_dCKov17hMk-8l0Cka9KW8p9fuyttmYAUXd9lQryDMy9cK4CTR3-FPLh1m-eJF-k7CBRkZRxzDqIz13TloKGMkml01IR6GYWjtR5wRZQ8Bj7gJQat=w1234-h821-no?authuser=0")
 stephane = User.create!(nickname:"Steph",
  email:"stephane@gmail.com",
  password: 123456,
  average_rating: 1.6,
  description: "Fan de Tennis, joueur de Normandie")
+stephane.avatar.attach(io:file_avatar5, filename:'stephane.png', content_type:'image/png')
 
+file_avatar6 = URI.open("https://lh3.googleusercontent.com/pw/ACtC-3eAH0ngA1qx3P2vSOMTO1XCStLg8uskEDuLjf9_dCKov17hMk-8l0Cka9KW8p9fuyttmYAUXd9lQryDMy9cK4CTR3-FPLh1m-eJF-k7CBRkZRxzDqIz13TloKGMkml01IR6GYWjtR5wRZQ8Bj7gJQat=w1234-h821-no?authuser=0")
 nicolas = User.create!(nickname:"Nico",
  email:"nicolas@gmail.com",
  password: 123456,
  average_rating: 2,
  description: "Joueur de pétanque sur Paris, tout est dans la souplesse du poignet")
+nicolas.avatar.attach(io:file_avatar6, filename:'nicolas.png', content_type:'image/png')
 
-matthieu = User.create!(nickname:"Mat Mat",
- email:"matthieu@gmail.com",
+file_avatar7 = URI.open("https://lh3.googleusercontent.com/pw/ACtC-3eAH0ngA1qx3P2vSOMTO1XCStLg8uskEDuLjf9_dCKov17hMk-8l0Cka9KW8p9fuyttmYAUXd9lQryDMy9cK4CTR3-FPLh1m-eJF-k7CBRkZRxzDqIz13TloKGMkml01IR6GYWjtR5wRZQ8Bj7gJQat=w1234-h821-no?authuser=0")
+mathieu = User.create!(nickname:"Mat Mat",
+ email:"mathieu@gmail.com",
  password: 123456,
  average_rating: 4,
  description: "Je vis pour la course, que ce soit en forêt ou en ville. Petite préference pour le butte Chaumont")
+mathieu.avatar.attach(io:file_avatar7, filename:'mathieu.png', content_type:'image/png')
 
+file_avatar8 = URI.open("https://lh3.googleusercontent.com/pw/ACtC-3eAH0ngA1qx3P2vSOMTO1XCStLg8uskEDuLjf9_dCKov17hMk-8l0Cka9KW8p9fuyttmYAUXd9lQryDMy9cK4CTR3-FPLh1m-eJF-k7CBRkZRxzDqIz13TloKGMkml01IR6GYWjtR5wRZQ8Bj7gJQat=w1234-h821-no?authuser=0")
 mina = User.create!(nickname:"Mina",
  email:"mina@gmail.com",
  password: 123456,
- average_rating: 5,
+ average_rating: 4.3,
  description: "Cherche à prendre du plaisir à travers le Vélo, seulement en montagne")
-
+mina.avatar.attach(io:file_avatar8, filename:'mina.png', content_type:'image/png')
 #EVENTS
 
 event1 = Event.create!(
@@ -187,7 +203,7 @@ event6 = Event.create!(
  start_time: DateTime.new(2020,9,4,12),
  number_of_participants: 5,
  sport:running)
-puts "create #{event5.title}"
+puts "create #{event6.title}"
 
 event7 = Event.create!(
  user: eric,
@@ -198,7 +214,7 @@ event7 = Event.create!(
  start_time: DateTime.new(2020,9,4,19),
  number_of_participants: 22,
  sport:football)
-puts "create #{event5.title}"
+puts "create #{event7.title}"
 
 # past events
 event8 = Event.create!(
@@ -210,7 +226,7 @@ event8 = Event.create!(
  start_time: DateTime.new(2020,8,29,19),
  number_of_participants: 6,
  sport:tennis)
-puts "create #{event5.title}"
+puts "create #{event8.title}"
 
 event9 = Event.create!(
   user: eric,
@@ -221,7 +237,7 @@ event9 = Event.create!(
  start_time: DateTime.new(2020,8,16,19),
  number_of_participants: 6,
  sport:pétanque)
-puts "create #{event5.title}"
+puts "create #{event9.title}"
 
 event10 = Event.create!(
   user: david,
@@ -232,7 +248,7 @@ event10 = Event.create!(
  start_time: DateTime.new(2020,8,13,19),
  number_of_participants: 6,
  sport:pétanque)
-puts "create #{event5.title}"
+puts "create #{event10.title}"
 
 event11 = Event.create!(
   user: david,
@@ -259,8 +275,6 @@ puts "create #{event5.title}"
 
 
 
-
-
 #ATTENDEES
 
 attendee14 = Attendee.create!(user:eric, event:event1, rating:2, review:"De la grosse merde, va chiez connard", creator_review:"Très mauvais joueur",creator_rating:2)
@@ -274,19 +288,19 @@ attendee6 = Attendee.create!(user:mina, event:event3, rating:2, review:"Evenemen
 
 attendee5 = Attendee.create!(user:zac, event:event7, rating:4, review:"Au top les mecs !")
 attendee7 = Attendee.create!(user:nicolas, event:event7, rating:4, review:"C'était super dommage qu'on ai perdu")
-attendee8 = Attendee.create!(user:matthieu, event:event7, rating:5, review:"Genial !")
+attendee8 = Attendee.create!(user:mathieu, event:event7, rating:5, review:"Genial !")
 attendee9 = Attendee.create!(user:walid, event:event7, rating:3, review:"Assez cool")
 attendee11 = Attendee.create!(user:franck, event:event7, rating:2, review:"Que des bras cassés dans mon équipe ! C'etait naze")
 
 attendee15 = Attendee.create!(user:zac, event:event1, rating:4, review:"")
 attendee16 = Attendee.create!(user:nicolas, event:event1, rating:4, review:"")
-attendee17 = Attendee.create!(user:matthieu, event:event1, rating:5, review:"")
+attendee17 = Attendee.create!(user:mathieu, event:event1, rating:5, review:"")
 attendee18 = Attendee.create!(user:walid, event:event1, rating:3, review:"")
 attendee19 = Attendee.create!(user:franck, event:event1, rating:2, review:"")
 
 attendee20 = Attendee.create!(user:walid, event:event8, rating:4, review:"")
 attendee21 = Attendee.create!(user:franck, event:event8, rating:5, review:"")
-attendee22 = Attendee.create!(user:matthieu, event:event8, rating:5, review:"")
+attendee22 = Attendee.create!(user:mathieu, event:event8, rating:5, review:"")
 attendee23 = Attendee.create!(user:david, event:event8, rating:5, review:"")
 
 attendee24 = Attendee.create!(user:stephane, event:event9, rating:4, review:"")
