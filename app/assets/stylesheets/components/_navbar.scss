@@ -20,12 +20,19 @@
 
 .find-nav {
   float:left;
-  width:50%;
+  width:37%;
   border-right:1px solid white;
 
 }
 
 .create-nav {
   float:right;
-  width:50%;
+  width:37%;
+}
+
+.dashboard-nav{
+  width:37%;
+  float:right;
+  border-left: solid 1px white;
+  padding-left: 17px;
 }

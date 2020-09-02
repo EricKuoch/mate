@@ -7,16 +7,18 @@
 
   <div class="menu">
     <div class="menu-burger">
-      <div class="burger-strip"></div>
-      <div class="burger-strip"></div>
-      <div class="burger-strip"></div>
+      <div class="burger-striper">
+        <div class="burger-strip"></div>
+        <div class="burger-strip"></div>
+        <div class="burger-strip"></div>
+      </div>
     </div>
 
     <%= render 'shared/burger' %>
 
     <div id="map"
 
-      style = " height:330px;
+      style = " height:400px;
                 width:380px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
@@ -25,10 +27,11 @@
   </div>
 </div>
 
+
+
   <div class="intro">
     <h3>Good afternoon, <%= current_user.nickname.capitalize %></h3>
   </div>
-
   <hr>
   <div class="search-input-map">
     <%= form_tag events_path, method: :get do %>
@@ -41,22 +44,12 @@
       params[:query],
       class: "form-control which-sport",
       placeholder: "Which sport ?"%>
-      <%= submit_tag "", class: "btn btn-primary search-map-button" %>
+      <%= submit_tag "", class: "d-none btn btn-primary search-map-button" %>
     <%end%>
   </div>
 
-  <div class="places-suggestions">
-    <div class="saved-places">
-      <i class="far fa-star"></i>
-      <h3>Saved places</h3>
-  </div>
 
-  <div class="set-location" id="current-location">
-    <i class="far fa-compass"></i>
-    <h3>Current location</h3>
-  </div>
 
-</div>
 </div>
 
 
@@ -67,7 +60,6 @@
       <%= image_tag "mate.png", alt: "Le logo mate", width: 200, class: "mate-logo" %>
       <div class="buttons-log">
         <%= link_to "Sign up", "/users/sign_up",  target: "_blank", class: "btn-sign_up" %>
-        <%= link_to "Continue with facebook", "#", target: "_blank", class: "btn-fb"  %>
         <%= link_to " Login", "/users/sign_in", target: "_blank", class: "btn-log_in"  %>
       </div>
     </div>

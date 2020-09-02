@@ -27,16 +27,28 @@ const initMapbox = () => {
       trackUserLocation: true
       })
     );
-    console.log(current_location)
 
     const markers = JSON.parse(mapElement.dataset.markers);
     markers.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
-      new mapboxgl.Marker()
+      const element = document.createElement('div');
+      element.className = 'marker';
+      element.style.backgroundImage = `url('${marker.image_url}')`;
+      element.style.backgroundColor = 'black';
+      element.style.backgroundPosition = 'center';
+      element.style.backgroundRepeat = 'no-repeat';
+      element.style.backgroundSize = '20px';
+      element.style.width = '30px';
+      element.style.height = '30px';
+
+
+
+      new mapboxgl.Marker(element)
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(map);
       fitMapToMarkers(map, markers);
+
     });
   }
 };
