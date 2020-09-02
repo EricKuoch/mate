@@ -9,11 +9,19 @@ class EventsController < ApplicationController
   def index
     # sql_query = "location ILIKE :query_location AND sports.name ILIKE :query_category AND start_time = :date"
 
-    sql_query = "location ILIKE :query_location AND sports.name ILIKE :query_category"
-    @filtered_events = Event.joins(:sport).where(sql_query, query_location: "%#{params[:query_location]}%", query_category: "%#{params[:query_category]}%")
-    sql_query = "location ILIKE :query_location AND sports.name ILIKE :query_category"
-    @filtered_events = @filtered_events.select do |event|
-      event if event.start_time.to_date == Date.parse(params[:start_time])
+    # sql_query = "location ILIKE :query_location AND sports.name ILIKE :query_category"
+    # @filtered_events = Event.joins(:sport).where(sql_query, query_location: "%#{params[:query_location]}%", query_category: "%#{params[:query_category]}%")
+    # sql_query = "location ILIKE :query_location AND sports.name ILIKE :query_category"
+    # @filtered_events = @filtered_events.select do |event|
+    #   event if event.start_time.to_date == Date.parse(params[:start_time])
+    # end
+    if params[:query_category] || params[:query_location]
+      @events = Event.geocoded.near(params[:query_location],30)
+    elsif
+      @sport = Sport.find_by(name: params[:query_category])
+      @events = Event.geocoded.near(params[:query_location],30).where(sport_id: @sport.id)
+    else
+      @events = Event.all
     end
   end
 

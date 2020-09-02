@@ -270,8 +270,30 @@ event12 = Event.create!(
  start_time: DateTime.new(2020,8,21,19),
  number_of_participants: 6,
  sport:football)
-puts "create #{event5.title}"
+puts "create #{event12.title}"
 
+event13 = Event.create!(
+  user: david,
+ title:"Sumotori",
+ description:"En petit comité ",
+ location: "6 place Gabriel Péri, Lyon",
+ duration: 2,
+ start_time: DateTime.new(2020,9,4,19),
+ number_of_participants: 6,
+ sport:football)
+puts "create #{event13.title}"
+
+
+event13 = Event.create!(
+  user: eric,
+ title:"Concours de bouffe au foot",
+ description:"En petit comité ",
+ location: "367 rue Garibaldi, Lyon",
+ duration: 2,
+ start_time: DateTime.new(2020,9,4,18),
+ number_of_participants: 6,
+ sport:football)
+puts "create #{event13.title}"
 
 
 
