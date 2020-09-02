@@ -38,41 +38,9 @@
     </div>
   </div>
   <!-- LIST OF EVENTS  -->
-  <div class="myBtn">
-    <% @user.events.each do |event| %>
-      <div class="card-product ">
-        <div class="card-product-infos">
-          <span class="event-title"><%= event.title %> </span>  <br>
-          <% event.attendees.each do |attendee| %>
-            <%=  attendee.rating %>
-          <% end %>
-          <p><%= event.start_time.strftime("%d-%m-%Y") %> </p>
-          <div id="myModal" class="modal">
-            <%= event.title %>
-            <% event.attendees.each do |attendee| %>
-              <p> <%= attendee.user.nickname %> <span><%#= "⭐" * attendee.rating + "☆"* (5-attendee.rating)%></span>(<%#= attendee.rating %>) </p>
-              <p> <%= attendee.review %></p>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-
-
-  <div class="events-created">
-  </div>
-
-  <h2>Participations <i class="fas fa-handshake"></i></h2>
-  <% @user.attendees.each do |attendee| %>
-    <strong><%= attendee.event.title %></strong>
-    created by <%= attendee.event.user.nickname %>
-  <% end %>
-
-  <h6>Les reviews que mes mates m'ont laissés:</h6>
   <% @user.attendees.each do |attendee| %>
     <li>
       <%= attendee.creator_review %>
     </li>
   <% end %>
-</div>
+
