@@ -15,15 +15,58 @@ class EventsController < ApplicationController
     # @filtered_events = @filtered_events.select do |event|
     #   event if event.start_time.to_date == Date.parse(params[:start_time])
     # end
-    if params[:query_category] || params[:query_location]
-      @events = Event.geocoded.near(params[:query_location],30)
-    elsif
+    
+    if !params[:query_category].empty? && !params[:query_location].empty?
+
       @sport = Sport.find_by(name: params[:query_category])
-      @events = Event.geocoded.near(params[:query_location],30).where(sport_id: @sport.id)
+      @events = Event.geocoded.near(params[:query_location],15).where(sport_id: @sport.id)
+      if params[:start_time].empty?
+        @events = @events.select do |event|
+          event if event.start_time.to_date == DateTime.now.to_date
+        end
+      else
+        @events = @events.select do |event|
+          event if event.start_time.to_date == Date.parse(params[:start_time])
+        end
+      end    
+    
+    elsif !params[:query_category].empty? && params[:query_location].empty?
+      @sport = Sport.find_by(name: params[:query_category])
+      @events = Event.where(sport_id: @sport.id)
+      if params[:start_time].empty?
+        @events = @events.select do |event|
+          event if event.start_time.to_date == DateTime.now.to_date
+        end
+      else
+        @events = @events.select do |event|
+          event if event.start_time.to_date == Date.parse(params[:start_time])
+        end
+      end
+    elsif !params[:query_location].empty? && params[:query_category].empty?
+      @events = Event.geocoded.near(params[:query_location],15)
+      if params[:start_time].empty?
+        @events = @events.select do |event|
+          event if event.start_time.to_date == DateTime.now.to_date
+        end
+      else
+        @events = @events.select do |event|
+          event if event.start_time.to_date == Date.parse(params[:start_time])
+        end
+      end
     else
       @events = Event.all
+      if params[:start_time].empty?
+        @events = @events.select do |event|
+          event if event.start_time.to_date == DateTime.now.to_date
+        end
+      else
+        @events = @events.select do |event|
+          event if event.start_time.to_date == Date.parse(params[:start_time])
+        end
+      end
     end
   end
+
 
   def new
     @sport = Sport.all
