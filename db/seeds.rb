@@ -69,7 +69,7 @@ eric = User.create!(nickname:"rico",
  password: 123456,
  description:"Joueur amateur de Pétanque🎳")
 eric.avatar.attach(io:file_avatar, filename:'eric.png', content_type:'image/png')
-
+eric.save!
 
 file_avatar1 = URI.open("https://lh3.googleusercontent.com/pw/ACtC-3eAH0ngA1qx3P2vSOMTO1XCStLg8uskEDuLjf9_dCKov17hMk-8l0Cka9KW8p9fuyttmYAUXd9lQryDMy9cK4CTR3-FPLh1m-eJF-k7CBRkZRxzDqIz13TloKGMkml01IR6GYWjtR5wRZQ8Bj7gJQat=w1234-h821-no?authuser=0")
 franck = User.create!(nickname:"Francky",
