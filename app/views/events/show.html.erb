@@ -40,10 +40,14 @@ background-image: url(<%= cl_image_path @event_image.key %>); height: 285px; ">
         <% if Attendee.find_by(event_id: @event, user_id: current_user )%>
           <p style="margin-top: 40px;px;font-size: 14px; font-family: Roboto, sans-serif"><strong style="font-size: small;">For the moment, we have: <%= @event.attendees.count%>/<%= @event.number_of_participants %> participants </strong></p>
         <% else %>
-          <%= simple_form_for [@event, Attendee.new()] do |f| %>
-             <div class="btn_submit_join">
-                  <button style="border-radius: 8px; background-color: #00AD68; color: white; font-weight: bold; width: 100px;height: 48px; line-height: 45px;">JOIN</button>
-             </div>
+          <% if @event.attendees.size < @event.number_of_participants %>
+            <%= simple_form_for [@event, Attendee.new()] do |f| %>
+               <div class="btn_submit_join">
+                    <button style="border-radius: 8px; background-color: #00AD68; color: white; font-weight: bold; width: 100px;height: 48px; line-height: 45px;">JOIN</button>
+               </div>
+            <% end %>
+          <% else %>
+          <p>its full</p>
           <% end %>
         <% end %>
         <br>
@@ -52,8 +56,6 @@ background-image: url(<%= cl_image_path @event_image.key %>); height: 285px; ">
         <p><strong style="color: #C3C3C3; font-size: 14px; font-family: Roboto, sans-serif""><%= attendee.user.nickname.capitalize %></strong></p>
         <% end %>
 </div>
-
-
 
 
 
