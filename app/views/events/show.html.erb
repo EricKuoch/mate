@@ -36,10 +36,9 @@ background-image: url(<%= cl_image_path @event_image.key %>); height: 285px; ">
     <p style="margin-top: 40px;px;font-size: 14px; font-family: Roboto, sans-serif"><strong style="font-size: small;">For the moment, we have: <%= @event.attendees.count%>/<%= @event.number_of_participants %> participants </strong></p>
   <% else %>
       <%= simple_form_for [@event, Attendee.new()] do |f| %>
-         <div class="btn_submit_join">
-            <span class="badge badge-success" style="border-radius: 8px; background-color: #00AD68; color: white; font-weight: bold; width: 117px;height: 48px; line-height: 45px;"><%= @event.start_time.strftime("%a, %e %b %Y")%></span>
-  <!--           <button style="border-radius: 8px; background-color: #00AD68; color: white; font-weight: bold; width: 100px;height: 48px; line-height: 45px;">JOIN</button>
-  -->    </div>
+        <div class="btn_submit_join">
+          <button style="border-radius: 8px; background-color: #00AD68; color: white; font-weight: bold; width: 100px;height: 48px; line-height: 45px;">JOIN</button>
+        </div>
       <% end %>
   <% end %>
   <br>
