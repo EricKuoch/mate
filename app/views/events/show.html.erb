@@ -45,10 +45,16 @@ background-image: url(<%= cl_image_path @event_image.key %>); height: 285px; ">
          <div class="btn_submit_join">
             <span class="badge badge-success" style="border-radius: 8px; background-color: #00AD68; color: white; font-weight: bold; width: 117px;height: 48px; line-height: 45px;"><%= @event.start_time.strftime("%a, %e %b %Y")%></span>
 
-  <!--           <button style="border-radius: 8px; background-color: #00AD68; color: white; font-weight: bold; width: 100px;height: 48px; line-height: 45px;">JOIN</button>
-  -->    </div>
-      <% end %>
-  <% end %>
+        <% if Attendee.find_by(event_id: @event, user_id: current_user )%>
+          <p style="margin-top: 40px;px;font-size: 14px; font-family: Roboto, sans-serif"><strong style="font-size: small;">For the moment, we have: <%= @event.attendees.count%>/<%= @event.number_of_participants %> participants </strong></p>
+        <% else %>
+            <%= simple_form_for [@event, Attendee.new()] do |f| %>
+               <div class="btn_submit_join">
+                    <span class="badge badge-success" style="border-radius: 8px; background-color: #00AD68; color: white; font-weight: bold; width: 117px;height: 48px; line-height: 45px;"><%= @event.start_time.strftime("%a, %e %b %Y")%></span>
+                    <button style="border-radius: 8px; background-color: #00AD68; color: white; font-weight: bold; width: 100px;height: 48px; line-height: 45px;">JOIN</button>
+               </div>
+            <% end %>
+        <% end %>
   <br>
   <p><strong style="color: #C3C3C3; font-size: 16px; font-family: Roboto, sans-serif">Who else is coming ?</strong></p>
   <div class="display_avatar">
@@ -65,8 +71,6 @@ background-image: url(<%= cl_image_path @event_image.key %>); height: 285px; ">
     <% end %>
   </div>
 </div>
-
-
 
 
 

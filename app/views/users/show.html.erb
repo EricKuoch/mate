@@ -23,24 +23,102 @@
   </div>
 
   <div class="profile-description">
-    <h5> @<strong><%= @user.nickname.capitalize %></strong> <div class="popup"> (✭<%#= @average_rating.round(2)%>)
+    <h5> @<strong><%= @user.nickname.capitalize %></strong> <div class="popup"> (✭<%= @average_rating.round(2)%>)
      <span class="popuptext" id="myPopup">Your events ratings</span>
     </div> </h5>
     <p> <%= @user.description %></p>
   </div>
 
-  <div class="title-profile">
-    <div class="my-events">
-      <h5>My events <i class="fas fa-child"></i></h5>
-    </div>
-    <div class="handshake">
-      <h5>Joined <i class="fas fa-handshake"></i></h5>
-    </div>
+ <div class="container-onglets">
+      <div class="onglets active-onglet" data-anime="1"><p> Reviews </p></div>
+      <div class="onglets"data-anime="3"> <p>Incoming events </div>
   </div>
   <!-- LIST OF EVENTS  -->
-  <% @user.attendees.each do |attendee| %>
-    <li>
-      <%= attendee.creator_review %>
-    </li>
+
+  <div class="contenu activeContenu" data-anime="1">
+    <h5>Events you joined(past)</h5>
+    <% @past_events_join.each do |event| %>
+      <div class="card-product">
+        <div class="card-info-events">
+          <h6><small><%= event.start_time.strftime("%d-%m-%Y") %> (<%= event.sport.name %>) by <%= event.user.nickname %> </small> </h6>
+          <h6><%= event.title %> </h6>
+          <button type="button" class="btn-feedback-event" data-toggle="modal" data-target="#exampleModalLong<%= event.id %>">
+            See the reviews
+          </button>
+        </div>
+      </div>
+    <% end %>
+
+    <% @past_events_join.each do |event| %>
+      <div class="modal fade" id="exampleModalLong<%= event.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle<%= event.id %>" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle<%= event.id %> "> <strong> <%= event.title %> </strong></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <% event.attendees.each do |attendee| %>
+                <%= attendee.user.nickname %>
+                <%= attendee.review %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <h5>Events you created</h5>
+    <% @past_events_create.each do |event| %>
+      <div class="card-product">
+        <div class="card-info-events">
+          <h6> <small><%= event.start_time.strftime("%d-%m-%y") %> (<%= event.sport.name %>) </small> </h6>
+          <h6> <%= event.title %>  </h6>
+          <button type="button" class="btn-feedback" data-toggle="modal" data-target="#exampleModalLong<%= event.id %>">
+            Check the feedback
+          </button>
+        </div>
+      </div>
+    <% end %>
+
+    <!-- Modal -->
+    <% @past_events_create.each do |event| %>
+      <div class="modal fade" id="exampleModalLong<%= event.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle<%= event.id %>" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle<%= event.id %> ">Events reviews</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <% event.attendees.each do |attendee| %>
+                  <% if(@user != attendee.user) %>
+                    <p><strong><%= attendee.user.nickname %></strong>:  <%= attendee.review %> <small> <%= "⭐" * attendee.rating + "☆"* (5-attendee.rating)%></span> (<%= attendee.rating%>/5) </small>   </p>
+                  <% end %>
+                <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+ <div class="contenu" data-anime="2">
+  <h5>Your next events(future)</h5>
+  <% @futur_events_join.each do |event| %>
+    <div class="card-product">
+      <div class="card-info-events">
+       <h6><small><%= event.start_time.strftime("%d-%m-%Y") %> (<%= event.sport.name %>) </small> </h6>
+        <h6><%= event.title %> </h6>
+        <p><strong><%=(event.number_of_participants - event.attendees.size) %> participants is missed </strong></p>
+      </div>
+    </div>
   <% end %>
+  </div>
+</div>
+
 
