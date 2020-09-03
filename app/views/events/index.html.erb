@@ -10,11 +10,14 @@
 
 <div class="container">
 
-  <div class="back-btn-link">
-    <%= link_to root_path do %>
-    <i class="fas fa-chevron-left back-btn"></i>
-    <%end %>
-  </div>
+    <div class="navbar-form">
+      <%= render 'shared/navbar_mate' %>
+      <div class="back-btn-link">
+        <%= link_to new_event_path do%>
+          <i class="fas fa-chevron-left" ></i>
+        <%end %>
+      </div>
+    </div>
 
   <div class="calendar">
 
