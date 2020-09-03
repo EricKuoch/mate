@@ -1,4 +1,5 @@
 <!-- Configuration des dates -->
+
 <% today = Date.today %>
 <% day2 = Date.today + 1 %>
 <% day3 = Date.today + 2 %>
@@ -8,6 +9,7 @@
 <% day7 = Date.today + 6 %>
 
 <div class="container">
+
   <div class="back-btn-link">
     <%= link_to root_path do %>
     <i class="fas fa-chevron-left back-btn"></i>
@@ -92,7 +94,7 @@
     </div>
   </div>
 
-  <% if @filtered_events.blank? %>
+  <% if @events.blank? %>
 
   <div class="no-result-on-events">
       <h1>No results for <%= params[:start_time] %></h1>
@@ -102,7 +104,7 @@
 
   <div class="results">
 
-    <% @filtered_events.each do |event| %>
+    <% @events.each do |event| %>
 
       <div class="result">
 
