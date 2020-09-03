@@ -84,12 +84,11 @@
           <%= link_to event.title, event_path(event)%>  
         </div>
         <div class="result-organizer d-flex">
-          <p>Organized by <%= event.user.nickname.capitalize %><small> ( <%= event.sport.name.capitalize %> )</small></p>
-
+          <p>Organized by <%= event.user.nickname.capitalize %><small> ( <%= event.sport.name.capitalize %> ) - <%= event.start_time.strftime("%d-%m-%y") %></small> </p>
         </div>
 
         <div class ="result-description">
-        <%= event.description %>
+        <p><%= event.description %></p>
         </div>
 
         <div class="events-info-index">
@@ -98,7 +97,7 @@
             <i class="far fa-clock clock-result"></i>
             <div class="right-result">
               <p>Time</p>
-              <%="10:00 AM"%>
+              <p><%= event.start_time.strftime("%H") %>H<%= event.start_time.strftime("%M") %></p>
             </div>
           </div>
 
@@ -124,3 +123,4 @@
   <%end%>
 </div>
 </div>
+
