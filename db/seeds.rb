@@ -163,7 +163,7 @@ event2 = Event.create!(
 puts "create #{event2.title}"
 
 event3 = Event.create!(
- user: eric,
+ user: david,
  title:"Ascension du col de la Croix ",
  description:"Cherche cycliste agueri pour faire la montée de ce col en cette météo sublime",
  location:"9 rue de l'Eglise, Paris",
@@ -174,7 +174,7 @@ event3 = Event.create!(
 puts "create #{event3.title}"
 
 event4 = Event.create!(
-  user: eric,
+  user: david,
  title:"Match de Tennis en 2 set",
  description:"Recherche adversaire niveau 3/6 pour prendre du plaisir avec la raquette",
  location:"57 Boulevard Rouget de Lisle",
@@ -207,7 +207,7 @@ event6 = Event.create!(
 puts "create #{event6.title}"
 
 event7 = Event.create!(
- user: eric,
+ user: david,
  title:"Match de Foot dans Paris !",
  description:"Salut les gars, on est combien aujourd'hui ? ",
  location: "73 Rue de Turbigo, 75003 Paris",
@@ -219,7 +219,7 @@ puts "create #{event7.title}"
 
 # past events
 event8 = Event.create!(
-  user: eric,
+  user: mina,
  title:"Tournoi de tennis sur un rooftop !",
  description:"Super evenement de petanque? ",
  location: "73 Rue de Turbigo, 75003 Paris",
@@ -229,16 +229,6 @@ event8 = Event.create!(
  sport:tennis)
 puts "create #{event8.title}"
 
-event9 = Event.create!(
-  user: eric,
- title:"Petanque super cool",
- description:"Petanque chez Bouboule ",
- location: "73 Rue de Turbigo, 75003 Paris",
- duration: 2,
- start_time: DateTime.new(2020,8,16,19),
- number_of_participants: 6,
- sport:pétanque)
-puts "create #{event9.title}"
 
 event10 = Event.create!(
   user: david,
@@ -273,28 +263,65 @@ event12 = Event.create!(
  sport:football)
 puts "create #{event12.title}"
 
-event13 = Event.create!(
-  user: david,
- title:"Sumotori",
+
+#EVENT SAMEDI 5
+
+event15 = Event.create!(
+  user: mathieu,
+ title:"Yoga",
  description:"En petit comité ",
- location: "6 place Gabriel Péri, Lyon",
+ location: "18 rue Ramponeau, Paris",
  duration: 2,
- start_time: DateTime.new(2020,9,4,19),
+ start_time: DateTime.new(2020,9,5,18),
  number_of_participants: 6,
+ sport:yoga)
+puts "create #{event15.title}"
+
+event16 = Event.create!(
+  user: stephane,
+ title:"Petanque chez bouboule",
+ description:"En petit comité ",
+ location: "26 Avenue Jean Aicard, Paris",
+ duration: 2,
+ start_time: DateTime.new(2020,9,5,18),
+ number_of_participants: 6,
+ sport:pétanque)
+puts "create #{event16.title}"
+
+event17 = Event.create!(
+  user: nicolas,
+ title:"Tournoi de petanque",
+ description:"Super tournoi de petanque ",
+ location: "160 rue Saint-Denis, Paris",
+ duration: 2,
+ start_time: DateTime.new(2020,9,5,18),
+ number_of_participants: 9,
+ sport:pétanque)
+puts "create #{event17.title}"
+
+event18 = Event.create!(
+  user: mina,
+ title:"Tournoi de foot sur Paris",
+ description:"Super tournoi de foot ",
+ location: "47 Rue des Couronnes, 75020 Paris",
+ duration: 2,
+ start_time: DateTime.new(2020,9,5,18),
+ number_of_participants: 9,
  sport:football)
-puts "create #{event13.title}"
+puts "create #{event18.title}"
+
+event19 = Event.create!(
+  user: franck,
+ title:"Tournoi de tennis",
+ description:"Super tournoi digne de Roland Garros ",
+ location: "148 Boulevard de Charonne, 75020 Paris",
+ duration: 2,
+ start_time: DateTime.new(2020,9,5,18),
+ number_of_participants: 9,
+ sport:tennis)
+puts "create #{event19.title}"
 
 
-event13 = Event.create!(
-  user: eric,
- title:"Concours de bouffe au foot",
- description:"En petit comité ",
- location: "367 rue Garibaldi, Lyon",
- duration: 2,
- start_time: DateTime.new(2020,9,4,18),
- number_of_participants: 6,
- sport:football)
-puts "create #{event13.title}"
 
 
 
