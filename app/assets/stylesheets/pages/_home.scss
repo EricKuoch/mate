@@ -70,8 +70,7 @@ hr {
 }
 
 .where-at {
-  background-color:black;
-  color:white;
+  background-color:#808080cc;
   border-radius: 0px;
   border:none;
   height:64px;
@@ -82,11 +81,9 @@ hr {
   border-right:1px solid white;
   border-right-width: thin;
   display:inline;
-
-}
-
-::placeholder {
-  color:white;
+  &::placeholder {
+    color:white;
+  }
 }
 
 .ap-dataset-places {
@@ -94,8 +91,7 @@ hr {
 }
 
 .which-sport {
-  background-color:black;
-  color:white;
+  background-color:#808080cc;
   border:none;
   height:64px;
   width:120px;
@@ -103,6 +99,9 @@ hr {
   font-size:16px;
   font-family: 'Roboto', sans-serif;
   float: right;
+  &::placeholder {
+    color:white;
+  }
 }
 
 .places-suggestions {

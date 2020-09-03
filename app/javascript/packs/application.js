@@ -39,6 +39,7 @@ import { initAutocomplete } from "../plugins/init_autocomplete";
 import { initSlider } from "../plugins/init_slider";
 
 
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
