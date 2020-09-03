@@ -17,7 +17,7 @@
 }
 
 .top-calendar h2 {
-  font-size:20px;
+  font-size:18px;
 }
 
 .letter_day {
@@ -141,5 +141,15 @@
     font-size:18px;
     font-weight:lighter;
   }
+}
+
+.day-rectangle {
+  width:14%;
+}
+
+.letter_day div {
+  text-align:center;
+  padding:4px;
+  width:100%;
 }
 

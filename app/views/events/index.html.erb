@@ -13,7 +13,7 @@
     <div class="navbar-form">
       <%= render 'shared/navbar_mate' %>
       <div class="back-btn-link">
-        <%= link_to new_event_path do%>
+        <%= link_to root_path do%>
           <i class="fas fa-chevron-left" ></i>
         <%end %>
       </div>
@@ -35,32 +35,32 @@
     <div class="end-calendar">
 
       <div class="letter_day">
-        <%= link_to events_path(start_time: today, query_location: params[:query_location], query_category: params[:query_category])  do %>
+        <%= link_to events_path(start_time: today, query_location: params[:query_location], query_category: params[:query_category]),class: "day-rectangle"  do %>
           <div class="date_onglet_today <%= "green02" if Date.parse(params[:start_time]) == today  %>" style="color:white;"><%= today.strftime("%a")%><br><%= today.strftime("%d").to_i%></div>
         <%end%>
 
-        <%= link_to events_path(start_time: day2, query_location: params[:query_location], query_category: params[:query_category]) do %>
+        <%= link_to events_path(start_time: day2, query_location: params[:query_location], query_category: params[:query_category]),class: "day-rectangle" do %>
         <div class="date_onglet_02 <%= "green02" if Date.parse(params[:start_time]) == day2  %>" style="color:white;"><%= day2.strftime("%a")%><br><%= day2.strftime("%d").to_i%></div>
         <%end%>
 
 
-        <%= link_to events_path(start_time: day3, query_location: params[:query_location], query_category: params[:query_category]) do %>
+        <%= link_to events_path(start_time: day3, query_location: params[:query_location], query_category: params[:query_category]),class: "day-rectangle" do %>
         <div class="date_onglet_03 <%= "green02" if Date.parse(params[:start_time]) == day3  %>" style="color:white;"><%= day3.strftime("%a")%><br><%= day3.strftime("%d").to_i%></div>
         <%end%>
 
-        <%= link_to events_path(start_time: day4, query_location: params[:query_location], query_category: params[:query_category]) do %>
+        <%= link_to events_path(start_time: day4, query_location: params[:query_location], query_category: params[:query_category]),class: "day-rectangle" do %>
         <div class="date_onglet_04 <%= "green02" if Date.parse(params[:start_time]) == day4  %>" style="color:white;"><%= day4.strftime("%a")%><br><%= day4.strftime("%d").to_i%></div>
         <%end%>
 
-        <%= link_to events_path(start_time: day5, query_location: params[:query_location], query_category: params[:query_category]) do %>
+        <%= link_to events_path(start_time: day5, query_location: params[:query_location], query_category: params[:query_category]),class: "day-rectangle" do %>
         <div class="date_onglet_05 <%= "green02" if Date.parse(params[:start_time]) == day5  %>" style="color:white;"><%= day5.strftime("%a")%><br><%= day5.strftime("%d").to_i%></div>
         <%end%>
 
-        <%= link_to events_path(start_time: day6, query_location: params[:query_location], query_category: params[:query_category]) do %>
+        <%= link_to events_path(start_time: day6, query_location: params[:query_location], query_category: params[:query_category]),class: "day-rectangle" do %>
         <div class="date_onglet_06 <%= "green02" if Date.parse(params[:start_time]) == day6  %>" style="color:white;"><%= day6.strftime("%a")%><br><%= day6.strftime("%d").to_i%></div>
         <%end%>
 
-        <%= link_to events_path(start_time: day7, query_location: params[:query_location], query_category: params[:query_category]) do %>
+        <%= link_to events_path(start_time: day7, query_location: params[:query_location], query_category: params[:query_category]),class: "day-rectangle" do %>
         <div class="date_onglet_07 <%= "green02" if Date.parse(params[:start_time]) == day7  %>" style="color:white;"><%= day7.strftime("%a")%><br><%= day7.strftime("%d").to_i%></div>
         <%end%>
       </div>
@@ -122,4 +122,5 @@
       <%end%>
     </div>
   <%end%>
+</div>
 </div>
