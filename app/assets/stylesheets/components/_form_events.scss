@@ -25,6 +25,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  & p {
+    font-weight: bold;
+  }
   &:hover {
     opacity: 1;
     cursor: pointer;
@@ -33,6 +36,9 @@
     background: #00AD68;
     color:white;
     opacity:1;
+    & p {
+      color: black;
+    }
   }
 }
 
