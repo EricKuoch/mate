@@ -27,11 +27,11 @@
     <!-- SECOND PART -->
     <div class="step second-form">
 
-      <h4>Event details</h4>
-      <%= f.input :title, label: "Give an amazing title to your event", required: false, input_html: {class: "input-step2"}%>
-      <%= f.input :location, label: "Where will you train ?", required: false,  input_html: {class: "input-step2"}%>
-      <%= f.input :start_time, as: :string, label: "Let's meet at:", required: false, input_html: {class: "datepicker input-step2"} %>
-      <%= f.input :duration, label: "How long (hours) ?", collection: 1..5, selected: 1, label_html:{class: "label-duration"}, input_html: {class: "input-step2"}%>
+      <h4>Give some details</h4>
+      <%= f.input :title, label: "EVENT'S TITLE", required: false, input_html: {class: "input-step2"}%>
+      <%= f.input :location, label: "WHERE DO YOU WANT TO TRAIN ?", required: false,  input_html: {class: "input-step2"}%>
+      <%= f.input :start_time, as: :string, label: "LET'S MEET AT: ", required: false, input_html: {class: "datepicker input-step2"} %>
+      <%= f.input :duration, label: "HOW LONG (H) ?", collection: 1..5, selected: 1, label_html:{class: "label-duration"}, input_html: {class: "input-step-3"}%>
 
       <div class="button-next-center">
         <a class="btn btn-step2 btn-next-disable next-btn" type="button">Next</a>
@@ -47,7 +47,7 @@
         </div>
         <span class="font-weight-bold text-primary ml-2 valueSpan2"></span>
       </div>
-      <%= f.input :description, label: "Tell us more about your event", as: :text %>
+      <%= f.input :description, label: "TELL US MORE ABOUT YOUR EVENT", as: :text, input_html: {class: "input-step-4"}%>
       <div class="form-actions">
         <div class="button-next-center">
           <%= f.button :submit, class: "btn-next-disable btn-step3" %>
