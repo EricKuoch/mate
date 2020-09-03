@@ -348,6 +348,12 @@ attendee23 = Attendee.create!(user:david, event:event8, rating:5, review:"A refa
 
 
 attendee25 = Attendee.create!(user:eric, event:event11)
-
 attendee27 = Attendee.create!(user:stephane, event:event20)
+attendee28 = Attendee.create!(user:stephane, event:event19)
+attendee29 = Attendee.create!(user:walid, event:event19)
+attendee30 = Attendee.create!(user:franck, event:event19)
+
+attendee31 = Attendee.create!(user:mina, event:event15)
+attendee32 = Attendee.create!(user:mathieu, event:event15)
+
 
