@@ -1,5 +1,5 @@
 meta_product_name: "Get Mate"
 meta_title: "Get Mate - Make your sport greater with MATE"
 meta_description: "Find mates to practice your sport"
-meta_image: "mate.png" # should exist in `app/assets/images/`
+meta_image: "sport.png" # should exist in `app/assets/images/`
 # twitter_account: "@product_twitter_account"   # required for Twitter Cards
