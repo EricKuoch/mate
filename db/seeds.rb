@@ -68,7 +68,7 @@ eric = User.create!(nickname:"rico",
  email:"eric@gmail.com",
  password: 123456,
  description:"Joueur amateur de Pétanque🎳",
-average_rating:4.6),
+average_rating:4.6)
 eric.avatar.attach(io:file_avatar, filename:'eric.png', content_type:'image/png')
 eric.save!
 
