@@ -72,39 +72,41 @@
     <div class="results">
       <% @events.each do |event| %>
         <%= link_to event_path(event) do %>
-          <div class="result-title">
-            <%= event.title %>
-          </div>
-          <div class="result-organizer d-flex">
-            <p>Organized by <%= event.user.nickname.capitalize %><small> ( <%= event.sport.name.capitalize %> ) - <%= event.start_time.strftime("%d-%m-%y") %></small> </p>
-          </div>
-          <div class ="result-description">
-            <p><%= event.description %></p>
-          </div>
-          <div class="events-info-index">
-            <div class="infow-results">
-              <i class="far fa-clock clock-result"></i>
-              <div class="right-result">
-                <p>Time</p>
-                <p class="mb-0"><%= event.start_time.strftime("%H") %>H<%= event.start_time.strftime("%M") %></p>
+          <div class="result">
+              <div class="result-title">
+                <%= event.title %>
               </div>
-            </div>
-
-            <div class ="infow-results">
-              <i class="far fa-hourglass hourglass-result"></i>
-              <div class="right-result">
-                <p>Duration</p>
-                <%=event.duration%>h
+              <div class="result-organizer d-flex">
+                <p>Organized by <%= event.user.nickname.capitalize %><small> ( <%= event.sport.name.capitalize %> ) - <%= event.start_time.strftime("%d-%m-%y") %></small> </p>
               </div>
-            </div>
-
-            <div class ="infow-results">
-              <i class="fas fa-chair chair-result"></i>
-                <div class="right-result">
-                  <p>Seats</p>
-                  <%=(event.number_of_participants - rand(1..2))%> left
+              <div class ="result-description">
+                <p><%= event.description %></p>
+              </div>
+              <div class="events-info-index">
+                <div class="infow-results">
+                  <i class="far fa-clock clock-result"></i>
+                  <div class="right-result">
+                    <p>Time</p>
+                    <p class="mb-0"><%= event.start_time.strftime("%H") %>H<%= event.start_time.strftime("%M") %></p>
+                  </div>
                 </div>
-            </div>
+
+                <div class ="infow-results">
+                  <i class="far fa-hourglass hourglass-result"></i>
+                  <div class="right-result">
+                    <p>Duration</p>
+                    <%=event.duration%>h
+                  </div>
+                </div>
+
+                <div class ="infow-results">
+                  <i class="fas fa-chair chair-result"></i>
+                    <div class="right-result">
+                      <p>Seats</p>
+                      <%=(event.number_of_participants - rand(1..2))%> left
+                    </div>
+                </div>
+              </div>
           </div>
         <% end %>
       <%end%>
