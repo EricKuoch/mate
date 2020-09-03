@@ -353,3 +353,7 @@ attendee28 = Attendee.create!(user:stephane, event:event19)
 attendee29 = Attendee.create!(user:walid, event:event19)
 attendee30 = Attendee.create!(user:franck, event:event19)
 
+attendee31 = Attendee.create!(user:mina, event:event15)
+attendee32 = Attendee.create!(user:mathieu, event:event15)
+
+
