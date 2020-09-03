@@ -140,8 +140,8 @@ mina.avatar.attach(io:file_avatar8, filename:'mina.png', content_type:'image/png
 #EVENTS
 
 event1 = Event.create!(
-  user: mina,
- title:"Partie de Five, Dev vs Data",
+  user: nicolas,
+ title:"Partie de foot Five",
  description:"Très sympa et très chaud pour se caler sur le lundi (à chaque fois il n’y a vraiment personne donc on sera qu’entre nous)",
  location:"124 Boulevard Richard-Lenoir, Paris",
  duration: 2,
@@ -163,7 +163,7 @@ event2 = Event.create!(
 puts "create #{event2.title}"
 
 event3 = Event.create!(
- user: eric,
+ user: david,
  title:"Ascension du col de la Croix ",
  description:"Cherche cycliste agueri pour faire la montée de ce col en cette météo sublime",
  location:"9 rue de l'Eglise, Paris",
@@ -174,7 +174,7 @@ event3 = Event.create!(
 puts "create #{event3.title}"
 
 event4 = Event.create!(
-  user: eric,
+  user: david,
  title:"Match de Tennis en 2 set",
  description:"Recherche adversaire niveau 3/6 pour prendre du plaisir avec la raquette",
  location:"57 Boulevard Rouget de Lisle",
@@ -206,20 +206,10 @@ event6 = Event.create!(
  sport:running)
 puts "create #{event6.title}"
 
-event7 = Event.create!(
- user: eric,
- title:"Match de Foot dans Paris !",
- description:"Salut les gars, on est combien aujourd'hui ? ",
- location: "73 Rue de Turbigo, 75003 Paris",
- duration: 2,
- start_time: DateTime.new(2020,9,4,19),
- number_of_participants: 22,
- sport:football)
-puts "create #{event7.title}"
 
 # past events
 event8 = Event.create!(
-  user: eric,
+  user: mina,
  title:"Tournoi de tennis sur un rooftop !",
  description:"Super evenement de petanque? ",
  location: "73 Rue de Turbigo, 75003 Paris",
@@ -229,16 +219,6 @@ event8 = Event.create!(
  sport:tennis)
 puts "create #{event8.title}"
 
-event9 = Event.create!(
-  user: eric,
- title:"Petanque super cool",
- description:"Petanque chez Bouboule ",
- location: "73 Rue de Turbigo, 75003 Paris",
- duration: 2,
- start_time: DateTime.new(2020,8,16,19),
- number_of_participants: 6,
- sport:pétanque)
-puts "create #{event9.title}"
 
 event10 = Event.create!(
   user: david,
@@ -252,15 +232,15 @@ event10 = Event.create!(
 puts "create #{event10.title}"
 
 event11 = Event.create!(
-  user: david,
- title:"football test",
+  user: stephane,
+ title:"Foot au stade de France",
  description:"football le long de la seine ",
  location: "Quai de la corse, Paris",
  duration: 2,
  start_time: DateTime.new(2020,8,20,19),
  number_of_participants: 6,
  sport:football)
-puts "create #{event5.title}"
+puts "create #{event11.title}"
 
 event12 = Event.create!(
   user: david,
@@ -273,28 +253,73 @@ event12 = Event.create!(
  sport:football)
 puts "create #{event12.title}"
 
-event13 = Event.create!(
-  user: david,
- title:"Sumotori",
+#EVENT SAMEDI 5
+
+event15 = Event.create!(
+  user: mathieu,
+ title:"Yoga",
  description:"En petit comité ",
- location: "6 place Gabriel Péri, Lyon",
+ location: "18 rue Ramponeau, Paris",
  duration: 2,
- start_time: DateTime.new(2020,9,4,19),
+ start_time: DateTime.new(2020,9,5,18),
  number_of_participants: 6,
+ sport:yoga)
+puts "create #{event15.title}"
+
+event16 = Event.create!(
+  user: stephane,
+ title:"Petanque chez bouboule",
+ description:"En petit comité ",
+ location: "26 Avenue Jean Aicard, Paris",
+ duration: 2,
+ start_time: DateTime.new(2020,9,5,18),
+ number_of_participants: 6,
+ sport:pétanque)
+puts "create #{event16.title}"
+
+event17 = Event.create!(
+  user: nicolas,
+ title:"Tournoi de petanque",
+ description:"Super tournoi de petanque ",
+ location: "160 rue Saint-Denis, Paris",
+ duration: 2,
+ start_time: DateTime.new(2020,9,5,18),
+ number_of_participants: 9,
+ sport:pétanque)
+puts "create #{event17.title}"
+
+event18 = Event.create!(
+  user: mina,
+ title:"Tournoi de foot sur Paris",
+ description:"Super tournoi de foot ",
+ location: "47 Rue des Couronnes, 75020 Paris",
+ duration: 2,
+ start_time: DateTime.new(2020,9,5,18),
+ number_of_participants: 9,
  sport:football)
-puts "create #{event13.title}"
+puts "create #{event18.title}"
 
+event19 = Event.create!(
+  user: franck,
+ title:"Tournoi de tennis",
+ description:"Super tournoi digne de Roland Garros ",
+ location: "148 Boulevard de Charonne, 75020 Paris",
+ duration: 2,
+ start_time: DateTime.new(2020,9,5,18),
+ number_of_participants: 9,
+ sport:tennis)
+puts "create #{event19.title}"
 
-event13 = Event.create!(
+event20 = Event.create!(
   user: eric,
- title:"Concours de bouffe au foot",
- description:"En petit comité ",
- location: "367 rue Garibaldi, Lyon",
+ title:"Course le long des quais",
+ description:"Course au bord de la seine",
+ location: "184 rue de Belleville, Paris",
  duration: 2,
- start_time: DateTime.new(2020,9,4,18),
- number_of_participants: 6,
- sport:football)
-puts "create #{event13.title}"
+ start_time: DateTime.new(2020,9,2,18),
+ number_of_participants: 4,
+ sport:running)
+puts "create #{event19.title}"
 
 
 
@@ -309,11 +334,6 @@ attendee3 = Attendee.create!(user:franck, event:event3, rating:3, review:"Pas ma
 attendee4 = Attendee.create!(user:walid, event:event5, rating:4, review:"Physiquement c'était top, j'ai pu codé l'esprit tranquille toute la semaine grâce à ce cours de Yoga" )
 attendee6 = Attendee.create!(user:mina, event:event3, rating:2, review:"Evenement complètement nul, on s'est perdu pendant 2 heures...")
 
-attendee5 = Attendee.create!(user:zac, event:event7, rating:4)
-attendee7 = Attendee.create!(user:nicolas, event:event7, rating:4)
-attendee8 = Attendee.create!(user:mathieu, event:event7, rating:5)
-attendee9 = Attendee.create!(user:walid, event:event7, rating:3)
-attendee11 = Attendee.create!(user:franck, event:event7, rating:2)
 
 attendee15 = Attendee.create!(user:zac, event:event1, rating:4, review:"Super j'ai adoré")
 attendee16 = Attendee.create!(user:nicolas, event:event1, rating:4, review:"Je me suis fait de nouveaux potes")
@@ -326,13 +346,8 @@ attendee21 = Attendee.create!(user:franck, event:event8, rating:5, review:"Genia
 attendee22 = Attendee.create!(user:mathieu, event:event8, rating:5, review:"Cool event")
 attendee23 = Attendee.create!(user:david, event:event8, rating:5, review:"A refaire")
 
-attendee24 = Attendee.create!(user:stephane, event:event9, rating:4, review:"On se revoit la semaine pro")
-attendee25 = Attendee.create!(user:nicolas, event:event9, rating:5, review:"Genial!")
-attendee26 = Attendee.create!(user:mina, event:event9, rating:5, review:"Super evenement")
-attendee27 = Attendee.create!(user:franck, event:event9, rating:5, review:"")
 
-attendee24 = Attendee.create!(user:eric, event:event10, rating:4, review:"Cool")
-attendee25 = Attendee.create!(user:eric, event:event11, rating:5, review:"Awesome")
-attendee26 = Attendee.create!(user:eric, event:event12, rating:5, review:"Genialissime")
+attendee25 = Attendee.create!(user:eric, event:event11)
 
+attendee27 = Attendee.create!(user:stephane, event:event20)
 
