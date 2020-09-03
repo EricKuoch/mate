@@ -26,7 +26,7 @@ background-image: url(<%= cl_image_path @event_image.key %>); height: 285px; ">
 <div class="row_button ">
   <span class="badge badge-dark align-middle" style="border-radius: 8px; background-color: black; color: white; font-weight: bold; width: 117px;height: 48px; line-height: 45px;"><%= @event.sport.name.capitalize %></span>
 </div>
-<div class="schedule">
+<div class="schedule pt-4">
   <div class="date_event">
     <p><i class="far fa-calendar-alt"></i><%= @event.start_time.strftime("%a, %e %b %Y")%></p>
   </div>

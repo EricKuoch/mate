@@ -21,7 +21,7 @@
     </div>
 
   <div class="contenu activeContenu" data-anime="1">
-    <h5>Events you created</h5>
+    <h5 class='m-1'>Events you created</h5>
     <% @past_events_create.each do |event| %>
       <div class="card-product">
         <div class="card-info-events">
@@ -69,7 +69,7 @@
     <% end %>
 
 
-    <h5>Events you joined</h5>
+    <h5 class="m-1 mt-3">Events you joined</h5>
     <% @past_events_join.each do |event| %>
       <div class="card-product">
         <div class="card-info-events">
@@ -112,7 +112,7 @@
 
   <div class="contenu" data-anime="2">
       <%# EVENEMENT JOIN PAST %>
-      <h5> Events you created </h5>
+      <h5 class='m-1'>Events you created </h5>
       <% @futur_events_create.each do |event| %>
         <div class="card-product">
           <div class="card-info-events">
@@ -120,18 +120,18 @@
               <h6><small><%= event.start_time.strftime("%d-%m-%Y") %> (<%= event.sport.name %>) </small> </h6>
               <h6><%= event.title %> </h6>
             </div>
-            <p><strong> <%=(event.number_of_participants - event.attendees.size) %> participants is missed </strong></p>
+            <p><strong> <%=(event.number_of_participants - event.attendees.size) %> participants missing</strong></p>
           </div>
         </div>
       <% end %>
 
-      <h5>Events you joined</h5>
+      <h5 class="m-1 mt-3">Events you joined</h5>
       <% @futur_events_join.each do |event| %>
         <div class="card-product">
           <div class="card-info-events">
            <h6><small><%= event.start_time.strftime("%d-%m-%Y") %> (<%= event.sport.name %>) </small> </h6>
             <h6><%= event.title %> </h6>
-            <p><strong><%=(event.number_of_participants - event.attendees.size) %> participants is missed </strong></p>
+            <p><strong><%=(event.number_of_participants - event.attendees.size) %> participants missing</strong></p>
           </div>
         </div>
       <% end %>
